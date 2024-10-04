@@ -3347,37 +3347,51 @@ AlyaBotInc.sendMessage(m.chat, { image : eek, caption: ngen }, { quoted: m})
 break
 case 'play':
 case 'song': {
-    if (!text) return replygcalya(`Example : ${prefix + command} anime whatsapp status`);
+    if (!text) return replygcxeon(`Example : ${prefix + command} anime whatsapp status`);
 
     const yts = require("youtube-yts");
     const axios = require("axios");
     const fs = require("fs");
-    
+
     // Search for the video
     let search = await yts(text);
     let anup3k = search.videos[0];
 
-    if (!anup3k) return replygcalya("No results found!");
+    if (!anup3k) return replygcxeon("No results found!");
 
     // Fetch the audio using the API
     const apiUrl = `https://widipe.com/download/ytdl?url=${encodeURIComponent(anup3k.url)}`;
     let audioResponse;
-    
+
     try {
-        audioResponse = await axios.get(apiUrl, { responseType: 'arraybuffer' });
+        audioResponse = await axios.get(apiUrl);
     } catch (error) {
         console.error("Error fetching audio:", error);
-        return replygcalya("Failed to download the audio. Please try again.");
+        return replygcxeon("Failed to download the audio. Please try again.");
     }
 
-    // Create a buffer from the audio data
-    const audioBuffer = Buffer.from(audioResponse.data);
+    // Check if the API response is successful
+    if (!audioResponse.data.status) {
+        return replygcxeon("Failed to retrieve audio URL. Please try again.");
+    }
+
+    const mp3Url = audioResponse.data.result.mp3;
+
+    // Download the MP3 file
+    let mp3Buffer;
+    try {
+        const mp3DownloadResponse = await axios.get(mp3Url, { responseType: 'arraybuffer' });
+        mp3Buffer = Buffer.from(mp3DownloadResponse.data);
+    } catch (error) {
+        console.error("Error downloading MP3:", error);
+        return replygcxeon("Failed to download the MP3. Please try again.");
+    }
 
     // Send the audio message
     await AlyaBotInc.sendMessage(m.chat, {
-        audio: audioBuffer,
+        audio: mp3Buffer,
         fileName: anup3k.title + '.mp3',
-        mimetype: 'audio/mpeg',
+        mimetype: 'audio/mp4',
         ptt: true,
         contextInfo: {
             externalAdReply: {
@@ -3441,7 +3455,7 @@ break
 case 'getcase':
 if (!XeonTheCreator) return XeonStickOwner()
 const getCase = (cases) => {
-return "case"+`'${cases}'`+fs.readFileSync("XeonCheems7.js").toString().split('case \''+cases+'\'')[1].split("break")[0]+"break"
+return "case"+`'${cases}'`+fs.readFileSync("Queenalya.js").toString().split('case \''+cases+'\'')[1].split("break")[0]+"break"
 }
 replygcalya(`${getCase(q)}`)
 break
