@@ -1492,7 +1492,7 @@ case 'alive': case 'panel': case 'list': case 'menu': case 'help': case '?': {
             xeonezy = `┌─❖
 │ Hi 👋 
 └┬❖  ${pushname} 
-┌┤✑  ${xeonytimewisher} 😄
+┌┤✑  ${xeonytimewisher} 💓
 │└────────────┈ ⳹
 │
 └─ 𝘽𝙊𝙏 𝙄𝙉𝙁𝙊        
@@ -1513,29 +1513,29 @@ case 'alive': case 'panel': case 'list': case 'menu': case 'help': case '?': {
 └─ 𝙏𝙄𝙈𝙀 𝙄𝙉𝙁𝙊 
 │𝗧𝗶??𝗲 : ${xtime}
 │𝗗𝗮𝘁𝗲 : ${xdate}
-└┬────────────┈ ⳹
+┗⊶⊶⊶⊶⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷❐
    │✑  Please Type The *MENU*
    │✑  Given *BELOW*
-┌└─────────────┈ ⳹
-│❏.allmenu
-│❏.downloadmenu
-│❏.funmenu
-│❏.aimenu
-│❏.groupmenu
-│❏.ownermenu
-│❏.photooxymenu
-│❏.textpromenu
-│❏.ephoto360menu
-│❏.animemenu
-│❏.nsfwmenu
-│❏.randomphotomenu
-│❏.randomvideomenu
-│❏.stickermenu
-│❏.databasemenu
-│❏.stalkermenu
-│❏.bugmenu
-│❏.othermenu
-└─────────────────┈ ⳹`
+┌┗⊶⊶⊶⊶⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷❐
+┃💫.allmenu
+┃💫.downloadmenu
+┃💫.funmenu
+┃💫.aimenu
+┃💫.groupmenu
+┃💫.ownermenu
+┃💫.photooxymenu
+┃💫.textpromenu
+┃💫.ephoto360menu
+┃💫.animemenu
+┃💫.nsfwmenu
+┃💫.randomphotomenu
+┃💫.randomvideomenu
+┃💫.stickermenu
+┃💫.databasemenu
+┃💫.stalkermenu
+┃💫.bugmenu
+┃💫.othermenu
+┗⊶⊶⊶⊶⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷❐`
             let ments = [ownernya, me, mark]        
            AlyaBotInc.sendMessage(from, { 
 text: xeonezy,
@@ -3377,7 +3377,7 @@ case 'song': {
     await AlyaBotInc.sendMessage(m.chat, {
         audio: audioBuffer,
         fileName: anup3k.title + '.mp3',
-        mimetype: 'audio/mp4',
+        mimetype: 'audio/mpeg',
         ptt: true,
         contextInfo: {
             externalAdReply: {
