@@ -1600,58 +1600,53 @@ case 'menu': case 'help': case 'alive': {
             const latensie = speed() - timestampe
             const a = db.users[sender]
             const me = m.sender
-			const xmenu_oh = `
-╭──❍「 *GREETING* 」❍
-├ *Hi 👋*
-├ *${m.pushName}* 
-├ *${alyatimewisher} 😄* 
-╰─┬────❍ ${readmore}
-╭─┴❍「 *USER INFO* 」❍
-├ *Name* : ${m.pushName ? m.pushName : 'No name'}
-├ *Number* : +${me.split('@')[0]}
-├ *Id* : @${m.sender.split('@')[0]}
-├ *User* : ${isVip ? 'VIP' : isPremium ? '✅' : '❌'}
-├ *Limit* : ${isVip ? 'VIP' : global.db.users[m.sender].limit }
-├ *Money* : ${global.db.users[m.sender] ? global.db.users[m.sender].uang.toLocaleString('en-IN') : '0'}
-╰─┬────❍
-╭─┴─❍「 *BOT INFO* 」❍
-├ *Speed* : ${latensie.toFixed(4)} miliseconds
-├ *Runtime* : ${runtime(process.uptime())}
-├ *Host* : ${os.hostname()}
-├ *Platform* : ${os.platform()}
-├ *Bot Name* : ${global.botname}
-├ *Owner* : @${ownernumber[0].split('@')[0]}
-├ *Mode* : ${AlyaBotInc.public ? 'Public' : 'Self'}
-├ *Prefix* :「 ${xprefix} 」
-╰─┬────❍
-╭─┴─❍「 *TIME* 」❍
-├ *Date* : ${xdate}
-├ *Day* : ${xday}
-├ *Time* : ${xtime}
-╰─┬────❍
-╭─┴❍「 *MENU* 」❍
-│${setv} ${prefix}allmenu
-│${setv} ${prefix}searchmenu
-│${setv} ${prefix}downloadmenu
-│${setv} ${prefix}gamemenu
-│${setv} ${prefix}funmenu
-│${setv} ${prefix}aimenu
-│${setv} ${prefix}groupmenu
-│${setv} ${prefix}ownermenu
-│${setv} ${prefix}convertmenu
-│${setv} ${prefix}listmenu
-│${setv} ${prefix}religionmenu
-│${setv} ${prefix}animemenu
-│${setv} ${prefix}nsfwmenu
-│${setv} ${prefix}randomphotomenu
-│${setv} ${prefix}randomvideomenu
-│${setv} ${prefix}stickermenu
-│${setv} ${prefix}databasemenu
-│${setv} ${prefix}storemenu
-│${setv} ${prefix}stalkermenu
-│${setv} ${prefix}bugmenu
-│${setv} ${prefix}othermenu
-╰──────❍`
+			const xmenu_oh = `┌─❖
+│ Hi 👋 
+└┬❖  ${pushname} 
+┌┤✑  ${xeonytimewisher} 💓
+│└────────────┈ ⳹
+│
+└─ 𝘽𝙊𝙏 𝙄𝙉𝙁𝙊        
+│𝗦𝗽𝗲𝗲𝗱 : ${latensie.toFixed(4)} miliseconds
+│𝗥𝘂𝗻𝘁𝗶𝗺𝗲 : ${runtime(process.uptime())}
+│𝗕𝗼𝘁 : ${global.botname}
+│𝗢𝘄𝗻𝗲𝗿 𝗡𝗼: ${ownernumber}
+│𝗣𝗿𝗲𝗳𝗶𝘅 :  NO-PREFIX 
+│𝗠𝗼𝗱𝗲 : ${AlyaBotInc.public ? 'Public' : `Self`}
+│𝗛𝗼𝘀𝘁 𝗡𝗮𝗺𝗲 : ${os.hostname()}
+│𝗣𝗹𝗮𝘁𝗳𝗼𝗿𝗺 : ${os.platform()}
+│
+└─ 𝙐𝙎𝙀𝙍 𝙄𝙉𝙁𝙊 
+│𝗡𝗮𝗺𝗲 : ${pushname}
+│𝗡𝘂𝗺𝗯𝗲𝗿 : @${me.split('@')[0]}
+│𝗣𝗿𝗲𝗺𝗶𝘂𝗺 : ${isPrem ? '✅' : `❌`}
+│
+└─ 𝙏𝙄𝙈𝙀 𝙄𝙉𝙁𝙊 
+│𝗧𝗶??𝗲 : ${xtime}
+│𝗗𝗮𝘁𝗲 : ${xdate}
+┗⊶⊶⊶⊶⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷❐
+   │✑  Please Type The *MENU*
+   │✑  Given *BELOW*
+┌┗⊶⊶⊶⊶⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷❐
+┃💫.allmenu
+┃💫.downloadmenu
+┃💫.funmenu
+┃💫.aimenu
+┃💫.groupmenu
+┃💫.ownermenu
+┃💫.photooxymenu
+┃💫.textpromenu
+┃💫.ephoto360menu
+┃💫.animemenu
+┃💫.nsfwmenu
+┃💫.randomphotomenu
+┃💫.randomvideomenu
+┃💫.stickermenu
+┃💫.databasemenu
+┃💫.stalkermenu
+┃💫.bugmenu
+┃💫.othermenu
+┗⊶⊶⊶⊶⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷❐`
 if (typemenu === 'v1') {
                     AlyaBotInc.sendMessage(m.chat, {
                         image: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
