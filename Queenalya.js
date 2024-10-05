@@ -121,7 +121,7 @@ try {
         const isGroupAdmins = m.isGroup ? groupAdmins.includes(m.sender) : false
     	const isAdmins = m.isGroup ? groupAdmins.includes(m.sender) : false
     	const isPrem = prem.includes(m.sender)
-    	const isUser = xeonverifieduser.includes(sender)
+    	const isUser = alyaverifieduser.includes(sender)
     	const banUser = await AlyaBotInc.fetchBlocklist()
         const isBanned = banUser ? banUser.includes(m.sender) : false
     	const mentionUser = [...new Set([...(m.mentionedJid || []), ...(m.quoted ? [m.quoted.sender] : [])])]
@@ -264,8 +264,8 @@ if (!m.key.fromMe) return
         }
 
 if (isCmd && !isUser) {
-xeonverifieduser.push(sender)
-fs.writeFileSync('./database/user.json', JSON.stringify(xeonverifieduser, null, 2))
+alyaverifieduser.push(sender)
+fs.writeFileSync('./database/user.json', JSON.stringify(alyaverifieduser, null, 2))
 }
 
 AlyaBotInc.sendPresenceUpdate('unavailable', from)
@@ -2621,7 +2621,7 @@ break
 case 'friend':
 case 'searchfriend':{
 
-let teman = pickRandom(xeonverifieduser)
+let teman = pickRandom(alyaverifieduser)
 setTimeout(() => {
 AlyaStickWait()
 }, 1000)
@@ -2983,52 +2983,79 @@ break
                  AlyaBotInc.sendTextWithMentions(m.chat, teks, m)
              }
              break
-             case 'ping': case 'botstatus': case 'statusbot': case 'p': {
-                const used = process.memoryUsage()
-                const cpus = os.cpus().map(cpu => {
-                    cpu.total = Object.keys(cpu.times).reduce((last, type) => last + cpu.times[type], 0)
-			        return cpu
-                })
-                const cpu = cpus.reduce((last, cpu, _, { length }) => {
-                    last.total += cpu.total
-                    last.speed += cpu.speed / length
-                    last.times.user += cpu.times.user
-                    last.times.nice += cpu.times.nice
-                    last.times.sys += cpu.times.sys
-                    last.times.idle += cpu.times.idle
-                    last.times.irq += cpu.times.irq
-                    return last
-                }, {
-                    speed: 0,
-                    total: 0,
-                    times: {
-			            user: 0,
-			            nice: 0,
-			            sys: 0,
-			            idle: 0,
-			            irq: 0
+             case 'ping': 
+case 'botstatus': 
+case 'statusbot': 
+case 'p': {
+    // React to the message with a gear emoji
+    AlyaBotInc.sendMessage(from, { react: { text: "⚙️", key: m.key } });
+
+    // CPU information
+    const used = process.memoryUsage();
+    const cpus = os.cpus().map(cpu => {
+        cpu.total = Object.values(cpu.times).reduce((last, type) => last + type, 0);
+        return cpu;
+    });
+    
+    const cpu = cpus.reduce((last, cpu, _, { length }) => {
+        last.total += cpu.total;
+        last.speed += cpu.speed / length;
+        last.times.user += cpu.times.user;
+        last.times.nice += cpu.times.nice;
+        last.times.sys += cpu.times.sys;
+        last.times.idle += cpu.times.idle;
+        last.times.irq += cpu.times.irq;
+        return last;
+    }, {
+        speed: 0,
+        total: 0,
+        times: {
+            user: 0,
+            nice: 0,
+            sys: 0,
+            idle: 0,
+            irq: 0
+        }
+    });
+    let timestamp = speed();
+    let latensi = speed() - timestamp;
+    let neww = performance.now();
+    let oldd = performance.now();
+    
+    // Formatting the response message
+    const respon = `
+📊 *Bot Status* 📊
+━━━━━━━━━━━━━━━━━━━━
+⚙️ *Ping:* ${latensi.toFixed(4)} ms
+⏱️ *Response Time:* ${(oldd - neww).toFixed(2)} ms
+💾 *RAM Usage:* ${formatp(os.totalmem() - os.freemem())} / ${formatp(os.totalmem())}
+🕒 *Uptime:* ${runtime(process.uptime())}
+━━━━━━━━━━━━━━━━━━━━
+    `.trim();
+
+    // Send the response message with external ad reply
+    AlyaBotInc.relayMessage(m.chat, {
+        requestPaymentMessage: {
+            currencyCodeIso4217: 'INR',
+            amount1000: 999999999,
+            requestFrom: m.sender,
+            noteMessage: {
+                extendedTextMessage: {
+                    text: respon,
+                    contextInfo: {
+                        externalAdReply: {
+                            showAdAttribution: true,
+                            title: "Queen alya Status",
+                            thumbnailUrl: 'https://i.ibb.co/hLdW1MR/IMG-20240906-154741-714.jpg',
+                            sourceUrl: wagc,
+                            renderLargerThumbnail: true
+                        }
+                    }
                 }
-                })
-                let timestamp = speed()
-                let latensi = speed() - timestamp
-                neww = performance.now()
-                oldd = performance.now()
-                respon = `
-Response Speed ${latensi.toFixed(4)} _Second_ \n ${oldd - neww} _miliseconds_\n\nRuntime : ${runtime(process.uptime())}
-
-💻 Info Server
-RAM: ${formatp(os.totalmem() - os.freemem())} / ${formatp(os.totalmem())}
-
-_NodeJS Memory Usaage_
-${Object.keys(used).map((key, _, arr) => `${key.padEnd(Math.max(...arr.map(v=>v.length)),' ')}: ${formatp(used[key])}`).join('\n')}
-
-${cpus[0] ? `_Total CPU Usage_
-${cpus[0].model.trim()} (${cpu.speed} MHZ)\n${Object.keys(cpu.times).map(type => `- *${(type + '*').padEnd(6)}: ${(100 * cpu.times[type] / cpu.total).toFixed(2)}%`).join('\n')}
-_CPU Core(s) Usage (${cpus.length} Core CPU)_
-${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Object.keys(cpu.times).map(type => `- *${(type + '*').padEnd(6)}: ${(100 * cpu.times[type] / cpu.total).toFixed(2)}%`).join('\n')}`).join('\n\n')}` : ''}
-                `.trim()
-                replygcalya(respon)
             }
+        }
+    }, { quoted: floc });
+}
             break
             case 'bctext': case 'broadcasttext': case 'broadcast': {
 			    if (!AlyaTheCreator) return AlyaStickOwner()
