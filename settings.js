@@ -29,7 +29,7 @@ global.socialm = "GitHub: DGXeon" //ur github or insta name
 global.location = "India, Mizoram, Aizawl" //ur location
 
 //new
-global.botname = "Cheems Bot MD V8"
+global.botname = "Queen Alya"
 global.ownernumber = '2349123721026'
 global.ownername = '🦄드림 가이 Xeon'
 global.ownerNumber = ["2349123721026@s.whatsapp.net"]
@@ -45,12 +45,12 @@ global.creator = "2349123721026@s.whatsapp.net"
 global.prefa = ['.']
 global.sessionName = 'session'
 global.hituet = 0
-
+global.typemenu = 'v12'
 //media target
-global.thum = fs.readFileSync("./AlyaMedia/theme/cheemspic.jpg") //ur thumb pic
-global.log0 = fs.readFileSync("./AlyaMedia/theme/cheemspic.jpg") //ur logo pic
-global.err4r = fs.readFileSync("./AlyaMedia/theme/cheemspic.jpg") //ur error pic
-global.thumb = fs.readFileSync("./AlyaMedia/theme/cheemspic.jpg") //ur thumb pic
+global.thum = fs.readFileSync("./AlyaMedia/theme/alya.jpg") //ur thumb pic
+global.log0 = fs.readFileSync("./AlyaMedia/theme/alya.jpg") //ur logo pic
+global.err4r = fs.readFileSync("./AlyaMedia/theme/alya.jpg") //ur error pic
+global.thumb = fs.readFileSync("./AlyaMedia/theme/alya.jpg") //ur thumb pic
 global.defaultpp = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png?q=60' //default pp wa
 
 //menu image maker

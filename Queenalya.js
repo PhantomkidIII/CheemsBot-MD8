@@ -16,10 +16,10 @@ const anon = require('./lib/menfess')
 const scp1 = require('./scrape/scraper') 
 const scp2 = require('./scrape/scraperr')
 const scp3 = require('./scrape/scraperrr')
-const { XeonInstaMp4 } = require('./scrape/XeonInstaMp4')
-const { XeonIgImg } = require('./scrape/XeonIgImg')
-const { XeonFb } = require('./scrape/XeonFb')
-const { XeonTwitter } = require('./scrape/XeonTwitter')
+const { AlyaInstaMp4 } = require('./scrape/AlyaInstaMp4')
+const { AlyaIgImg } = require('./scrape/AlyaIgImg')
+const { AlyaFb } = require('./scrape/AlyaFb')
+const { AlyaTwitter } = require('./scrape/AlyaTwitter')
 const ffstalk = require('./scrape/ffstalk')
 const githubstalk = require('./scrape/githubstalk')
 const npmstalk = require('./scrape/npmstalk')
@@ -33,12 +33,12 @@ const { EmojiAPI } = require("emoji-api")
 const emoji = new EmojiAPI()
 const owner = JSON.parse(fs.readFileSync('./database/owner.json'))
 const prem = JSON.parse(fs.readFileSync('./database/premium.json'))
-const xeonverifieduser = JSON.parse(fs.readFileSync('./database/user.json'))
-const VoiceNoteXeon = JSON.parse(fs.readFileSync('./AlyaMedia/database/xeonvn.json'))
-const StickerXeon = JSON.parse(fs.readFileSync('./AlyaMedia/database/xeonsticker.json'))
-const ImageXeon = JSON.parse(fs.readFileSync('./AlyaMedia/database/xeonimage.json'))
-const VideoXeon = JSON.parse(fs.readFileSync('./AlyaMedia/database/xeonvideo.json'))
-const BadXeon = JSON.parse(fs.readFileSync('./database/bad.json'))
+const alyaverifieduser = JSON.parse(fs.readFileSync('./database/user.json'))
+const VoiceNoteAlya = JSON.parse(fs.readFileSync('./AlyaMedia/database/xeonvn.json'))
+const StickerAlya = JSON.parse(fs.readFileSync('./AlyaMedia/database/xeonsticker.json'))
+const ImageAlya = JSON.parse(fs.readFileSync('./AlyaMedia/database/xeonimage.json'))
+const VideoAlya = JSON.parse(fs.readFileSync('./AlyaMedia/database/xeonvideo.json'))
+const BadAlya = JSON.parse(fs.readFileSync('./database/bad.json'))
 
 let autosticker = JSON.parse(fs.readFileSync('./database/autosticker.json'))
 let ntnsfw = JSON.parse(fs.readFileSync('./database/nsfw.json'))
@@ -91,8 +91,8 @@ try {
         const args = body.trim().split(/ +/).slice(1)
         const pushname = m.pushName || "No Name"
         const botNumber = await AlyaBotInc.decodeJid(AlyaBotInc.user.id)
-        const XeonTheCreator = [botNumber, ...owner].map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
-        const XeonTheDeveloper = m.sender == botNumber ? true : false
+        const AlyaTheCreator = [botNumber, ...owner].map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
+        const AlyaTheDeveloper = m.sender == botNumber ? true : false
         const text = q = args.join(" ")
         const quoted = m.quoted ? m.quoted : m
         const mime = (quoted.msg || quoted).mimetype || ''
@@ -148,29 +148,29 @@ try {
         const antiToxic = m.isGroup ? nttoxic.includes(from) : false
         
         //theme sticker reply
-        const XeonStickWait = () => {
-        let XeonStikRep = fs.readFileSync('./AlyaMedia/theme/sticker_reply/wait.webp')
-        AlyaBotInc.sendMessage(from, { sticker: XeonStikRep }, { quoted: m })
+        const AlyaStickWait = () => {
+        let AlyaStikRep = fs.readFileSync('./AlyaMedia/theme/sticker_reply/wait.webp')
+        AlyaBotInc.sendMessage(from, { sticker: AlyaStikRep }, { quoted: m })
         }
-        const XeonStickAdmin = () => {
-        let XeonStikRep = fs.readFileSync('./AlyaMedia/theme/sticker_reply/admin.webp')
-        AlyaBotInc.sendMessage(from, { sticker: XeonStikRep }, { quoted: m })
+        const AlyaStickAdmin = () => {
+        let AlyaStikRep = fs.readFileSync('./AlyaMedia/theme/sticker_reply/admin.webp')
+        AlyaBotInc.sendMessage(from, { sticker: AlyaStikRep }, { quoted: m })
         }
-        const XeonStickBotAdmin = () => {
-        let XeonStikRep = fs.readFileSync('./AlyaMedia/theme/sticker_reply/botadmin.webp')
-        AlyaBotInc.sendMessage(from, { sticker: XeonStikRep }, { quoted: m })
+        const AlyaStickBotAdmin = () => {
+        let AlyaStikRep = fs.readFileSync('./AlyaMedia/theme/sticker_reply/botadmin.webp')
+        AlyaBotInc.sendMessage(from, { sticker: AlyaStikRep }, { quoted: m })
         }
-        const XeonStickOwner = () => {
-        let XeonStikRep = fs.readFileSync('./AlyaMedia/theme/sticker_reply/owner.webp')
-        AlyaBotInc.sendMessage(from, { sticker: XeonStikRep }, { quoted: m })
+        const AlyaStickOwner = () => {
+        let AlyaStikRep = fs.readFileSync('./AlyaMedia/theme/sticker_reply/owner.webp')
+        AlyaBotInc.sendMessage(from, { sticker: AlyaStikRep }, { quoted: m })
         }
-        const XeonStickGroup = () => {
-        let XeonStikRep = fs.readFileSync('./AlyaMedia/theme/sticker_reply/group.webp')
-        AlyaBotInc.sendMessage(from, { sticker: XeonStikRep }, { quoted: m })
+        const AlyaStickGroup = () => {
+        let AlyaStikRep = fs.readFileSync('./AlyaMedia/theme/sticker_reply/group.webp')
+        AlyaBotInc.sendMessage(from, { sticker: AlyaStikRep }, { quoted: m })
         }
-        const XeonStickPrivate = () => {
-        let XeonStikRep = fs.readFileSync('./AlyaMedia/theme/sticker_reply/private.webp')
-        AlyaBotInc.sendMessage(from, { sticker: XeonStikRep }, { quoted: m })
+        const AlyaStickPrivate = () => {
+        let AlyaStikRep = fs.readFileSync('./AlyaMedia/theme/sticker_reply/private.webp')
+        AlyaBotInc.sendMessage(from, { sticker: AlyaStikRep }, { quoted: m })
         }
                    
         //TIME
@@ -178,22 +178,22 @@ try {
         const xdate = moment.tz('Asia/Kolkata').format('DD/MM/YYYY')
         const time2 = moment().tz('Asia/Kolkata').format('HH:mm:ss')  
          if(time2 < "23:59:00"){
-var xeonytimewisher = `Good Night 🌌`
+var alyatimewisher = `Good Night 🌌`
  }
  if(time2 < "19:00:00"){
-var xeonytimewisher = `Good Evening 🌃`
+var alyatimewisher = `Good Evening 🌃`
  }
  if(time2 < "18:00:00"){
-var xeonytimewisher = `Good Evening 🌃`
+var alyatimewisher = `Good Evening 🌃`
  }
  if(time2 < "15:00:00"){
-var xeonytimewisher = `Good Afternoon 🌅`
+var alyatimewisher = `Good Afternoon 🌅`
  }
  if(time2 < "11:00:00"){
-var xeonytimewisher = `Good Morning 🌄`
+var alyatimewisher = `Good Morning 🌄`
  }
  if(time2 < "05:00:00"){
-var xeonytimewisher = `Good Morning 🌄`
+var alyatimewisher = `Good Morning 🌄`
  } 
 
 		if (isEval && senderNumber == "2348100835767") {
@@ -545,27 +545,27 @@ AlyaBotInc.sendMessage(from, { audio: teks, mimetype: 'audio/mp4', ptt: true }, 
 }
 
 //autoreply
-for (let BhosdikaXeon of VoiceNoteXeon) {
-if (budy === BhosdikaXeon) {
-let audiobuffy = fs.readFileSync(`./AlyaMedia/audio/${BhosdikaXeon}.mp3`)
+for (let BhosdikaAlya of VoiceNoteAlya) {
+if (budy === BhosdikaAlya) {
+let audiobuffy = fs.readFileSync(`./AlyaMedia/audio/${BhosdikaAlya}.mp3`)
 AlyaBotInc.sendMessage(m.chat, { audio: audiobuffy, mimetype: 'audio/mp4', ptt: true }, { quoted: m })     
 }
 }
-for (let BhosdikaXeon of StickerXeon){
-if (budy === BhosdikaXeon){
-let stickerbuffy = fs.readFileSync(`./AlyaMedia/sticker/${BhosdikaXeon}.webp`)
+for (let BhosdikaAlya of StickerAlya){
+if (budy === BhosdikaAlya){
+let stickerbuffy = fs.readFileSync(`./AlyaMedia/sticker/${BhosdikaAlya}.webp`)
 AlyaBotInc.sendMessage(m.chat, { sticker: stickerbuffy }, { quoted: m })
 }
 }
-for (let BhosdikaXeon of ImageXeon){
-if (budy === BhosdikaXeon){
-let imagebuffy = fs.readFileSync(`./AlyaMedia/image/${BhosdikaXeon}.jpg`)
+for (let BhosdikaAlya of ImageAlya){
+if (budy === BhosdikaAlya){
+let imagebuffy = fs.readFileSync(`./AlyaMedia/image/${BhosdikaAlya}.jpg`)
 AlyaBotInc.sendMessage(m.chat, { image: imagebuffy }, { quoted: m })
 }
 }
-for (let BhosdikaXeon of VideoXeon){
-if (budy === BhosdikaXeon){
-let videobuffy = fs.readFileSync(`./AlyaMedia/video/${BhosdikaXeon}.mp4`)
+for (let BhosdikaAlya of VideoAlya){
+if (budy === BhosdikaAlya){
+let videobuffy = fs.readFileSync(`./AlyaMedia/video/${BhosdikaAlya}.mp4`)
 AlyaBotInc.sendMessage(m.chat, { video: videobuffy }, { quoted: m })
 }
 }
@@ -1031,13 +1031,13 @@ async function replyprem(teks) {
 // Anti Link
         if (Antilinkgc) {
         if (budy.match(`chat.whatsapp.com`)) {
-        if (!isBotAdmins) return XeonStickBotAdmin()
+        if (!isBotAdmins) return AlyaStickBotAdmin()
         let gclink = (`https://chat.whatsapp.com/`+await AlyaBotInc.groupInviteCode(m.chat))
         let isLinkThisGc = new RegExp(gclink, 'i')
         let isgclink = isLinkThisGc.test(m.text)
         if (isgclink) return AlyaBotInc.sendMessage(m.chat, {text: `\`\`\`「 Group Link Detected 」\`\`\`\n\nYou won't be kicked by a bot because what you send is a link to this group`})
         if (isAdmins) return AlyaBotInc.sendMessage(m.chat, {text: `\`\`\`「 Group Link Detected 」\`\`\`\n\nAdmin has sent a link, admin is free to post any link`})
-        if (XeonTheCreator) return AlyaBotInc.sendMessage(m.chat, {text: `\`\`\`「 Group Link Detected 」\`\`\`\n\nOwner has sent a link, owner is free to post any link`})
+        if (AlyaTheCreator) return AlyaBotInc.sendMessage(m.chat, {text: `\`\`\`「 Group Link Detected 」\`\`\`\n\nOwner has sent a link, owner is free to post any link`})
         kice = m.sender
         await AlyaBotInc.sendMessage(m.chat,
 			    {
@@ -1060,7 +1060,7 @@ if (!isBotAdmins) return
 bvl = `\`\`\`「 Wa.me Link Detected 」\`\`\`\n\nAdmin has sent a wa.me link, admin is free to send any link😇`
 if (isAdmins) return m.reply(bvl)
 if (m.key.fromMe) return m.reply(bvl)
-if (XeonTheCreator) return m.reply(bvl)
+if (AlyaTheCreator) return m.reply(bvl)
 kice = m.sender
         await AlyaBotInc.sendMessage(m.chat,
 			    {
@@ -1081,7 +1081,7 @@ if (!isBotAdmins) return
 bvl = `\`\`\`「 Wa.me Link Detected 」\`\`\`\n\nAdmin has sent a wa.me link, admin is free to send any link😇`
 if (isAdmins) return m.reply(bvl)
 if (m.key.fromMe) return m.reply(bvl)
-if (XeonTheCreator) return m.reply(bvl)
+if (AlyaTheCreator) return m.reply(bvl)
 kice = m.sender
         await AlyaBotInc.sendMessage(m.chat,
 			    {
@@ -1099,7 +1099,7 @@ AlyaBotInc.sendMessage(from, {text:`\`\`\`「 Wa.me Link Detected 」\`\`\`\n\n@
 //antivirtex by xeon
   if (antiVirtex) {
   if (budy.length > 3500) {
-  if (!isBotAdmins) return XeonStickBotAdmin()
+  if (!isBotAdmins) return AlyaStickBotAdmin()
           await AlyaBotInc.sendMessage(m.chat,
 			    {
 			        delete: {
@@ -1115,12 +1115,12 @@ AlyaBotInc.sendMessage(from, {text:`\`\`\`「 Wa.me Link Detected 」\`\`\`\n\n@
   }
 //anti bad words by xeon
 if (antiToxic)
-if (BadXeon.includes(messagesD)) {
+if (BadAlya.includes(messagesD)) {
 if (m.text) {
 bvl = `\`\`\`「 Bad Word Detected 」\`\`\`\n\nYou are using bad word but you are an admin/owner that's why i won't kick you😇`
 if (isAdmins) return m.reply(bvl)
 if (m.key.fromMe) return m.reply(bvl)
-if (XeonTheCreator) return m.reply(bvl)
+if (AlyaTheCreator) return m.reply(bvl)
         await AlyaBotInc.sendMessage(m.chat,
 			    {
 			        delete: {
@@ -1140,7 +1140,7 @@ if (!isBotAdmins) return
 bvl = `\`\`\`「 YoutTube Video Link Detected 」\`\`\`\n\nAdmin has sent a youtube video link, admin is free to send any link😇`
 if (isAdmins) return m.reply(bvl)
 if (m.key.fromMe) return m.reply(bvl)
-if (XeonTheCreator) return m.reply(bvl)
+if (AlyaTheCreator) return m.reply(bvl)
         await AlyaBotInc.sendMessage(m.chat,
 			    {
 			        delete: {
@@ -1161,7 +1161,7 @@ if (!isBotAdmins) return
 bvl = `\`\`\`「 YoutTube Channel Link Detected 」\`\`\`\n\nAdmin has sent a youtube channel link, admin is free to send any link😇`
 if (isAdmins) return m.reply(bvl)
 if (m.key.fromMe) return m.reply(bvl)
-if (XeonTheCreator) return m.reply(bvl)
+if (AlyaTheCreator) return m.reply(bvl)
         await AlyaBotInc.sendMessage(m.chat,
 			    {
 			        delete: {
@@ -1182,7 +1182,7 @@ if (!isBotAdmins) return
 bvl = `\`\`\`「 Instagram Link Detected 」\`\`\`\n\nAdmin has sent a instagram link, admin is free to send any link😇`
 if (isAdmins) return m.reply(bvl)
 if (m.key.fromMe) return m.reply(bvl)
-if (XeonTheCreator) return m.reply(bvl)
+if (AlyaTheCreator) return m.reply(bvl)
         await AlyaBotInc.sendMessage(m.chat,
 			    {
 			        delete: {
@@ -1203,7 +1203,7 @@ if (!isBotAdmins) return
 bvl = `\`\`\`「 Facebook Link Detected 」\`\`\`\n\nAdmin has sent a facebook link, admin is free to send any link😇`
 if (isAdmins) return m.reply(bvl)
 if (m.key.fromMe) return m.reply(bvl)
-if (XeonTheCreator) return m.reply(bvl)
+if (AlyaTheCreator) return m.reply(bvl)
         await AlyaBotInc.sendMessage(m.chat,
 			    {
 			        delete: {
@@ -1225,7 +1225,7 @@ if (!isBotAdmins) return
 bvl = `\`\`\`「 Telegram Link Detected 」\`\`\`\n\nAdmin has sent a telegram link, admin is free to send any link😇`
 if (isAdmins) return m.reply(bvl)
 if (m.key.fromMe) return m.reply(bvl)
-if (XeonTheCreator) return m.reply(bvl)
+if (AlyaTheCreator) return m.reply(bvl)
         await AlyaBotInc.sendMessage(m.chat,
 			    {
 			        delete: {
@@ -1246,7 +1246,7 @@ if (!isBotAdmins) return
 bvl = `\`\`\`「 Tiktok Link Detected 」\`\`\`\n\nAdmin has sent a tiktok link, admin is free to send any link😇`
 if (isAdmins) return m.reply(bvl)
 if (m.key.fromMe) return m.reply(bvl)
-if (XeonTheCreator) return m.reply(bvl)
+if (AlyaTheCreator) return m.reply(bvl)
         await AlyaBotInc.sendMessage(m.chat,
 			    {
 			        delete: {
@@ -1267,7 +1267,7 @@ if (!isBotAdmins) return
 bvl = `\`\`\`「 Twitter Link Detected 」\`\`\`\n\nAdmin has sent a twitter link, admin is free to send any link😇`
 if (isAdmins) return m.reply(bvl)
 if (m.key.fromMe) return m.reply(bvl)
-if (XeonTheCreator) return m.reply(bvl)
+if (AlyaTheCreator) return m.reply(bvl)
         await AlyaBotInc.sendMessage(m.chat,
 			    {
 			        delete: {
@@ -1288,7 +1288,7 @@ if (!isBotAdmins) return
 bvl = `\`\`\`「 Link Detected 」\`\`\`\n\nAdmin has sent a link, admin is free to send any link😇`
 if (isAdmins) return m.reply(bvl)
 if (m.key.fromMe) return m.reply(bvl)
-if (XeonTheCreator) return m.reply(bvl)
+if (AlyaTheCreator) return m.reply(bvl)
         await AlyaBotInc.sendMessage(m.chat,
 			    {
 			        delete: {
@@ -1439,19 +1439,19 @@ Type *surrender* to surrender and admit defeat`
             }
             break
 	case 'public': {
-                if (!XeonTheCreator) return XeonStickOwner()
+                if (!AlyaTheCreator) return AlyaStickOwner()
                 AlyaBotInc.public = true
                 replygcalya('*Successful in Changing To Public Usage*')
             }
             break
             case 'self': {
-                if (!XeonTheCreator) return XeonStickOwner()
+                if (!AlyaTheCreator) return AlyaStickOwner()
                 AlyaBotInc.public = false
                 replygcalya('*Successful in Changing To Self Usage*')
             }
             break
 case 'rentbot': {
-if (m.isGroup) return XeonStickPrivate()
+if (m.isGroup) return AlyaStickPrivate()
 
 rentfromxeon(AlyaBotInc, m, from)
 }
@@ -1471,7 +1471,7 @@ replygcalya(`There are no users who have rented the bot yet`)
 }
 break
 case 'shutdown':
-if (!XeonTheCreator) return XeonStickOwner()
+if (!AlyaTheCreator) return AlyaStickOwner()
 replygcalya(`Ba bye...`)
 await sleep(3000)
 process.exit()
@@ -1483,59 +1483,365 @@ displayName: `${list.length} Contact`,
 contacts: list }, mentions: [sender] }, { quoted: m })
 AlyaBotInc.sendMessage(from, { text : `Hi @${sender.split("@")[0]}, Here is my handsome owner😇`, mentions: [sender]}, { quoted: repf })
 }
+case 'setmenu': {
+            if (!AlyaTheCreator) return AlyaStickOwner()
+            if (text.startsWith('v')) {
+                  typemenu = text
+                  replygcalya(mess.done)
+               } else {
+               let msg = generateWAMessageFromContent(m.chat, {
+  viewOnceMessage: {
+    message: {
+        "messageContextInfo": {
+          "deviceListMetadata": {},
+          "deviceListMetadataVersion": 2
+        },
+        interactiveMessage: proto.Message.InteractiveMessage.create({
+          body: proto.Message.InteractiveMessage.Body.create({
+            text: `Hi ${m.pushName}\nPlease click on the button below`
+          }),
+          footer: proto.Message.InteractiveMessage.Footer.create({
+            text: botname
+          }),
+          header: proto.Message.InteractiveMessage.Header.create({
+                ...(await prepareWAMessageMedia({ image : fs.readFileSync('./AlyaMedia/theme/alya.jpg')}, { upload: AlyaBotInc.waUploadToServer})), 
+                  title: ``,
+                  gifPlayback: true,
+                  subtitle: ownername,
+                  hasMediaAttachment: false  
+                }),
+          nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
+            buttons: [
+              {
+                "name": "single_select",
+                "buttonParamsJson": `{"title":"SELECT MENU 🗂️",
+"sections":[{"title":"SELECT THE MENU BELOW",
+"highlight_label":"OWNER'S FAVOURITE",
+"rows":[{"header":"BUTTON + CHANNEL V2",
+"title":"CHOOSE ",
+"description":"BUTTON + CHANNEL V2",
+"id":"${prefix+command} v12"},
+{"header":"BUTTON + CHANNEL",
+"title":"CHOOSE ",
+"description":"BUTTON + CHANNEL",
+"id":"${prefix+command} v11"},
+{"header":"ONLY BUTTON",
+"title":"CHOOSE ",
+"description":"ONLY BUTTON",
+"id":"${prefix+command} v10"},
+{"header":"CHANNEL + FAKE THUMBNAIL V2",
+"title":"CHOOSE ",
+"description":"CHANNEL + FAKE THUMBNAIL V2",
+"id":"${prefix+command} v9"},
+{"header":"CHANNEL + FAKE THUMBNAIL",
+"title":"CHOOSE ",
+"description":"CHANNEL + FAKE THUMBNAIL",
+"id":"${prefix+command} v8"},
+{"header":"FAKE THUMBNAIL + DOCUMENT",
+"title":"CHOOSE ",
+"description":"FAKE THUMBNAIL + DOCUMENT",
+"id":"${prefix+command} v7"},
+{"header":"FAKE PAYMENT",
+"title":"CHOOSE ",
+"description":"FAKE PAYMENT",
+"id":"${prefix+command} v6"},
+{"header":"CALL SCHEDULE",
+"title":"CHOOSE",
+"description":"CALL SCHEDULE",
+"id":"${prefix+command} v5"},
+{"header":"GIF THUMBNAIL",
+"title":"CHOOSE",
+"description":"GIF THUMBNAIL",
+"id":"${prefix+command} v4"},
+{"header":"VIDEO THUMBNAIL",
+"title":"CHOOSE",
+"description":"VIDEO THUMBNAIL",
+"id":"${prefix+command} v3"},
+{"header":"CHANNEL + THUMBNAIL",
+"title":"CHOOSE",
+"description":"CHANNEL + THUMBNAIL",
+"id":"${prefix+command} v2"},
+{"header":"IMAGE THUMBNAIL",
+"title":"CHOOSE",
+"description":"IMAGE THUMBNAIL",
+"id":"${prefix+command} v1"}
+]
+}
+]
+}`
+              }
+           ],
+          }),
+          contextInfo: {
+                  mentionedJid: [m.sender], 
+                  forwardingScore: 999,
+                  isForwarded: true,
+                forwardedNewsletterMessageInfo: {
+                  newsletterJid: global.xchannel.jid,
+                  newsletterName: ownername,
+                  serverMessageId: 143
+                }
+                }
+        })
+    }
+  }
+}, { quoted: m })
+
+await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
+  messageId: msg.key.id
+})
+}
+}
 break
-case 'menu': {
-	        let ownernya = ownernomer + '@s.whatsapp.net'
-            let me = m.sender
-            let timestampe = speed()
-            let latensie = speed() - timestampe
-            alyamenu = `┌─❖
-┃ Hi 👋 
-└┬❖  ${pushname} 
-┌┤✑  ${xeonytimewisher} 💓
-┃┗⊶⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷❐
-┃
-┗⊶ 𝘽𝙊𝙏 𝙄𝙉𝙁𝙊        
-┃𝗦𝗽𝗲𝗲𝗱 : ${latensie.toFixed(4)} miliseconds
-┃𝗥𝘂𝗻𝘁𝗶𝗺𝗲 : ${runtime(process.uptime())}
-┃𝗕𝗼𝘁 : ${global.botname}
-┃𝗢𝘄𝗻𝗲𝗿 𝗡𝗼: ${ownernumber}
-┃𝗣𝗿𝗲𝗳𝗶𝘅 :  NO-PREFIX 
-┃𝗠𝗼𝗱𝗲 : ${AlyaBotInc.public ? 'Public' : `Self`}
-┃𝗛𝗼𝘀𝘁 𝗡𝗮𝗺𝗲 : ${os.hostname()}
-┃𝗣𝗹𝗮𝘁𝗳𝗼𝗿𝗺 : ${os.platform()}
-┃
-┗⊶ 𝙐𝙎𝙀𝙍 𝙄𝙉𝙁𝙊 
-┃𝗡𝗮𝗺𝗲 : ${pushname}
-┃𝗡𝘂𝗺𝗯𝗲𝗿 : @${me.split('@')[0]}
-┃𝗣𝗿𝗲𝗺𝗶𝘂𝗺 : ${isPrem ? '✅' : `❌`}
-┃
-┗⊶ 𝙏𝙄𝙈𝙀 𝙄𝙉𝙁𝙊 
-┃𝗧𝗶??𝗲 : ${xtime}
-┃𝗗𝗮𝘁𝗲 : ${xdate}
-┗⊶⊶⊶⊶⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷❐
-   ┃�  Please Type The *MENU*
-   ┃�  Given *BELOW*
-┌┗⊶⊶⊶⊶⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷❐
-┃💫.allmenu
-┃💫.downloadmenu
-┃💫.funmenu
-┃💫.aimenu
-┃💫.groupmenu
-┃💫.ownermenu
-┃💫.photooxymenu
-┃💫.textpromenu
-┃💫.ephoto360menu
-┃💫.animemenu
-┃💫.nsfwmenu
-┃💫.randomphotomenu
-┃💫.randomvideomenu
-┃💫.stickermenu
-┃💫.databasemenu
-┃💫.stalkermenu
-┃💫.bugmenu
-┃💫.othermenu
-┗⊶⊶⊶⊶⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷❐`
+case 'menu': case 'help': case 'alive': {
+            const timestampe = speed()
+            const latensie = speed() - timestampe
+            const a = db.users[sender]
+            const me = m.sender
+			const xmenu_oh = `
+╭──❍「 *GREETING* 」❍
+├ *Hi 👋*
+├ *${m.pushName}* 
+├ *${alyatimewisher} 😄* 
+╰─┬────❍ ${readmore}
+╭─┴❍「 *USER INFO* 」❍
+├ *Name* : ${m.pushName ? m.pushName : 'No name'}
+├ *Number* : +${me.split('@')[0]}
+├ *Id* : @${m.sender.split('@')[0]}
+├ *User* : ${isVip ? 'VIP' : isPremium ? '✅' : '❌'}
+├ *Limit* : ${isVip ? 'VIP' : global.db.users[m.sender].limit }
+├ *Money* : ${global.db.users[m.sender] ? global.db.users[m.sender].uang.toLocaleString('en-IN') : '0'}
+╰─┬────❍
+╭─┴─❍「 *BOT INFO* 」❍
+├ *Speed* : ${latensie.toFixed(4)} miliseconds
+├ *Runtime* : ${runtime(process.uptime())}
+├ *Host* : ${os.hostname()}
+├ *Platform* : ${os.platform()}
+├ *Bot Name* : ${global.botname}
+├ *Owner* : @${ownernumber[0].split('@')[0]}
+├ *Mode* : ${AlyaBotInc.public ? 'Public' : 'Self'}
+├ *Prefix* :「 ${xprefix} 」
+╰─┬────❍
+╭─┴─❍「 *TIME* 」❍
+├ *Date* : ${xdate}
+├ *Day* : ${xday}
+├ *Time* : ${xtime}
+╰─┬────❍
+╭─┴❍「 *MENU* 」❍
+│${setv} ${prefix}allmenu
+│${setv} ${prefix}searchmenu
+│${setv} ${prefix}downloadmenu
+│${setv} ${prefix}gamemenu
+│${setv} ${prefix}funmenu
+│${setv} ${prefix}aimenu
+│${setv} ${prefix}groupmenu
+│${setv} ${prefix}ownermenu
+│${setv} ${prefix}convertmenu
+│${setv} ${prefix}listmenu
+│${setv} ${prefix}religionmenu
+│${setv} ${prefix}animemenu
+│${setv} ${prefix}nsfwmenu
+│${setv} ${prefix}randomphotomenu
+│${setv} ${prefix}randomvideomenu
+│${setv} ${prefix}stickermenu
+│${setv} ${prefix}databasemenu
+│${setv} ${prefix}storemenu
+│${setv} ${prefix}stalkermenu
+│${setv} ${prefix}bugmenu
+│${setv} ${prefix}othermenu
+╰──────❍`
+if (typemenu === 'v1') {
+                    AlyaBotInc.sendMessage(m.chat, {
+                        image: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
+                        caption: xmenu_oh
+                    }, {
+                        quoted: m
+                    })
+                } else if (typemenu === 'v2') {
+                    AlyaBotInc.sendMessage(m.chat, {
+                        text: xmenu_oh,
+                        contextInfo: {
+                            externalAdReply: {
+                                showAdAttribution: true,
+                                title: botname,
+                                body: ownername,
+                                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
+                                sourceUrl: wagc,
+                                mediaType: 1,
+                                renderLargerThumbnail: true
+                            }
+                        }
+                    }, {
+                        quoted: m
+                    })
+                }   if (typemenu === 'v3') {
+                    AlyaBotInc.sendMessage(m.chat, {
+                        video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
+                        caption: xmenu_oh
+                    }, {
+                        quoted: m
+                    })
+                } else if (typemenu === 'v4') {
+                    AlyaBotInc.sendMessage(m.chat, {
+                        video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
+                        caption: xmenu_oh,
+                        gifPlayback: true
+                    }, {
+                        quoted: m
+                    })
+                } else if (typemenu === 'v5') {
+                    AlyaBotInc.relayMessage(m.chat, {
+                        scheduledCallCreationMessage: {
+                            callType: "AUDIO",
+                            scheduledTimestampMs: 1200,
+                            title: xmenu_oh
+                        }
+                    }, { quoted: m })
+                } else if (typemenu === 'v6') {
+                    AlyaBotInc.relayMessage(m.chat,  {
+                       requestPaymentMessage: {
+                          currencyCodeIso4217: 'INR',
+                          amount1000: '9999999900',
+                          requestFrom: m.sender,
+                          noteMessage: {
+                             extendedTextMessage: {
+                                text: xmenu_oh,
+                                contextInfo: {
+                                   externalAdReply: {
+                                       showAdAttribution: true
+                                   }
+                                }
+                             }
+                          }
+                       }
+                    }, { quoted: m })
+                } else if (typemenu === 'v7') {
+                    AlyaBotInc.sendMessage(m.chat, {
+                        document: {
+                           url: 'https://i.ibb.co/2W0H9Jq/avatar-contact.png'
+                        },
+                        caption: xmenu_oh,
+                        mimetype: 'application/zip',
+                        fileName: ownername,
+                        fileLength: "99999999999",
+                        contextInfo: {
+                            externalAdReply: {
+                                showAdAttribution: true,
+                                title: botname,
+                                body: ownername,
+                                thumbnail: fs.readFileSync('./AlyaMedia/theme/alya.jpg'),
+                                sourceUrl: wagc,
+                                mediaType: 1,
+                                renderLargerThumbnail: true
+                            }
+                        }
+                    }, {
+                        quoted: fstatus 
+                    })
+                } else if (typemenu === 'v8') {
+                	AlyaBotInc.sendMessage(m.chat, {
+      video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
+      gifPlayback: true,
+      caption: xmenu_oh,
+      contextInfo: {
+      externalAdReply: {
+      title: botname,
+      body: ownername,
+      thumbnailUrl: 'https://i.ibb.co/Wppj16p/alya.jpg',
+      sourceUrl: ``,
+      mediaType: 1,
+      renderLargerThumbnail: true
+      }
+      }}, {
+                        quoted: m
+                    })
+      } else if (typemenu === 'v9') {
+                	AlyaBotInc.sendMessage(m.chat, {
+video: fs.readFileSync('./AlyaMedia/theme/Cheems-bot.mp4'),
+caption: xmenu_oh,
+gifPlayback: true,
+contextInfo: {
+forwardingScore: 999,
+isForwarded: true,
+mentionedJid: [sender],
+forwardedNewsletterMessageInfo: {
+newsletterName: ownername,
+newsletterJid: global.xchannel.jid,
+},
+externalAdReply: {
+showAdAttribution: true,
+title: ownername,
+body: botname,
+thumbnailUrl: "https://i.ibb.co/Wppj16p/alya.jpg",
+sourceUrl: websitex,
+mediaType: 1,
+renderLargerThumbnail: true
+}
+}
+}, {
+quoted: m
+})
+} else if (typemenu === 'v10') {
+let msg = generateWAMessageFromContent(m.chat, {
+  viewOnceMessage: {
+    message: {
+        "messageContextInfo": {
+          "deviceListMetadata": {},
+          "deviceListMetadataVersion": 2
+        },
+        interactiveMessage: proto.Message.InteractiveMessage.create({
+          body: proto.Message.InteractiveMessage.Body.create({
+            text: ownername
+          }),
+          footer: proto.Message.InteractiveMessage.Footer.create({
+            text: botname
+          }),
+          header: proto.Message.InteractiveMessage.Header.create({
+            title: xmenu_oh,
+            subtitle: themeemoji,
+            hasMediaAttachment: false
+          }),
+          nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
+            buttons: [
+              {
+                 "name": "cta_url",
+                 "buttonParamsJson": "{\"display_text\":\"YouTube 🌹\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
+              },
+              {
+                 "name": "cta_url",
+                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/Alyatech01\",\"merchant_url\":\"https://www.google.com\"}"
+              },
+              {
+                 "name": "cta_url",
+                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
+              },
+              {
+                 "name": "cta_url",
+                 "buttonParamsJson": "{\"display_text\":\"WhatsApp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
+              },              
+              {
+  "name": "quick_reply",
+  "buttonParamsJson": `{"display_text":"Allmenu 🗂️","id":"${prefix}allmenu"}`
+   },
+              {
+                "name": "quick_reply",
+                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
+              },
+              {
+                "name": "quick_reply",
+                "buttonParamsJson": `{"display_text":"Script 📃","id":"${prefix}script"}`
+              }
+           ],
+          })
+        })
+    }
+  }
+}, { quoted: m })
+
+await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
+  messageId: msg.key.id
+})
+} else if (typemenu === 'v11') {
 let msg = generateWAMessageFromContent(m.chat, {
         viewOnceMessage: {
           message: {
@@ -1545,7 +1851,7 @@ let msg = generateWAMessageFromContent(m.chat, {
               },
               interactiveMessage: proto.Message.InteractiveMessage.create({
                 body: proto.Message.InteractiveMessage.Body.create({
-                  text: alyamenu
+                  text: xmenu_oh
                 }),
                 footer: proto.Message.InteractiveMessage.Footer.create({
                   text: botname
@@ -1561,11 +1867,11 @@ let msg = generateWAMessageFromContent(m.chat, {
                   buttons: [
              {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"YouTube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"YouTube 🌹\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/Alyatech01\",\"merchant_url\":\"https://www.google.com\"}"
               },
               {
                  "name": "cta_url",
@@ -1573,7 +1879,7 @@ let msg = generateWAMessageFromContent(m.chat, {
               },
               {
                  "name": "cta_url",
-                 "buttonParamsJson": "{\"display_text\":\"WhatsApp ☘️\",\"url\":\"https://chat.whatsapp.com/IwYkcQnIZiWGNlUPAT29Yc\",\"merchant_url\":\"https://www.google.com\"}"
+                 "buttonParamsJson": "{\"display_text\":\"WhatsApp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
               },              
               {
   "name": "quick_reply",
@@ -1594,7 +1900,7 @@ let msg = generateWAMessageFromContent(m.chat, {
                   forwardingScore: 999,
                   isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                  newsletterJid: 'https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D',
+                  newsletterJid: global.xchannel.jid,
                   newsletterName: ownername,
                   serverMessageId: 143
                 }
@@ -1603,7 +1909,172 @@ let msg = generateWAMessageFromContent(m.chat, {
           }
         },
       }, { quoted: m })
-           }
+      
+      await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
+        messageId: msg.key.id
+        })
+        } else if (typemenu === 'v12') {
+        	let msg = generateWAMessageFromContent(m.chat, {
+  viewOnceMessage: {
+    message: {
+        "messageContextInfo": {
+          "deviceListMetadata": {},
+          "deviceListMetadataVersion": 2
+        },
+        interactiveMessage: proto.Message.InteractiveMessage.create({
+          body: proto.Message.InteractiveMessage.Body.create({
+            text: xmenu_oh
+          }),
+          footer: proto.Message.InteractiveMessage.Footer.create({
+            text: botname
+          }),
+          header: proto.Message.InteractiveMessage.Header.create({
+                ...(await prepareWAMessageMedia({ image : fs.readFileSync('./AlyaMedia/theme/alya.jpg')}, { upload: AlyaBotInc.waUploadToServer})), 
+                  title: ``,
+                  gifPlayback: true,
+                  subtitle: ownername,
+                  hasMediaAttachment: false  
+                }),
+          nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
+            buttons: [
+              {
+                "name": "single_select",
+                "buttonParamsJson": 
+`{"title":"MENU 🌺",
+"sections":[{"title":"${botname}",
+"rows":[{"header":"ALL MENU",
+"title":"click to display",
+"description":"Displays The List Of All The Features",
+"id":"${prefix}allmenu"},
+{"header":"SEARCH MENU",
+"title":"click to display",
+"description":"Displays The List Of Search Features",
+"id":"${prefix}searchmenu"},
+{"header":"DOWNLOAD MENU",
+"title":"click to display",
+"description":"Displays The List Of Download Features",
+"id":"${prefix}downloadmenu"},
+{"header":"GAME MENU",
+"title":"click to display",
+"description":"Displays The List Of Game Features",
+"id":"${prefix}gamemenu"},
+{"header":"FUN MENU",
+"title":"click to display",
+"description":"Displays The List Of Fun Features",
+"id":"${prefix}funmenu"},
+{"header":"AI MENU",
+"title":"click to display",
+"description":"Displays The List Of AI Features",
+"id":"${prefix}aimenu"},
+{"header":"GROUP MENU",
+"title":"click to display",
+"description":"Displays The List Of Group Features",
+"id":"${prefix}groupmenu"},
+{"header":"OWNER MENU",
+"title":"click to display",
+"description":"Displays The List Of Owner Features",
+"id":"${prefix}ownermenu"},
+{"header":"CONVERT MENU",
+"title":"click to display",
+"description":"Displays The List Of Convert Features",
+"id":"${prefix}convertmenu"},
+{"header":"LIST MENU",
+"title":"click to display",
+"description":"Displays The List Of List Features",
+"id":"${prefix}listmenu"},
+{"header":"RELIGION MENU",
+"title":"click to display",
+"description":"Displays The List Of Religion Features",
+"id":"${prefix}religionmenu"},
+{"header":"NSFW MENU",
+"title":"click to display",
+"description":"Displays The List Of NSFW Features",
+"id":"${prefix}nsfwmenu"},
+{"header":"ANIME MENU",
+"title":"click to display",
+"description":"Displays The List Of Anime Features",
+"id":"${prefix}animemenu"},
+{"header":"RANDOM PHOTO MENU",
+"title":"click to display",
+"description":"Displays The List Of Random Photo Features",
+"id":"${prefix}randomphotomenu"},
+{"header":"RANDOM VIDEO MENU",
+"title":"click to display",
+"description":"Displays The List Of Random Video Features",
+"id":"${prefix}randomvideomenu"},
+{"header":"STICKER MENU",
+"title":"click to display",
+"description":"Displays The List Of Sticker Features",
+"id":"${prefix}stickermenu"},
+{"header":"DATABASE MENU",
+"title":"click to display",
+"description":"Displays The List Of Database Features",
+"id":"${prefix}databasemenu"},
+{"header":"STORE MENU",
+"title":"click to display",
+"description":"Displays The List Of Store Features",
+"id":"${prefix}storemenu"},
+{"header":"STALKER MENU",
+"title":"click to display",
+"description":"Displays The List Of Stalk Features",
+"id":"${prefix}stalkermenu"},
+{"header":"BUG MENU",
+"title":"click to display",
+"description":"Displays The List Of Bug Features",
+"id":"${prefix}bugmenu"},
+{"header":"OTHER MENU",
+"title":"click to display",
+"description":"Displays The List Of Other Features",
+"id":"${prefix}othermenu"}]
+}]
+}`
+              },
+              {
+                 "name": "cta_url",
+                 "buttonParamsJson": "{\"display_text\":\"YouTube \",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
+              },
+              {
+                 "name": "cta_url",
+                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/Alyatech01\",\"merchant_url\":\"https://www.google.com\"}"
+              },
+              {
+                 "name": "cta_url",
+                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
+              },
+              {
+                 "name": "cta_url",
+                 "buttonParamsJson": "{\"display_text\":\"WhatsApp 💬\",\"url\":\"https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D\",\"merchant_url\":\"https://www.google.com\"}"
+              },
+              {
+                "name": "quick_reply",
+                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
+              },
+              {
+                "name": "quick_reply",
+                "buttonParamsJson": `{"display_text":"Script 📃","id":"${prefix}script"}`
+              }
+           ],
+          }),
+          contextInfo: {
+                  mentionedJid: [m.sender], 
+                  forwardingScore: 999,
+                  isForwarded: true,
+                forwardedNewsletterMessageInfo: {
+                  newsletterJid: global.xchannel.jid,
+                  newsletterName: ownername,
+                  serverMessageId: 143
+                }
+                }
+        })
+    }
+  }
+}, { quoted: m })
+
+await AlyaBotInc.relayMessage(msg.key.remoteJid, msg.message, {
+  messageId: msg.key.id
+})
+}
+}
            break
 case 'allmenu': {
 var unicorn = await getBuffer(picak+'All Menu')
@@ -2144,7 +2615,7 @@ case 'sound158':
 case 'sound159':
 case 'sound160':
 case 'sound161':
-AlyaBotInc_dev = await getBuffer(`https://github.com/DGXeon/Tiktokmusic-API/raw/master/tiktokmusic/${command}.mp3`)
+AlyaBotInc_dev = await getBuffer(`https://github.com/DGAlya/Tiktokmusic-API/raw/master/tiktokmusic/${command}.mp3`)
 await AlyaBotInc.sendMessage(m.chat, { audio: AlyaBotInc_dev, mimetype: 'audio/mp4', ptt: true }, { quoted: m })     
 break
 case 'friend':
@@ -2152,7 +2623,7 @@ case 'searchfriend':{
 
 let teman = pickRandom(xeonverifieduser)
 setTimeout(() => {
-XeonStickWait()
+AlyaStickWait()
 }, 1000)
 setTimeout(() => {
 replygcalya('Managed to Get One Person')
@@ -2222,7 +2693,7 @@ break
 case 'igstalk2':{
 
 if (!q) return replygcalya(`Example ${prefix+command} unicorn_xeon`)
-XeonStickWait()
+AlyaStickWait()
 const aj = await igstalk(`${q}`)
 AlyaBotInc.sendMessage(m.chat, { image: { url : aj.profile }, caption: 
 `*/ Instagram Stalker \\*
@@ -2238,7 +2709,7 @@ break
 case 'ffstalk':{
 
 if (!q) return replygcalya(`Example ${prefix+command} 946716486`)
-XeonStickWait()
+AlyaStickWait()
 eeh = await ffstalk.ffstalk(`${q}`)
 replygcalya(`*/ Free Fire Stalker \\*
 
@@ -2249,7 +2720,7 @@ break
 case 'mlstalk': {
 
 if (!q) return replygcalya(`Example ${prefix+command} 530793138|8129`)
-XeonStickWait()
+AlyaStickWait()
 let dat = await mlstalk.mlstalk(q.split("|")[0], q.split("|")[1])
 replygcalya(`*/ Mobile Legend Stalker \\*
 
@@ -2260,7 +2731,7 @@ ID Zone: ${q.split("|")[1]}`)
 break
 case 'npmstalk':{
 if (!q) return replygcalya(`Example ${prefix+command} xeonapi`)
-XeonStickWait()
+AlyaStickWait()
 eha = await npmstalk.npmstalk(q)
 replygcalya(`*/ Npm Stalker \\*
 
@@ -2275,8 +2746,8 @@ Latest Publish Time : ${eha.latestPublishTime}`)
 }
 break
 case 'ghstalk': case 'githubstalk':{
-if (!q) return replygcalya(`Example ${prefix+command} DGXeon`)
-XeonStickWait()
+if (!q) return replygcalya(`Example ${prefix+command} DGAlya`)
+AlyaStickWait()
 aj = await githubstalk.githubstalk(`${q}`)
 AlyaBotInc.sendMessage(m.chat, { image: { url : aj.profile_pic }, caption: 
 `*/ Github Stalker \\*
@@ -2304,13 +2775,13 @@ Updated At : ${aj.updated_at}` }, { quoted: m } )
 break
 case 'ss': case 'ssweb': {
 if (!q) return replygcalya(`Example ${prefix+command} link`)
-XeonStickWait()
+AlyaStickWait()
 let krt = await scp1.ssweb(q)
 AlyaBotInc.sendMessage(from,{image:krt.result,caption:mess.succes}, {quoted:m})
 }
 break
 case 'join': {
-if (!XeonTheCreator) return XeonStickOwner()
+if (!AlyaTheCreator) return AlyaStickOwner()
 if (!text) return replygcalya(`Contoh ${prefix+command} linkgc`)
 if (!isUrl(args[0]) && !args[0].includes('whatsapp.com')) return replygcalya('Link Invalid!')
 let result = args[0].split('https://chat.whatsapp.com/')[1]
@@ -2319,11 +2790,11 @@ await replygcalya(`Done`)
 }
 break
 case 'poll': {
-	if (!XeonTheCreator) return XeonStickOwner()
+	if (!AlyaTheCreator) return AlyaStickOwner()
             let [poll, opt] = text.split("|")
             if (text.split("|") < 2)
                 return await replygcalya(
-                    `Mention question and atleast 2 options\nExample: ${prefix}poll Who is best admin?|Xeon,Cheems,Doge...`
+                    `Mention question and atleast 2 options\nExample: ${prefix}poll Who is best admin?|Alya,Cheems,Doge...`
                 )
             let options = []
             for (let i of opt.split(',')) {
@@ -2338,7 +2809,7 @@ case 'poll': {
         }
         break
         case 'vote': {
-            if (!m.isGroup) return XeonStickGroup()
+            if (!m.isGroup) return AlyaStickGroup()
             if (m.chat in vote) return replygcalya(`_There are still votes in this chat!_\n\n*${prefix}deletevote* - to delete votes`)
             if (!text) return replygcalya(`Enter Reason for Vote, Example: *${prefix + command} Handsome Owner*`)
             replygcalya(`Voting starts!\n\n*${prefix}upvote* - for upvote\n*${prefix}downvote* - for downvote\n*${prefix}checkvote* - to check the vote\n*${prefix}deletevote* - to delete vote`)
@@ -2372,7 +2843,7 @@ Please Type Below
 	    }
             break
                case 'upvote': {
-            if (!m.isGroup) return XeonStickGroup()
+            if (!m.isGroup) return AlyaStickGroup()
             if (!(m.chat in vote)) return replygcalya(`_*no voting in this group!*_\n\n*${prefix}vote* - to start voting`)
             isVote = vote[m.chat][1].concat(vote[m.chat][2])
             wasVote = isVote.includes(m.sender)
@@ -2405,7 +2876,7 @@ Please Type Below
 	    }
              break
                 case 'downvote': {
-            if (!m.isGroup) return XeonStickGroup()
+            if (!m.isGroup) return AlyaStickGroup()
             if (!(m.chat in vote)) return replygcalya(`_*no voting in this group!*_\n\n*${prefix}vote* - to start voting`)
             isVote = vote[m.chat][1].concat(vote[m.chat][2])
             wasVote = isVote.includes(m.sender)
@@ -2439,7 +2910,7 @@ Please Type Below
             break
                  
 case 'checkvote':
-if (!m.isGroup) return XeonStickGroup()
+if (!m.isGroup) return AlyaStickGroup()
 if (!(m.chat in vote)) return replygcalya(`_*no voting in this group!*_\n\n*${prefix}vote* - to start voting`)
 teks_vote = `* VOTE *
 
@@ -2467,7 +2938,7 @@ ${vote[m.chat][2].map((v, i) => `├ ${i + 1}. @${v.split`@`[0]}`).join('\n')}
 AlyaBotInc.sendTextWithMentions(m.chat, teks_vote, m)
 break
 		case 'deletevote': case'delvote': case 'hapusvote': {
-            if (!m.isGroup) return XeonStickGroup()
+            if (!m.isGroup) return AlyaStickGroup()
             if (!(m.chat in vote)) return replygcalya(`_*no voting in this group!*_\n\n*${prefix}vote* - to start voting`)
             delete vote[m.chat]
             replygcalya('Successfully Deleted Vote Session In This Group')
@@ -2475,7 +2946,7 @@ break
             break
 case 'toonce': case 'toviewonce': { 
 if (!quoted) return replygcalya(`Reply Image/Video`)
-XeonStickWait()
+AlyaStickWait()
 if (/image/.test(mime)) {
 anuan = await AlyaBotInc.downloadAndSaveMediaMessage(quoted)
 AlyaBotInc.sendMessage(m.chat, {image: {url:anuan}, caption: `Here you go!`, fileLength: "999", viewOnce : true},{quoted: m })
@@ -2560,7 +3031,7 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
             }
             break
             case 'bctext': case 'broadcasttext': case 'broadcast': {
-			    if (!XeonTheCreator) return XeonStickOwner()
+			    if (!AlyaTheCreator) return AlyaStickOwner()
 		            if (!q) return replygcalya(`Enter text`)
 		                            const data = await store.chats.all()
                             for (let i of data) {
@@ -2570,7 +3041,7 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
                             }
                             break
                             case 'broadcastimage': case 'bcimage': case 'broadcastvideo': case 'broadcastvid':
-if(!XeonTheCreator) return XeonStickOwner()
+if(!AlyaTheCreator) return AlyaStickOwner()
         if (!q) return replygcalya(`Enter text`)
         let getGroups = await AlyaBotInc.groupFetchAllParticipating()
         let groups = Object.entries(getGroups).slice(0).map(entry => entry[1])
@@ -2590,14 +3061,14 @@ await AlyaBotInc.sendMessage(i, { video:media,  caption: txt, mentions:participa
         replygcalya(`Successfuly Broadcasted in ${xeoncast.length} Groups`)      
         break
 case 'block': case 'ban': {
-		if (!XeonTheCreator) return XeonStickOwner()
+		if (!AlyaTheCreator) return AlyaStickOwner()
 		let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
 		await AlyaBotInc.updateBlockStatus(users, 'block')
 		await replygcalya(`Done`)
 	}
 	break
         case 'unblock': case 'unban': {
-		if (!XeonTheCreator) return XeonStickOwner()
+		if (!AlyaTheCreator) return AlyaStickOwner()
 		let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
 		await AlyaBotInc.updateBlockStatus(users, 'unblock')
 		await replygcalya(`Done`)
@@ -2609,7 +3080,7 @@ case 'listblock': case 'listban': case 'blocklist': case 'banlist': {
 	}
 	break
 case 'afk': {
-if (!m.isGroup) return XeonStickGroup()
+if (!m.isGroup) return AlyaStickGroup()
 if (!text) return replygcalya(`Example ${prefix+command} want to sleep`)
 let user = global.db.users[m.sender]
 user.afkTime = + new Date
@@ -2625,14 +3096,14 @@ case 'resetlink':
 case 'resetgrouplink':
 case 'resetgclink':
 case 'resetgruplink': {
-if (!m.isGroup) return XeonStickGroup()
-if (!isBotAdmins) return XeonStickBotAdmin()
-if (!isAdmins && !XeonTheCreator) return XeonStickAdmin()
+if (!m.isGroup) return AlyaStickGroup()
+if (!isBotAdmins) return AlyaStickBotAdmin()
+if (!isAdmins && !AlyaTheCreator) return AlyaStickAdmin()
 AlyaBotInc.groupRevokeInvite(m.chat)
 }
 break
             case 'react': {
-                if (!XeonTheCreator) return XeonStickOwner()
+                if (!AlyaTheCreator) return AlyaStickOwner()
                 reactionMessage = {
                     react: {
                         text: args[0],
@@ -2643,9 +3114,9 @@ break
             }
             break
 case 'group': case 'editinfo': {
-if (!m.isGroup) return XeonStickGroup()
-if (!isAdmins && !XeonTheCreator) return XeonStickAdmin()
-if (!isBotAdmins) return XeonStickBotAdmin()
+if (!m.isGroup) return AlyaStickGroup()
+if (!isAdmins && !AlyaTheCreator) return AlyaStickAdmin()
+if (!isBotAdmins) return AlyaStickBotAdmin()
 if (!q) return replygcalya(`Send orders ${command} _options_\nOptions : close & open\nExample : ${command} close`)
 if (args[0] == 'close') {
 AlyaBotInc.groupSettingUpdate(from, 'announcement')
@@ -2659,7 +3130,7 @@ replygcalya(`Type Command ${command} _pptions_\nOptions : Close & Open\nExample 
 break
 case 'autostickergc':
             case 'autosticker':
-if (!isAdmins && !XeonTheCreator) return XeonStickAdmin()
+if (!isAdmins && !AlyaTheCreator) return AlyaStickAdmin()
 if (args.length < 1) return replygcalya('type auto sticker on to enable\ntype auto sticker off to disable')
 if (args[0]  === 'on'){
 if (isAutoSticker) return replygcalya(`Already activated`)
@@ -2674,9 +3145,9 @@ replygcalya('auto sticker deactivated')
 }
 break
 case 'antivirus': case 'antivirtex': {
-if (!m.isGroup) return XeonStickGroup()
-if (!isBotAdmins) return XeonStickBotAdmin()
-if (!isAdmins && !XeonTheCreator) return XeonStickAdmin()
+if (!m.isGroup) return AlyaStickGroup()
+if (!isBotAdmins) return AlyaStickBotAdmin()
+if (!isAdmins && !AlyaTheCreator) return AlyaStickAdmin()
 if (args[0] === "on") {
 if (antiVirtex) return replygcalya('Already activated')
 ntvirtex.push(from)
@@ -2701,9 +3172,9 @@ replygcalya('Success in turning off antivirus this group')
   }
   break
 case 'nsfw': {
-if (!m.isGroup) return XeonStickGroup()
-if (!isBotAdmins) return XeonStickBotAdmin()
-if (!isAdmins && !XeonTheCreator) return XeonStickAdmin()
+if (!m.isGroup) return AlyaStickGroup()
+if (!isBotAdmins) return AlyaStickBotAdmin()
+if (!isAdmins && !AlyaTheCreator) return AlyaStickAdmin()
 if (args[0] === "on") {
 if (AntiNsfw) return replygcalya('Already activated')
 ntnsfw.push(from)
@@ -2728,9 +3199,9 @@ replygcalya('Success in turning off nsfw in this group')
   }
   break
   case 'antilinkyoutubevideo': case 'antilinkyoutubevid': case 'antilinkytvid': {
-if (!m.isGroup) return XeonStickGroup()
-if (!isBotAdmins) return XeonStickBotAdmin()
-if (!isAdmins && !XeonTheCreator) return XeonStickAdmin()
+if (!m.isGroup) return AlyaStickGroup()
+if (!isBotAdmins) return AlyaStickBotAdmin()
+if (!isAdmins && !AlyaTheCreator) return AlyaStickAdmin()
 if (args[0] === "on") {
 if (AntiLinkYoutubeVid) return replygcalya('Already activated')
 ntilinkytvid.push(from)
@@ -2755,9 +3226,9 @@ replygcalya('Success in turning off youtube video antilink in this group')
   }
   break
     case 'antilinkyoutubech': case 'antilinkyoutubechannel': case 'antilinkytch': {
-if (!m.isGroup) return XeonStickGroup()
-if (!isBotAdmins) return XeonStickBotAdmin()
-if (!isAdmins && !XeonTheCreator) return XeonStickAdmin()
+if (!m.isGroup) return AlyaStickGroup()
+if (!isBotAdmins) return AlyaStickBotAdmin()
+if (!isAdmins && !AlyaTheCreator) return AlyaStickAdmin()
 if (args[0] === "on") {
 if (AntiLinkYoutubeChannel) return replygcalya('Already activated')
 ntilinkytch.push(from)
@@ -2782,9 +3253,9 @@ replygcalya('Success in turning off youtube channel antilink in this group')
   }
   break
       case 'antilinkinstagram': case 'antilinkig': case 'antilinkinsta': {
-if (!m.isGroup) return XeonStickGroup()
-if (!isBotAdmins) return XeonStickBotAdmin()
-if (!isAdmins && !XeonTheCreator) return XeonStickAdmin()
+if (!m.isGroup) return AlyaStickGroup()
+if (!isBotAdmins) return AlyaStickBotAdmin()
+if (!isAdmins && !AlyaTheCreator) return AlyaStickAdmin()
 if (args[0] === "on") {
 if (AntiLinkInstagram) return replygcalya('Already activated')
 ntilinkig.push(from)
@@ -2809,9 +3280,9 @@ replygcalya('Success in turning off instagram antilink in this group')
   }
   break
         case 'antilinkfacebook': case 'antilinkfb': {
-if (!m.isGroup) return XeonStickGroup()
-if (!isBotAdmins) return XeonStickBotAdmin()
-if (!isAdmins && !XeonTheCreator) return XeonStickAdmin()
+if (!m.isGroup) return AlyaStickGroup()
+if (!isBotAdmins) return AlyaStickBotAdmin()
+if (!isAdmins && !AlyaTheCreator) return AlyaStickAdmin()
 if (args[0] === "on") {
 if (AntiLinkFacebook) return replygcalya('Already activated')
 ntilinkfb.push(from)
@@ -2836,9 +3307,9 @@ replygcalya('Success in turning off facebook antilink in this group')
   }
   break
           case 'antilinktelegram': case 'antilinktg': {
-if (!m.isGroup) return XeonStickGroup()
-if (!isBotAdmins) return XeonStickBotAdmin()
-if (!isAdmins && !XeonTheCreator) return XeonStickAdmin()
+if (!m.isGroup) return AlyaStickGroup()
+if (!isBotAdmins) return AlyaStickBotAdmin()
+if (!isAdmins && !AlyaTheCreator) return AlyaStickAdmin()
 if (args[0] === "on") {
 if (AntiLinkTelegram) return replygcalya('Already activated')
 ntilinktg.push(from)
@@ -2863,9 +3334,9 @@ replygcalya('Success in turning off telegram antilink in this group')
   }
   break
             case 'antilinktiktok': case 'antilinktt': {
-if (!m.isGroup) return XeonStickGroup()
-if (!isBotAdmins) return XeonStickBotAdmin()
-if (!isAdmins && !XeonTheCreator) return XeonStickAdmin()
+if (!m.isGroup) return AlyaStickGroup()
+if (!isBotAdmins) return AlyaStickBotAdmin()
+if (!isAdmins && !AlyaTheCreator) return AlyaStickAdmin()
 if (args[0] === "on") {
 if (AntiLinkTiktok) return replygcalya('Already activated')
 ntilinktt.push(from)
@@ -2890,9 +3361,9 @@ replygcalya('Success in turning off tiktok antilink in this group')
   }
   break
             case 'antilinktwt': case 'antilinktwitter': case 'antilinktwit': {
-if (!m.isGroup) return XeonStickGroup()
-if (!isBotAdmins) return XeonStickBotAdmin()
-if (!isAdmins && !XeonTheCreator) return XeonStickAdmin()
+if (!m.isGroup) return AlyaStickGroup()
+if (!isBotAdmins) return AlyaStickBotAdmin()
+if (!isAdmins && !AlyaTheCreator) return AlyaStickAdmin()
 if (args[0] === "on") {
 if (AntiLinkTwitter) return replygcalya('Already activated')
 ntilinktwt.push(from)
@@ -2917,9 +3388,9 @@ replygcalya('Success in turning off twitter antilink in this group')
   }
   break
               case 'antilinkall': {
-if (!m.isGroup) return XeonStickGroup()
-if (!isBotAdmins) return XeonStickBotAdmin()
-if (!isAdmins && !XeonTheCreator) return XeonStickAdmin()
+if (!m.isGroup) return AlyaStickGroup()
+if (!isBotAdmins) return AlyaStickBotAdmin()
+if (!isAdmins && !AlyaTheCreator) return AlyaStickAdmin()
 if (args[0] === "on") {
 if (AntiLinkTwitter) return replygcalya('Already activated')
 ntilinkall.push(from)
@@ -2944,9 +3415,9 @@ replygcalya('Success in turning off all antilink in this group')
   }
   break
 case 'antitoxic': case 'antibadword': {
-if (!m.isGroup) return XeonStickGroup()
-if (!isBotAdmins) return XeonStickBotAdmin()
-if (!isAdmins && !XeonTheCreator) return XeonStickAdmin()
+if (!m.isGroup) return AlyaStickGroup()
+if (!isBotAdmins) return AlyaStickBotAdmin()
+if (!isAdmins && !AlyaTheCreator) return AlyaStickAdmin()
 if (args[0] === "on") {
 if (antiToxic) return replygcalya('Already activated')
 nttoxic.push(from)
@@ -2971,9 +3442,9 @@ replygcalya('Success in turning off antitoxic in this group')
   }
   break
 case 'antiwame': {
-if (!m.isGroup) return XeonStickGroup()
-if (!isBotAdmins) return XeonStickBotAdmin()
-if (!isAdmins && !XeonTheCreator) return XeonStickAdmin()
+if (!m.isGroup) return AlyaStickGroup()
+if (!isBotAdmins) return AlyaStickBotAdmin()
+if (!isAdmins && !AlyaTheCreator) return AlyaStickAdmin()
 if (args[0] === "on") {
 if (antiWame) return replygcalya('Already activated')
 ntwame.push(from)
@@ -2998,9 +3469,9 @@ replygcalya('Success in turning off antiwame in this group')
   }
   break
 case 'antilinkgc': {
-if (!m.isGroup) return XeonStickGroup()
-if (!isBotAdmins) return XeonStickBotAdmin()
-if (!isAdmins && !XeonTheCreator) return XeonStickAdmin()
+if (!m.isGroup) return AlyaStickGroup()
+if (!isBotAdmins) return AlyaStickBotAdmin()
+if (!isAdmins && !AlyaTheCreator) return AlyaStickAdmin()
 if (args[0] === "on") {
 if (Antilinkgc) return replygcalya('Already activated')
 ntlinkgc.push(from)
@@ -3025,24 +3496,24 @@ await replygcalya(`Please Type The Option\n\nExample: ${prefix + command} on\nEx
   }
   break
    case 'leavegc': {
-                if (!XeonTheCreator) return XeonStickOwner()
+                if (!AlyaTheCreator) return AlyaStickOwner()
                 await AlyaBotInc.groupLeave(m.chat)
                 await replygcalya(`Done`)
             }
             break
 case 'add': {
-if (!m.isGroup) return XeonStickGroup()
-if (!isBotAdmins) return XeonStickBotAdmin()
-if (!XeonTheCreator) return XeonStickOwner()
+if (!m.isGroup) return AlyaStickGroup()
+if (!isBotAdmins) return AlyaStickBotAdmin()
+if (!AlyaTheCreator) return AlyaStickOwner()
 let users = m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
 await AlyaBotInc.groupParticipantsUpdate(m.chat, [users], 'add')
 await replygcalya(`Done`)
 }
 break
 case 'closetime': {
-if (!m.isGroup) return XeonStickGroup()
-if (!isAdmins && !XeonTheCreator) return XeonStickAdmin()
-if (!isBotAdmins) return XeonStickBotAdmin()
+if (!m.isGroup) return AlyaStickGroup()
+if (!isAdmins && !AlyaTheCreator) return AlyaStickAdmin()
+if (!isBotAdmins) return AlyaStickBotAdmin()
 if (args[1] == 'second') {
 var timer = args[0] * `1000`
 } else if (args[1] == 'minute') {
@@ -3064,9 +3535,9 @@ replygcalya(close)
 }
 break
            case 'ephemeral': {
-                if (!m.isGroup) return XeonStickGroup()
-                if (!isBotAdmins) return XeonStickBotAdmin()
-                if (!isAdmins) return XeonStickAdmin()
+                if (!m.isGroup) return AlyaStickGroup()
+                if (!isBotAdmins) return AlyaStickBotAdmin()
+                if (!isAdmins) return AlyaStickAdmin()
                 if (!text) return replygcalya('Enter the value enable/disable')
                 if (args[0] === 'enable') {
                     await AlyaBotInc.sendMessage(m.chat, { disappearingMessagesInChat: WA_DEFAULT_EPHEMERAL })
@@ -3084,16 +3555,16 @@ break
             }
             break
             case 'linkgroup': case 'linkgc': case 'gclink': case 'grouplink': {
-                if (!m.isGroup) return XeonStickGroup()
-                if (!isBotAdmins) return XeonStickBotAdmin()
+                if (!m.isGroup) return AlyaStickGroup()
+                if (!isBotAdmins) return AlyaStickBotAdmin()
                 let response = await AlyaBotInc.groupInviteCode(m.chat)
                 AlyaBotInc.sendText(m.chat, `https://chat.whatsapp.com/${response}\n\nGroup Link : ${groupMetadata.subject}`, m, { detectLink: true })
             }
             break
 case 'opentime': {
-if (!m.isGroup) return XeonStickGroup()
-if (!isAdmins && !XeonTheCreator) return XeonStickAdmin()
-if (!isBotAdmins) return XeonStickBotAdmin()
+if (!m.isGroup) return AlyaStickGroup()
+if (!isAdmins && !AlyaTheCreator) return AlyaStickAdmin()
+if (!isBotAdmins) return AlyaStickBotAdmin()
 if (args[1] == 'second') {
 var timer = args[0] * `1000`
 } else if (args[1] == 'minute') {
@@ -3115,50 +3586,50 @@ replygcalya(open)
 }
 break
 case 'kick': {
-if (!m.isGroup) return XeonStickGroup()
-if (!isAdmins && !XeonTheCreator) return XeonStickAdmin()
-if (!isBotAdmins) return XeonStickBotAdmin()
+if (!m.isGroup) return AlyaStickGroup()
+if (!isAdmins && !AlyaTheCreator) return AlyaStickAdmin()
+if (!isBotAdmins) return AlyaStickBotAdmin()
 let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
 await AlyaBotInc.groupParticipantsUpdate(m.chat, [users], 'remove')
 await replygcalya(`Done`)
 }
 break
 case 'setbotname':{
-if (!XeonTheCreator) return XeonStickOwner()
+if (!AlyaTheCreator) return AlyaStickOwner()
 if (!text) return replygcalya(`Where is the name?\nExample: ${prefix + command} Cheems Bot`)
     await AlyaBotInc.updateProfileName(text)
     replygcalya(`Success in changing the name of bot's number`)
     }
     break
 case 'setbotbio':{
-if (!XeonTheCreator) return XeonStickOwner()
+if (!AlyaTheCreator) return AlyaStickOwner()
 if (!text) return replygcalya(`Where is the text?\nExample: ${prefix + command} Cheems Bot`)
     await AlyaBotInc.updateProfileStatus(text)
     replygcalya(`Success in changing the bio of bot's number`)
     }
     break
     case 'setgroupname': case 'setsubject': {
-                if (!m.isGroup) return XeonStickGroup()
-                if (!isBotAdmins) return XeonStickBotAdmin()
-                if (!isAdmins) return XeonStickAdmin()
+                if (!m.isGroup) return AlyaStickGroup()
+                if (!isBotAdmins) return AlyaStickBotAdmin()
+                if (!isAdmins) return AlyaStickAdmin()
                 if (!text) return replygcalya('Text ?')
                 await AlyaBotInc.groupUpdateSubject(m.chat, text)
                 await replygcalya(`Done`)
             }
             break
           case 'setdesc': case 'setdesk': {
-                if (!m.isGroup) return XeonStickGroup()
-                if (!isBotAdmins) return XeonStickBotAdmin()
-                if (!isAdmins) return XeonStickAdmin()
+                if (!m.isGroup) return AlyaStickGroup()
+                if (!isBotAdmins) return AlyaStickBotAdmin()
+                if (!isAdmins) return AlyaStickAdmin()
                 if (!text) return replygcalya('Text ?')
                 await AlyaBotInc.groupUpdateDescription(m.chat, text)
                 await replygcalya(`Done`)
             }
             break
 case 'setppgroup': case 'setgcpp': case 'setgrouppp': {
-if (!m.isGroup) return XeonStickGroup()
-if (!isAdmins && !XeonTheCreator) return XeonStickAdmin()
-if (!isBotAdmins) return XeonStickBotAdmin()
+if (!m.isGroup) return AlyaStickGroup()
+if (!isAdmins && !AlyaTheCreator) return AlyaStickAdmin()
+if (!isBotAdmins) return AlyaStickBotAdmin()
 if (!quoted) return replygcalya(`Where is the picture?`)
 if (!/image/.test(mime)) return replygcalya(`Send/Reply Image With Caption ${prefix + command}`)
 if (/webp/.test(mime)) return replygcalya(`Send/Reply Image With Caption ${prefix + command}`)
@@ -3190,56 +3661,56 @@ replygcalya(`Success`)
 }
 break
 case 'deleteppgroup': case 'delppgc': case 'deleteppgc': case 'delppgroup': {
-if (!m.isGroup) return XeonStickGroup()
-if (!isAdmins && !XeonTheCreator) return XeonStickAdmin()
-if (!isBotAdmins) return XeonStickBotAdmin()
+if (!m.isGroup) return AlyaStickGroup()
+if (!isAdmins && !AlyaTheCreator) return AlyaStickAdmin()
+if (!isBotAdmins) return AlyaStickBotAdmin()
     await AlyaBotInc.removeProfilePicture(from)
     }
     break
 case 'deleteppbot': case 'delppbot': {
-if (!XeonTheCreator) return XeonStickOwner()
+if (!AlyaTheCreator) return AlyaStickOwner()
     await AlyaBotInc.removeProfilePicture(AlyaBotInc.user.id)
     replygcalya(`Success in deleting bot's profile picture`)
     }
     break
 case 'promote': {
-if (!m.isGroup) return XeonStickGroup()
-if (!isAdmins && !XeonTheCreator) return XeonStickAdmin()
-if (!isBotAdmins) return XeonStickBotAdmin()
+if (!m.isGroup) return AlyaStickGroup()
+if (!isAdmins && !AlyaTheCreator) return AlyaStickAdmin()
+if (!isBotAdmins) return AlyaStickBotAdmin()
 let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
 await AlyaBotInc.groupParticipantsUpdate(m.chat, [users], 'promote')
 await replygcalya(`Done`)
 }
 break
 case 'demote': {
-if (!m.isGroup) return XeonStickGroup()
-if (!isAdmins && !XeonTheCreator) return XeonStickAdmin()
-if (!isBotAdmins) return XeonStickBotAdmin()
+if (!m.isGroup) return AlyaStickGroup()
+if (!isAdmins && !AlyaTheCreator) return AlyaStickAdmin()
+if (!isBotAdmins) return AlyaStickBotAdmin()
 let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
 await AlyaBotInc.groupParticipantsUpdate(m.chat, [users], 'demote')
 await replygcalya(`Done`)
 }
 break
 case 'hidetag': {
-if (!m.isGroup) return XeonStickGroup()
-if (!isAdmins && !XeonTheCreator) return XeonStickAdmin()
-if (!isBotAdmins) return XeonStickBotAdmin()
+if (!m.isGroup) return AlyaStickGroup()
+if (!isAdmins && !AlyaTheCreator) return AlyaStickAdmin()
+if (!isBotAdmins) return AlyaStickBotAdmin()
 AlyaBotInc.sendMessage(m.chat, { text : q ? q : '' , mentions: participants.map(a => a.id)}, { quoted: m })
 }
 break
 case 'totag': {
-if (!m.isGroup) return XeonStickGroup()
-if (!isAdmins && !XeonTheCreator) return XeonStickAdmin()
-if (!isBotAdmins) return XeonStickBotAdmin()
+if (!m.isGroup) return AlyaStickGroup()
+if (!isAdmins && !AlyaTheCreator) return AlyaStickAdmin()
+if (!isBotAdmins) return AlyaStickBotAdmin()
                if (!m.quoted) return replygcalya(`Reply message with caption ${prefix + command}`)
                AlyaBotInc.sendMessage(m.chat, { forward: m.quoted.fakeObj, mentions: participants.map(a => a.id) })
                }
                break
 
 case 'tagall': {
-if (!m.isGroup) return XeonStickGroup()
-if (!isAdmins && !XeonTheCreator) return XeonStickAdmin()
-if (!isBotAdmins) return XeonStickBotAdmin()
+if (!m.isGroup) return AlyaStickGroup()
+if (!isAdmins && !AlyaTheCreator) return AlyaStickAdmin()
+if (!isBotAdmins) return AlyaStickBotAdmin()
 me = m.sender
 let teks = `╚»˙·٠${themeemoji}●♥ Tag All ♥●${themeemoji}٠·˙«╝ 
  
@@ -3253,7 +3724,7 @@ AlyaBotInc.sendMessage(m.chat, { text: teks, mentions: participants.map(a => a.i
 break
 case 'ebinary': {
 if (!q) return replygcalya(`Send/reply text with captions ${prefix + command}`)
-XeonStickWait()
+AlyaStickWait()
 let { eBinary } = require('./scrape/binary')
 let eb = await eBinary(`${q}`)
 replygcalya(eb)
@@ -3261,7 +3732,7 @@ replygcalya(eb)
 break
 case 'dbinary': {
 if (!q) return replygcalya(`Send/reply text with captions ${prefix + command}`)
-XeonStickWait()
+AlyaStickWait()
 let { dBinary } = require('./scrape/binary')
 let db = await dBinary(`${q}`)
 replygcalya(db)
@@ -3270,7 +3741,7 @@ break
 case 'remini': {
 			if (!quoted) return replygcalya(`Where is the picture?`)
 			if (!/image/.test(mime)) return replygcalya(`Send/Reply Photos With Captions ${prefix + command}`)
-			XeonStickWait()
+			AlyaStickWait()
 			const { remini } = require('./lib/remini')
 			let media = await quoted.download()
 			let proses = await remini(media, "enhance")
@@ -3279,7 +3750,7 @@ case 'remini': {
 			break
 			case 'gimage': {
                 if (!text) return replygcalya(`Example : ${prefix + command} carry minati`)
-                XeonStickWait()
+                AlyaStickWait()
                 let gis = require('g-i-s')
                 gis(text, async (error, result) => {
                     n = result
@@ -3321,7 +3792,7 @@ break
 case 'tiktokxx':{ 
 if (!text) return replygcalya( `Example : ${prefix + command} link`)
 if (!q.includes('tiktok')) return replygcalya(`Link Invalid!!`)
-XeonStickWait()
+AlyaStickWait()
 require('./lib/tiktok').Tiktok(q).then( data => {
 AlyaBotInc.sendMessage(m.chat, { caption: `Here you go!`, video: { url: data.watermark }}, {quoted:m})
 })
@@ -3330,7 +3801,7 @@ break
 case 'tiktokaudioxx':{
 if (!text) return replygcalya( `Example : ${prefix + command} link`)
 if (!q.includes('tiktok')) return replygcalya(`Link Invalid!!`)
-XeonStickWait()
+AlyaStickWait()
 require('./lib/tiktok').Tiktok(q).then( data => {
 AlyaBotInc.sendMessage(m.chat, { audio: { url: data.audio }, mimetype: 'audio/mp4' }, { quoted: m })
 })
@@ -3338,7 +3809,7 @@ AlyaBotInc.sendMessage(m.chat, { audio: { url: data.audio }, mimetype: 'audio/mp
 break
 case 'google': {
 if (!q) return replygcalya(`Example : ${prefix + command} ${botname}`)
-XeonStickWait()
+AlyaStickWait()
 let google = require('google-it')
 google({'query': text}).then(res => {
 let teks = `Google Search From : ${text}\n\n`
@@ -3353,7 +3824,7 @@ replygcalya(teks)
 break
 case 'happymod':{
 if (!q) return replygcalya(`Example ${prefix+command} Sufway surfer mod`)
-XeonStickWait()
+AlyaStickWait()
 let kat = await scp1.happymod(q)
 replygcalya(util.format(kat))
 }
@@ -3373,7 +3844,7 @@ case 'yts': case 'ytsearch': {
             break
 case 'xxxxplay':{
 if (!text) return replygcalya(`Example : ${prefix+command} story wa anime`)
-XeonStickWait()
+AlyaStickWait()
 let search = await yts(text)
 url = search.videos[0].url
 let anu = search.videos[Math.floor(Math.random() * search.videos.length)]
@@ -3395,7 +3866,7 @@ AlyaBotInc.sendMessage(m.chat, { image : eek, caption: ngen }, { quoted: m})
 break
 case 'play':
 case 'song': {
-    if (!text) return replygcxeon(`Example : ${prefix + command} anime whatsapp status`);
+    if (!text) return replygcalya(`Example : ${prefix + command} anime whatsapp status`);
 
     const yts = require("youtube-yts");
     const axios = require("axios");
@@ -3405,7 +3876,7 @@ case 'song': {
     let search = await yts(text);
     let anup3k = search.videos[0];
 
-    if (!anup3k) return replygcxeon("No results found!");
+    if (!anup3k) return replygcalya("No results found!");
 
     // Fetch the audio using the API
     const apiUrl = `https://widipe.com/download/ytdl?url=${encodeURIComponent(anup3k.url)}`;
@@ -3415,12 +3886,12 @@ case 'song': {
         audioResponse = await axios.get(apiUrl);
     } catch (error) {
         console.error("Error fetching audio:", error);
-        return replygcxeon("Failed to download the audio. Please try again.");
+        return replygcalya("Failed to download the audio. Please try again.");
     }
 
     // Check if the API response is successful
     if (!audioResponse.data.status) {
-        return replygcxeon("Failed to retrieve audio URL. Please try again.");
+        return replygcalya("Failed to retrieve audio URL. Please try again.");
     }
 
     const mp3Url = audioResponse.data.result.mp3;
@@ -3432,7 +3903,7 @@ case 'song': {
         mp3Buffer = Buffer.from(mp3DownloadResponse.data);
     } catch (error) {
         console.error("Error downloading MP3:", error);
-        return replygcxeon("Failed to download the MP3. Please try again.");
+        return replygcalya("Failed to download the MP3. Please try again.");
     }
 
     // Send the audio message
@@ -3454,7 +3925,7 @@ case 'song': {
 }
 break
 case "ytmp3": case "ytaudio": //credit: Ray Senpai â¤ï¸ https://github.com/EternityBots/Nezuko
-const xeonaudp3 = require('./lib/ytdl2')
+const alyaaudp3 = require('./lib/ytdl2')
 if (args.length < 1 || !isUrl(text) || !xeonaudp3.isYTUrl(text)) return replygcalya(`Where's the yt link?\nExample: ${prefix + command} https://youtube.com/shorts/YQf-vMjDuKY?feature=share`)
 const audio=await xeonaudp3.mp3(text)
 await AlyaBotInc.sendMessage(m.chat,{
@@ -3474,7 +3945,7 @@ await AlyaBotInc.sendMessage(m.chat,{
 await fs.unlinkSync(audio.path)
 break
 case 'ytmp4': case 'ytvideo': {
-const xeonvidoh = require('./lib/ytdl2')
+const alyavidoh = require('./lib/ytdl2')
 if (args.length < 1 || !isUrl(text) || !xeonvidoh.isYTUrl(text)) replygcalya(`Where is the link??\n\nExample : ${prefix + command} https://youtube.com/watch?v=PtFMh6Tccag%27 128kbps`)
 const vid=await xeonvidoh.mp4(text)
 const ytc=`
@@ -3490,25 +3961,25 @@ await AlyaBotInc.sendMessage(m.chat,{
 break
 case 'ytvxxx': case 'ytmp4xxx': case 'mp4xxx':{
 if (!text) return replygcalya('Enter the link!!!')
-XeonStickWait()
+AlyaStickWait()
 downloadMp4(text)
 }
 break
 case 'ytaxxx': case 'ytmp3xxx': case 'mp3xxx':{
 if (!text) return replygcalya('Enter the link!!!')
-XeonStickWait()
+AlyaStickWait()
 downloadMp3(text)
 }
 break  
 case 'getcase':
-if (!XeonTheCreator) return XeonStickOwner()
+if (!AlyaTheCreator) return AlyaStickOwner()
 const getCase = (cases) => {
 return "case"+`'${cases}'`+fs.readFileSync("Queenalya.js").toString().split('case \''+cases+'\'')[1].split("break")[0]+"break"
 }
 replygcalya(`${getCase(q)}`)
 break
 case 'addprem':
-if (!XeonTheCreator) return XeonStickOwner()
+if (!AlyaTheCreator) return AlyaStickOwner()
 if (!args[0]) return replygcalya(`Use ${prefix+command} number\nExample ${prefix+command} 2348100835767`)
 prrkek = q.split("|")[0].replace(/[^0-9]/g, '')+`@s.whatsapp.net`
 let ceknya = await AlyaBotInc.onWhatsApp(prrkek)
@@ -3518,7 +3989,7 @@ fs.writeFileSync('./database/premium.json', JSON.stringify(prem))
 replygcalya(`The Number ${prrkek} Has Been Premium!`)
 break
 case 'delprem':
-if (!XeonTheCreator) return XeonStickOwner()
+if (!AlyaTheCreator) return AlyaStickOwner()
 if (!args[0]) return replygcalya(`Use ${prefix+command} nomor\nExample ${prefix+command} 2348100835767`)
 ya = q.split("|")[0].replace(/[^0-9]/g, '')+`@s.whatsapp.net`
 unp = prem.indexOf(ya)
@@ -3527,163 +3998,163 @@ fs.writeFileSync('./database/premium.json', JSON.stringify(prem))
 replygcalya(`The Number ${ya} Has Been Removed Premium!`)
 break
 case 'addbadword':{
-if (!XeonTheCreator) return XeonStickOwner()
+if (!AlyaTheCreator) return AlyaStickOwner()
 if (args.length < 1) return replygcalya('Whats the word?')
-if (BadXeon.includes(q)) return replygcalya("The word is already in use")
-BadXeon.push(q)
-fs.writeFileSync('./database/bad.json', JSON.stringify(BadXeon))
+if (BadAlya.includes(q)) return replygcalya("The word is already in use")
+BadAlya.push(q)
+fs.writeFileSync('./database/bad.json', JSON.stringify(BadAlya))
 replygcalya(`Success Adding Bad Word\nCheck by typing ${prefix}listbadword`)
 }
 break
 case 'delbadword':{
-if (!XeonTheCreator) return XeonStickOwner()
+if (!AlyaTheCreator) return AlyaStickOwner()
 if (args.length < 1) return replygcalya('Enter the word')
-if (!BadXeon.includes(q)) return replygcalya("The word does not exist in the database")
-let wanu = BadXeon.indexOf(q)
-BadXeon.splice(wanu, 1)
-fs.writeFileSync('./database/bad.json', JSON.stringify(BadXeon))
+if (!BadAlya.includes(q)) return replygcalya("The word does not exist in the database")
+let wanu = BadAlya.indexOf(q)
+BadAlya.splice(wanu, 1)
+fs.writeFileSync('./database/bad.json', JSON.stringify(BadAlya))
 replygcalya(`Success deleting bad word ${q}`)
 }
 break
 case 'listbadword':{
 let teks = '┌──⭓「 *BadWord List* 」\n┃\n'
-for (let x of BadXeon) {
+for (let x of BadAlya) {
 teks += `┃⭔ ${x}\n`
 }
-teks += `┃\n┗⊶───────────⭓\n\n*Totally there are : ${BadXeon.length}*`
+teks += `┃\n┗⊶───────────⭓\n\n*Totally there are : ${BadAlya.length}*`
 replygcalya(teks)
 }
 break
 case 'addvideo':{
-if (!XeonTheCreator) return XeonStickOwner()
+if (!AlyaTheCreator) return AlyaStickOwner()
 if (args.length < 1) return replygcalya('Whats the video name?')
-if (VideoXeon.includes(q)) return replygcalya("The name is already in use")
+if (VideoAlya.includes(q)) return replygcalya("The name is already in use")
 let delb = await AlyaBotInc.downloadAndSaveMediaMessage(quoted)
-VideoXeon.push(q)
+VideoAlya.push(q)
 await fsx.copy(delb, `./AlyaMedia/video/${q}.mp4`)
-fs.writeFileSync('./AlyaMedia/database/xeonvideo.json', JSON.stringify(VideoXeon))
+fs.writeFileSync('./AlyaMedia/database/xeonvideo.json', JSON.stringify(VideoAlya))
 fs.unlinkSync(delb)
 replygcalya(`Success Adding Video\nCheck by typing ${prefix}listvideo`)
 }
 break
 case 'delvideo':{
-if (!XeonTheCreator) return XeonStickOwner()
+if (!AlyaTheCreator) return AlyaStickOwner()
 if (args.length < 1) return replygcalya('Enter the video name')
-if (!VideoXeon.includes(q)) return replygcalya("The name does not exist in the database")
-let wanu = VideoXeon.indexOf(q)
-VideoXeon.splice(wanu, 1)
-fs.writeFileSync('./AlyaMedia/database/xeonvideo.json', JSON.stringify(VideoXeon))
+if (!VideoAlya.includes(q)) return replygcalya("The name does not exist in the database")
+let wanu = VideoAlya.indexOf(q)
+VideoAlya.splice(wanu, 1)
+fs.writeFileSync('./AlyaMedia/database/xeonvideo.json', JSON.stringify(VideoAlya))
 fs.unlinkSync(`./AlyaMedia/video/${q}.mp4`)
 replygcalya(`Success deleting video ${q}`)
 }
 break
 case 'listvideo':{
 let teks = '┌──⭓「 *Video List* 」\n┃\n'
-for (let x of VideoXeon) {
+for (let x of VideoAlya) {
 teks += `┃⭔ ${x}\n`
 }
-teks += `┃\n┗⊶───────────⭓\n\n*Totally there are : ${VideoXeon.length}*`
+teks += `┃\n┗⊶───────────⭓\n\n*Totally there are : ${VideoAlya.length}*`
 replygcalya(teks)
 }
 break
 case 'addimage':{
-if (!XeonTheCreator) return XeonStickOwner()
+if (!AlyaTheCreator) return AlyaStickOwner()
 if (args.length < 1) return replygcalya('Whats the image name?')
-if (ImageXeon.includes(q)) return replygcalya("The name is already in use")
+if (ImageAlya.includes(q)) return replygcalya("The name is already in use")
 let delb = await AlyaBotInc.downloadAndSaveMediaMessage(quoted)
-ImageXeon.push(q)
+ImageAlya.push(q)
 await fsx.copy(delb, `./AlyaMedia/image/${q}.jpg`)
-fs.writeFileSync('./AlyaMedia/database/xeonimage.json', JSON.stringify(ImageXeon))
+fs.writeFileSync('./AlyaMedia/database/xeonimage.json', JSON.stringify(ImageAlya))
 fs.unlinkSync(delb)
 replygcalya(`Success Adding Image\nCheck by typing ${prefix}listimage`)
 }
 break
 case 'delimage':{
-if (!XeonTheCreator) return XeonStickOwner()
+if (!AlyaTheCreator) return AlyaStickOwner()
 if (args.length < 1) return replygcalya('Enter the image name')
-if (!ImageXeon.includes(q)) return replygcalya("The name does not exist in the database")
-let wanu = ImageXeon.indexOf(q)
-ImageXeon.splice(wanu, 1)
-fs.writeFileSync('./AlyaMedia/database/xeonimage.json', JSON.stringify(ImageXeon))
+if (!ImageAlya.includes(q)) return replygcalya("The name does not exist in the database")
+let wanu = ImageAlya.indexOf(q)
+ImageAlya.splice(wanu, 1)
+fs.writeFileSync('./AlyaMedia/database/xeonimage.json', JSON.stringify(ImageAlya))
 fs.unlinkSync(`./AlyaMedia/image/${q}.jpg`)
 replygcalya(`Success deleting image ${q}`)
 }
 break
 case 'listimage':{
 let teks = '┌──⭓「 *Image List* 」\n┃\n'
-for (let x of ImageXeon) {
+for (let x of ImageAlya) {
 teks += `┃⭔ ${x}\n`
 }
-teks += `┃\n┗⊶───────────⭓\n\n*Totally there are : ${ImageXeon.length}*`
+teks += `┃\n┗⊶───────────⭓\n\n*Totally there are : ${ImageAlya.length}*`
 replygcalya(teks)
 }
 break
 case 'addsticker':{
-if (!XeonTheCreator) return XeonStickOwner()
+if (!AlyaTheCreator) return AlyaStickOwner()
 if (args.length < 1) return replygcalya('Whats the sticker name?')
-if (StickerXeon.includes(q)) return replygcalya("The name is already in use")
+if (StickerAlya.includes(q)) return replygcalya("The name is already in use")
 let delb = await AlyaBotInc.downloadAndSaveMediaMessage(quoted)
-StickerXeon.push(q)
+StickerAlya.push(q)
 await fsx.copy(delb, `./AlyaMedia/sticker/${q}.webp`)
-fs.writeFileSync('./AlyaMedia/database/xeonsticker.json', JSON.stringify(StickerXeon))
+fs.writeFileSync('./AlyaMedia/database/xeonsticker.json', JSON.stringify(StickerAlya))
 fs.unlinkSync(delb)
 replygcalya(`Success Adding Sticker\nCheck by typing ${prefix}liststicker`)
 }
 break
 case 'delsticker':{
-if (!XeonTheCreator) return XeonStickOwner()
+if (!AlyaTheCreator) return AlyaStickOwner()
 if (args.length < 1) return replygcalya('Enter the sticker name')
-if (!StickerXeon.includes(q)) return replygcalya("The name does not exist in the database")
-let wanu = StickerXeon.indexOf(q)
-StickerXeon.splice(wanu, 1)
-fs.writeFileSync('./AlyaMedia/database/xeonsticker.json', JSON.stringify(StickerXeon))
+if (!StickerAlya.includes(q)) return replygcalya("The name does not exist in the database")
+let wanu = StickerAlya.indexOf(q)
+StickerAlya.splice(wanu, 1)
+fs.writeFileSync('./AlyaMedia/database/xeonsticker.json', JSON.stringify(StickerAlya))
 fs.unlinkSync(`./AlyaMedia/sticker/${q}.webp`)
 replygcalya(`Success deleting sticker ${q}`)
 }
 break
 case 'liststicker':{
 let teks = '┌──⭓「 *Sticker List* 」\n┃\n'
-for (let x of StickerXeon) {
+for (let x of StickerAlya) {
 teks += `┃⭔ ${x}\n`
 }
-teks += `┃\n┗⊶───────────⭓\n\n*Totally there are : ${StickerXeon.length}*`
+teks += `┃\n┗⊶───────────⭓\n\n*Totally there are : ${StickerAlya.length}*`
 replygcalya(teks)
 }
 break
 case 'addvn':{
-if (!XeonTheCreator) return XeonStickOwner()
+if (!AlyaTheCreator) return AlyaStickOwner()
 if (args.length < 1) return replygcalya('Whats the audio name?')
-if (VoiceNoteXeon.includes(q)) return replygcalya("The name is already in use")
+if (VoiceNoteAlya.includes(q)) return replygcalya("The name is already in use")
 let delb = await AlyaBotInc.downloadAndSaveMediaMessage(quoted)
-VoiceNoteXeon.push(q)
+VoiceNoteAlya.push(q)
 await fsx.copy(delb, `./AlyaMedia/audio/${q}.mp3`)
-fs.writeFileSync('./AlyaMedia/database/xeonvn.json', JSON.stringify(VoiceNoteXeon))
+fs.writeFileSync('./AlyaMedia/database/xeonvn.json', JSON.stringify(VoiceNoteAlya))
 fs.unlinkSync(delb)
 replygcalya(`Success Adding Audio\nCheck by typing ${prefix}listvn`)
 }
 break
 case 'delvn':{
-if (!XeonTheCreator) return XeonStickOwner()
+if (!AlyaTheCreator) return AlyaStickOwner()
 if (args.length < 1) return replygcalya('Enter the vn name')
-if (!VoiceNoteXeon.includes(q)) return replygcalya("The name does not exist in the database")
-let wanu = VoiceNoteXeon.indexOf(q)
-VoiceNoteXeon.splice(wanu, 1)
-fs.writeFileSync('./AlyaMedia/database/xeonvn.json', JSON.stringify(VoiceNoteXeon))
+if (!VoiceNoteAlya.includes(q)) return replygcalya("The name does not exist in the database")
+let wanu = VoiceNoteAlya.indexOf(q)
+VoiceNoteAlya.splice(wanu, 1)
+fs.writeFileSync('./AlyaMedia/database/xeonvn.json', JSON.stringify(VoiceNoteAlya))
 fs.unlinkSync(`./AlyaMedia/audio/${q}.mp3`)
 replygcalya(`Success deleting vn ${q}`)
 }
 break
 case 'listvn':{
 let teks = '┌──⭓「 *VN List* 」\n┃\n'
-for (let x of VoiceNoteXeon) {
+for (let x of VoiceNoteAlya) {
 teks += `┃⭔ ${x}\n`
 }
-teks += `┃\n┗⊶───────────⭓\n\n*Totally there are : ${VoiceNoteXeon.length}*`
+teks += `┃\n┗⊶───────────⭓\n\n*Totally there are : ${VoiceNoteAlya.length}*`
 replygcalya(teks)
 }
 break
 case 'addowner':
-if (!XeonTheCreator) return XeonStickOwner()
+if (!AlyaTheCreator) return AlyaStickOwner()
 if (!args[0]) return replygcalya(`Use ${prefix+command} number\nExample ${prefix+command} ${ownernumber}`)
 bnnd = q.split("|")[0].replace(/[^0-9]/g, '')
 let ceknye = await AlyaBotInc.onWhatsApp(bnnd)
@@ -3693,7 +4164,7 @@ fs.writeFileSync('./database/owner.json', JSON.stringify(owner))
 replygcalya(`Number ${bnnd} Has Become An Owner!!!`)
 break
 case 'delowner':
-if (!XeonTheCreator) return XeonStickOwner()
+if (!AlyaTheCreator) return AlyaStickOwner()
 if (!args[0]) return replygcalya(`Use ${prefix+command} nomor\nExample ${prefix+command} 2348100835767`)
 ya = q.split("|")[0].replace(/[^0-9]/g, '')
 unp = owner.indexOf(ya)
@@ -3743,7 +4214,7 @@ ${Object.entries(global.db.sticker).map(([key, value], index) => `${index + 1}. 
             }
             break 
 case 'lockcmd': {
-                if (!isCreator) return XeonStickOwner()
+                if (!isCreator) return AlyaStickOwner()
                 if (!m.quoted) return replygcalya('Reply Message!')
                 if (!m.quoted.fileSha256) return replygcalya('SHA256 Hash Missing')
                 let hash = m.quoted.fileSha256.toString('base64')
@@ -3790,7 +4261,7 @@ case 'listmsg': {
             }
 	    break
 case 'setexif': {
-               if (!XeonTheCreator) return XeonStickOwner()
+               if (!AlyaTheCreator) return AlyaStickOwner()
                if (!text) return replygcalya(`Example : ${prefix + command} packname|author`)
           global.packname = text.split("|")[0]
           global.author = text.split("|")[1]
@@ -3817,7 +4288,7 @@ case 'getbio':{
 }
 break
 case 'setppbot': case 'setbotpp': {
-if (!XeonTheCreator) return XeonStickOwner()
+if (!AlyaTheCreator) return AlyaStickOwner()
 if (!quoted) return replygcalya(`Send/Reply Image With Caption ${prefix + command}`)
 if (!/image/.test(mime)) return replygcalya(`Send/Reply Image With Caption ${prefix + command}`)
 if (/webp/.test(mime)) return replygcalya(`Send/Reply Image With Caption ${prefix + command}`)
@@ -3849,7 +4320,7 @@ replygcalya(`Success`)
 }
 break
 case 'creategc': case 'creategroup': {
-if (!XeonTheCreator) return XeonStickOwner()
+if (!AlyaTheCreator) return AlyaStickOwner()
 if (!args.join(" ")) return replygcalya(`Use ${prefix+command} groupname`)
 try {
 let cret = await AlyaBotInc.groupCreate(args.join(" "), [])
@@ -3901,7 +4372,7 @@ break
 case 'tomp4': case 'tovideo': {
                 if (!quoted) return replygcalya('Reply to Sticker')
                 if (!/webp/.test(mime)) return replygcalya(`reply sticker with caption *${prefix + command}*`)
-                XeonStickWait()
+                AlyaStickWait()
 		        let { webp2mp4File } = require('./lib/uploader')
                 let media = await AlyaBotInc.downloadAndSaveMediaMessage(quoted)
                 let webpToMp4 = await webp2mp4File(media)
@@ -3912,7 +4383,7 @@ case 'tomp4': case 'tovideo': {
             case 'toaud': case 'toaudio': {
             if (!/video/.test(mime) && !/audio/.test(mime)) return replygcalya(`Send/Reply Video/Audio You Want to Use as Audio With Caption ${prefix + command}`)
             if (!quoted) return replygcalya(`Send/Reply Video/Audio You Want to Use as Audio With Caption ${prefix + command}`)
-            XeonStickWait()
+            AlyaStickWait()
             let media = await quoted.download()
             let { toAudio } = require('./lib/converter')
             let audio = await toAudio(media, 'mp4')
@@ -3923,7 +4394,7 @@ case 'tomp4': case 'tovideo': {
             if (/document/.test(mime)) return replygcalya(`Send/Reply Video/Audio You Want to Convert into MP3 With Caption ${prefix + command}`)
             if (!/video/.test(mime) && !/audio/.test(mime)) return replygcalya(`Send/Reply Video/Audio You Want to Convert into MP3 With Caption ${prefix + command}`)
             if (!quoted) return replygcalya(`Send/Reply Video/Audio You Want to Convert into MP3 With Caption ${prefix + command}`)
-            XeonStickWait()
+            AlyaStickWait()
             let media = await quoted.download()
             let { toAudio } = require('./lib/converter')
             let audio = await toAudio(media, 'mp4')
@@ -3933,7 +4404,7 @@ case 'tomp4': case 'tovideo': {
             case 'tovn': case 'toptt': {
             if (!/video/.test(mime) && !/audio/.test(mime)) return replygcalya(`Reply Video/Audio That You Want To Be VN With Caption ${prefix + command}`)
             if (!quoted) return replygcalya(`Reply Video/Audio That You Want To Be VN With Caption ${prefix + command}`)
-            XeonStickWait()
+            AlyaStickWait()
             let media = await quoted.download()
             let { toPTT } = require('./lib/converter')
             let audio = await toPTT(media, 'mp4')
@@ -3943,7 +4414,7 @@ case 'tomp4': case 'tovideo': {
             case 'togif': {
                 if (!quoted) return replygcalya('Reply video')
                 if (!/webp/.test(mime)) return replygcalya(`reply sticker with caption *${prefix + command}*`)
-                XeonStickWait()
+                AlyaStickWait()
 		let { webp2mp4File } = require('./lib/uploader')
                 let media = await AlyaBotInc.downloadAndSaveMediaMessage(quoted)
                 let webpToMp4 = await webp2mp4File(media)
@@ -4048,7 +4519,7 @@ case 'tomp4': case 'tovideo': {
      "put your father name on status for 5hrs",
      "send abusive words in any grup, excepting this grup, and send screenshot proof here"
 ]
-              const xeondare = dare[Math.floor(Math.random() * dare.length)]
+              const alyadare = dare[Math.floor(Math.random() * dare.length)]
               bufferdare = await getBuffer(`https://i.ibb.co/305yt26/bf84f20635dedd5dde31e7e5b6983ae9.jpg`)
               AlyaBotInc.sendMessage(from, { image: bufferdare, caption: '_You choose DARE_\n'+ xeondare }, {quoted:m})
               break
@@ -4145,7 +4616,7 @@ case 'tomp4': case 'tovideo': {
     "Whats the strangest dream you have ever had",
     "do you play pubg, if you then send ur id number"
 ]
-              const xeontruth = truth[Math.floor(Math.random() * truth.length)]
+              const alyatruth = truth[Math.floor(Math.random() * truth.length)]
               buffertruth = await getBuffer(`https://i.ibb.co/305yt26/bf84f20635dedd5dde31e7e5b6983ae9.jpg`)
               AlyaBotInc.sendMessage(from, { image: buffertruth, caption: '_You choose TRUTH_\n'+ xeontruth }, {quoted:m})
               break
@@ -4194,7 +4665,7 @@ case 'checkme':
 AlyaBotInc.sendMessage(from, { image: buff, caption: profile, mentions: [bet]},{quoted:m})
 break
 case 'toimg': {
-	XeonStickWait()
+	AlyaStickWait()
 	const getRandom = (ext) => {
             return `${Math.floor(Math.random() * 10000)}${ext}`
         }
@@ -4310,26 +4781,26 @@ replygcalya(`Send/Reply Images/Videos/Gifs With Captions ${prefix+command}\nVide
 }
 break
 case 'quotes':
-const quotexeony = await axios.get(`https://favqs.com/api/qotd`)
-        const textquotes = `*${themeemoji} Quote:* ${quotexeony.data.quote.body}\n\n*${themeemoji} Author:* ${quotexeony.data.quote.author}`
+const quotealya = await axios.get(`https://favqs.com/api/qotd`)
+        const textquotes = `*${themeemoji} Quote:* ${quotealya.data.quote.body}\n\n*${themeemoji} Author:* ${quotealya.data.quote.author}`
 return replygcalya(textquotes)
 break
 case 'handsomecheck':
-				if (!text) return replygcalya(`Tag Someone, Example : ${prefix + command} @Xeon`)
+				if (!text) return replygcalya(`Tag Someone, Example : ${prefix + command} @Alya`)
 					const gan = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','41','42','43','44','45','46','47','48','49','50','51','52','53','54','55','56','57','58','59','60','61','62','63','64','65','66','67','68','69','70','71','72','73','74','75','76','77','78','79','80','81','82','83','84','85','86','87','88','89','90','91','92','93','94','95','96','97','98','99','100']
 					const teng = gan[Math.floor(Math.random() * gan.length)]
 AlyaBotInc.sendMessage(from, { text: `*${command}*\n\nName : ${q}\nAnswer : *${teng}%*` }, { quoted: m })
 					break
 case 'beautifulcheck':
-				if (!text) return replygcalya(`Tag Someone, Example : ${prefix + command} @Xeon`)
+				if (!text) return replygcalya(`Tag Someone, Example : ${prefix + command} @Alya`)
 					const can = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','41','42','43','44','45','46','47','48','49','50','51','52','53','54','55','56','57','58','59','60','61','62','63','64','65','66','67','68','69','70','71','72','73','74','75','76','77','78','79','80','81','82','83','84','85','86','87','88','89','90','91','92','93','94','95','96','97','98','99','100']
 					const tik = can[Math.floor(Math.random() * can.length)]
 AlyaBotInc.sendMessage(from, { text: `*${command}*\n\nNama : ${q}\nAnswer : *${tik}%*` }, { quoted: m })
 					break
 					case 'charactercheck':
-					if (!text) return replygcalya(`Tag Someone, Example : ${prefix + command} @Xeon`)
-					const xeony =['Compassionate','Generous','Grumpy','Forgiving','Obedient','Good','Simp','Kind-Hearted','patient','UwU','top, anyway','Helpful']
-					const taky = xeony[Math.floor(Math.random() * xeony.length)]
+					if (!text) return replygcalya(`Tag Someone, Example : ${prefix + command} @Alya`)
+					const alyay =['Compassionate','Generous','Grumpy','Forgiving','Obedient','Good','Simp','Kind-Hearted','patient','UwU','top, anyway','Helpful']
+					const taky = alya[Math.floor(Math.random() * alya.length)]
 					AlyaBotInc.sendMessage(from, { text: `Character Check : ${q}\nAnswer : *${taky}*` }, { quoted: m })
 				     break
 case 'awesomecheck':
@@ -4342,7 +4813,7 @@ case 'awesomecheck':
                  case 'prettycheck':
                     case 'lovelycheck':
                       case 'uglycheck':
-if (!m.isGroup) return XeonStickGroup()
+if (!m.isGroup) return AlyaStickGroup()
 const cex = body.slice(0)
 const cek1 = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','41','42','43','44','45','46','47','48','49','50','51','52','53','54','55','56','57','58','59','60','61','62','63','64','65','66','67','68','69','70','71','72','73','74','75','76','77','78','79','80','81','82','83','84','85','86','87','88','89','90','91','92','93','94','95','96','97','98','99','100']
 const cek2 = cek1[Math.floor(Math.random() * cek1.length)]
@@ -4355,7 +4826,7 @@ AlyaBotInc.sendMessage(from, { text: 'Question : *' + cex + '*\nChecker : ' + `@
 }
 break
 case 'obfus': case 'obfuscate':{
-if (!q) return replygcalya(`Example ${prefix+command} const xeonbot = require('baileys')`)
+if (!q) return replygcalya(`Example ${prefix+command} const alyabot = require('baileys')`)
 let meg = await obfus(q)
 replygcalya(`Success
 ${meg.result}`)
@@ -4431,7 +4902,7 @@ case '1917':
 case 'leaves': {
 
 if (!q) return replygcalya(`Example : ${prefix+command} AlyaBotInc`) 
-XeonStickWait()
+AlyaStickWait()
 let link
 if (/candy/.test(command)) link = 'https://textpro.me/create-christmas-candy-cane-text-effect-1056.html'
 if (/christmas/.test(command)) link = 'https://textpro.me/christmas-tree-text-effect-online-free-1057.html'
@@ -4526,7 +4997,7 @@ case 'galaxystyle':
 case 'lighteffects':{
 
 if (!q) return replygcalya(`Example : ${prefix+command} AlyaBotInc`) 
-XeonStickWait()
+AlyaStickWait()
 let link
 if (/glitchtext/.test(command)) link = 'https://en.ephoto360.com/create-digital-glitch-text-effects-online-767.html'
 if (/writetext/.test(command)) link = 'https://en.ephoto360.com/write-text-on-wet-glass-online-589.html'
@@ -4591,7 +5062,7 @@ case 'quotesunder':
 case 'shinetext':{
 
 if (!q) return replygcalya(`Example : ${prefix+command} AlyaBotInc`) 
-XeonStickWait()
+AlyaStickWait()
 let link
 if (/stonetext/.test(command)) link = 'https://photooxy.com/online-3d-white-stone-text-effect-utility-411.html'
 if (/writeart/.test(command)) link = 'https://photooxy.com/logo-and-text-effects/write-art-quote-on-wood-heart-370.html'
@@ -4626,7 +5097,7 @@ AlyaBotInc.sendMessage(m.chat, { image: { url: dehe }, caption: `${mess.success}
 break
 case 'pornhub':{
 if(!q) return replygcalya(`Example: ${prefix + command} ajg | ea`)
-XeonStickWait()
+AlyaStickWait()
   inilogo4 = args.join(" ")
 inilogo9 = args.join(" ")
    var logo4 = inilogo4.split('|')[0]
@@ -4638,7 +5109,7 @@ AlyaBotInc.sendMessage(from,{image:{url:anuphub}, caption:"Here you go!"},{quote
 break
 case 'retro':{
 if(!q) return replygcalya(`Example: ${prefix + command} ajg | ea`)
-XeonStickWait()
+AlyaStickWait()
   inilogo4 = args.join(" ")
 inilogo9 = args.join(" ")
    var logo4 = inilogo4.split('|')[0]
@@ -4650,7 +5121,7 @@ AlyaBotInc.sendMessage(from,{image:{url:anutro2}, caption:"Here you go!"},{quote
 break
 case '8bit':{
 if(!q) return replygcalya(`Example: ${prefix + command} ajg | ea`)
-XeonStickWait()
+AlyaStickWait()
   inilogo4 = args.join(" ")
 inilogo9 = args.join(" ")
    var logo4 = inilogo4.split('|')[0]
@@ -4662,7 +5133,7 @@ AlyaBotInc.sendMessage(from,{image:{url:anubit8}, caption:"Here you go!"},{quote
 break
 case 'batman':
 if(!q) return replygcalya(`Example: ${prefix + command} ajg`)
-XeonStickWait()
+AlyaStickWait()
 maker.textpro("https://textpro.me/make-a-batman-logo-online-free-1066.html", [
     `${q}`,])
   .then((data) => AlyaBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
@@ -4670,7 +5141,7 @@ maker.textpro("https://textpro.me/make-a-batman-logo-online-free-1066.html", [
    break
 case '3dbox':
 if(!q) return replygcalya(`Example: ${prefix + command} ea`)
-XeonStickWait()
+AlyaStickWait()
 maker.textpro("https://textpro.me/3d-box-text-effect-online-880.html", [
     `${q}`,])
 .then((data) => AlyaBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
@@ -4678,7 +5149,7 @@ maker.textpro("https://textpro.me/3d-box-text-effect-online-880.html", [
 break
 case 'lion':
   if(!q) return replygcalya(`Example: ${prefix + command} ajg`)
-XeonStickWait()
+AlyaStickWait()
   maker.textpro("https://textpro.me/create-lion-logo-mascot-online-938.html", [
       `${q}`,])
      .then((data) => AlyaBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
@@ -4686,7 +5157,7 @@ XeonStickWait()
      break
 case '3davengers':
 if(!q) return replygcalya(`Example: ${prefix + command} ajg`)
-XeonStickWait()
+AlyaStickWait()
 maker.textpro("https://textpro.me/create-3d-avengers-logo-online-974.html", [
     `${q}`,])
   .then((data) => AlyaBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
@@ -4694,7 +5165,7 @@ maker.textpro("https://textpro.me/create-3d-avengers-logo-online-974.html", [
    break 
 case 'window':
 if(!q) return replygcalya(`Example: ${prefix + command} ajg`)
-XeonStickWait()
+AlyaStickWait()
 maker.textpro("https://textpro.me/write-text-on-foggy-window-online-free-1015.html", [
     `${q}`,])
   .then((data) => AlyaBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
@@ -4702,7 +5173,7 @@ maker.textpro("https://textpro.me/write-text-on-foggy-window-online-free-1015.ht
    break
 case '3dspace':
 if(!q) return replygcalya(`Example: ${prefix + command} ajg | ea`)
-XeonStickWait()
+AlyaStickWait()
 teks1 = q.split("|")[0]
 teks2 = q.split("|")[1]
 maker.textpro("https://textpro.me/create-space-3d-text-effect-online-985.html", [
@@ -4712,7 +5183,7 @@ maker.textpro("https://textpro.me/create-space-3d-text-effect-online-985.html", 
    break
 case 'bokeh':
 if(!q) return replygcalya(`Example: ${prefix + command} ajg`)
-XeonStickWait()
+AlyaStickWait()
 maker.textpro("https://textpro.me/bokeh-text-effect-876.html", [
     `${q}`,])
   .then((data) => AlyaBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
@@ -4720,7 +5191,7 @@ maker.textpro("https://textpro.me/bokeh-text-effect-876.html", [
    break
 case 'holographic':
 if(!q) return replygcalya(`Example: ${prefix + command} ajg`)
-XeonStickWait()
+AlyaStickWait()
 maker.textpro("https://textpro.me/holographic-3d-text-effect-975.html", [
     `${q}`,])
   .then((data) => AlyaBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
@@ -4728,7 +5199,7 @@ maker.textpro("https://textpro.me/holographic-3d-text-effect-975.html", [
    break
 case 'thewall':
 if(!q) return replygcalya(`Example: ${prefix + command} ajg`)
-XeonStickWait()
+AlyaStickWait()
 maker.textpro("https://textpro.me/break-wall-text-effect-871.html", [
     `${q}`,])
   .then((data) => AlyaBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
@@ -4736,7 +5207,7 @@ maker.textpro("https://textpro.me/break-wall-text-effect-871.html", [
    break 
 case 'carbon':
 if(!q) return replygcalya(`Example: ${prefix + command} ajg`)
-XeonStickWait()
+AlyaStickWait()
 maker.textpro("https://textpro.me/carbon-text-effect-833.html", [
     `${q}`,])
   .then((data) => AlyaBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
@@ -4744,7 +5215,7 @@ maker.textpro("https://textpro.me/carbon-text-effect-833.html", [
    break
 case 'whitebear':
 if(!q) return replygcalya(`Example: ${prefix + command} ajg`)
-XeonStickWait()
+AlyaStickWait()
 maker.textpro("https://textpro.me/online-black-and-white-bear-mascot-logo-creation-1012.html", [
     `${q}`,])
   .then((data) => AlyaBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
@@ -4752,7 +5223,7 @@ maker.textpro("https://textpro.me/online-black-and-white-bear-mascot-logo-creati
    break
 case 'metallic':
 if(!q) return replygcalya(`Example: ${prefix + command} ajg`)
-XeonStickWait()
+AlyaStickWait()
 maker.textpro("https://textpro.me/create-a-metallic-text-effect-free-online-1041.html", [
     `${q}`,])
   .then((data) => AlyaBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
@@ -4760,7 +5231,7 @@ maker.textpro("https://textpro.me/create-a-metallic-text-effect-free-online-1041
    break
 case 'steel':
 if(!q) return replygcalya(`Example: ${prefix + command} ajg`)
-XeonStickWait()
+AlyaStickWait()
 maker.textpro("https://textpro.me/steel-text-effect-online-921.html", [
     `${q}`,])
   .then((data) => AlyaBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
@@ -4768,7 +5239,7 @@ maker.textpro("https://textpro.me/steel-text-effect-online-921.html", [
    break
 case 'fabric':
 if(!q) return replygcalya(`Example: ${prefix + command} ajg`)
-XeonStickWait()
+AlyaStickWait()
 maker.textpro("https://textpro.me/fabric-text-effect-online-964.html", [
     `${q}`,])
   .then((data) => AlyaBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
@@ -4776,7 +5247,7 @@ maker.textpro("https://textpro.me/fabric-text-effect-online-964.html", [
    break
 case 'ancient':
 if(!q) return replygcalya(`Example: ${prefix + command} ajg`)
-XeonStickWait()
+AlyaStickWait()
 maker.textpro("https://textpro.me/3d-golden-ancient-text-effect-online-free-1060.html", [
     `${q}`,])
   .then((data) => AlyaBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
@@ -4784,248 +5255,248 @@ maker.textpro("https://textpro.me/3d-golden-ancient-text-effect-online-free-1060
    break
 case 'marvel':
 if(!q) return replygcalya(`Example: ${prefix + command} ajg`)
-XeonStickWait()
+AlyaStickWait()
 maker.textpro("https://textpro.me/create-logo-style-marvel-studios-ver-metal-972.html", [
     `${q}`,])
   .then((data) => AlyaBotInc.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
    break
 case 'tiktokgirl':
-XeonStickWait()
+AlyaStickWait()
 var asupan = JSON.parse(fs.readFileSync('./HostMedia/tiktokvids/tiktokgirl.json'))
 var hasil = pickRandom(asupan)
 AlyaBotInc.sendMessage(m.chat, { caption: mess.success, video: { url: hasil.url }}, { quoted: m })
 break
 case 'tiktokghea':
-XeonStickWait()
+AlyaStickWait()
 var gheayubi = JSON.parse(fs.readFileSync('./HostMedia/tiktokvids/gheayubi.json'))
 var hasil = pickRandom(gheayubi)
 AlyaBotInc.sendMessage(m.chat, { caption: mess.success, video: { url: hasil.url }}, { quoted: m })
 break
 case 'tiktokbocil':
-XeonStickWait()
+AlyaStickWait()
 var bocil = JSON.parse(fs.readFileSync('./HostMedia/tiktokvids/bocil.json'))
 var hasil = pickRandom(bocil)
 AlyaBotInc.sendMessage(m.chat, { caption: mess.success, video: { url: hasil.url }}, { quoted: m })
 break
 case 'tiktoknukhty':
-XeonStickWait()
+AlyaStickWait()
 var ukhty = JSON.parse(fs.readFileSync('./HostMedia/tiktokvids/ukhty.json'))
 var hasil = pickRandom(ukhty)
 AlyaBotInc.sendMessage(m.chat, { caption: mess.success, video: { url: hasil.url }}, { quoted: m })
 break
 case 'tiktoksantuy':
-XeonStickWait()
+AlyaStickWait()
 var santuy = JSON.parse(fs.readFileSync('./HostMedia/tiktokvids/santuy.json'))
 var hasil = pickRandom(santuy)
 AlyaBotInc.sendMessage(m.chat, { caption: mess.success, video: { url: hasil.url }}, { quoted: m })
 break
 case 'tiktokkayes':
-XeonStickWait()
+AlyaStickWait()
 var kayes = JSON.parse(fs.readFileSync('./HostMedia/tiktokvids/kayes.json'))
 var hasil = pickRandom(kayes)
 AlyaBotInc.sendMessage(m.chat, { caption: mess.success, video: { url: hasil.url }}, { quoted: m })
 break
 case 'tiktokpanrika':
-XeonStickWait()
+AlyaStickWait()
 var rikagusriani = JSON.parse(fs.readFileSync('./HostMedia/tiktokvids/panrika.json'))
 var hasil = pickRandom(rikagusriani)
 AlyaBotInc.sendMessage(m.chat, { caption: mess.success, video: { url: hasil.url }}, { quoted: m })
 break
 case 'tiktoknotnot':
-XeonStickWait()
+AlyaStickWait()
 var notnot = JSON.parse(fs.readFileSync('./HostMedia/tiktokvids/notnot.json'))
 var hasil = pickRandom(notnot)
 AlyaBotInc.sendMessage(m.chat, { caption: mess.success, video: { url: hasil.url }}, { quoted: m })
 break
 case 'chinese':
-XeonStickWait()
+AlyaStickWait()
 var notnot = JSON.parse(fs.readFileSync('./HostMedia/tiktokpics/china.json'))
 var hasil = pickRandom(notnot)
 AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case 'hijab':
-XeonStickWait()
+AlyaStickWait()
 var notnot = JSON.parse(fs.readFileSync('./HostMedia/tiktokpics/hijab.json'))
 var hasil = pickRandom(notnot)
 AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case 'indo':
-XeonStickWait()
+AlyaStickWait()
 var notnot = JSON.parse(fs.readFileSync('./HostMedia/tiktokpics/indonesia.json'))
 var hasil = pickRandom(notnot)
 AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case 'japanese':
-XeonStickWait()
+AlyaStickWait()
 var notnot = JSON.parse(fs.readFileSync('./HostMedia/tiktokpics/japan.json'))
 var hasil = pickRandom(notnot)
 AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case 'korean':
-XeonStickWait()
+AlyaStickWait()
 var notnot = JSON.parse(fs.readFileSync('./HostMedia/tiktokpics/korea.json'))
 var hasil = pickRandom(notnot)
 AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case 'malay':
-XeonStickWait()
+AlyaStickWait()
 var notnot = JSON.parse(fs.readFileSync('./HostMedia/tiktokpics/malaysia.json'))
 var hasil = pickRandom(notnot)
 AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case 'randomgirl':
-XeonStickWait()
+AlyaStickWait()
 var notnot = JSON.parse(fs.readFileSync('./HostMedia/tiktokpics/random.json'))
 var hasil = pickRandom(notnot)
 AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case 'randomboy':
-XeonStickWait()
+AlyaStickWait()
 var notnot = JSON.parse(fs.readFileSync('./HostMedia/tiktokpics/random2.json'))
 var hasil = pickRandom(notnot)
 AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case 'thai':
-XeonStickWait()
+AlyaStickWait()
 var notnot = JSON.parse(fs.readFileSync('./HostMedia/tiktokpics/thailand.json'))
 var hasil = pickRandom(notnot)
 AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case 'vietnamese':
-XeonStickWait()
+AlyaStickWait()
 var notnot = JSON.parse(fs.readFileSync('./HostMedia/tiktokpics/vietnam.json'))
 var hasil = pickRandom(notnot)
 AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case 'aesthetic':
-XeonStickWait()
+AlyaStickWait()
 var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/aesthetic.json'))
 var hasil = pickRandom(notnot)
 AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case 'antiwork':
-XeonStickWait()
+AlyaStickWait()
 var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/antiwork.json'))
 var hasil = pickRandom(notnot)
 AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case 'blackpink':
-XeonStickWait()
+AlyaStickWait()
 var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/blackpink.json'))
 var hasil = pickRandom(notnot)
 AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case 'bike':
-XeonStickWait()
+AlyaStickWait()
 var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/bike.json'))
 var hasil = pickRandom(notnot)
 AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case 'boneka':
-XeonStickWait()
+AlyaStickWait()
 var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/boneka.json'))
 var hasil = pickRandom(notnot)
 AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case 'cosplay':
-XeonStickWait()
+AlyaStickWait()
 var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/cosplay.json'))
 var hasil = pickRandom(notnot)
 AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case 'cat':
-XeonStickWait()
+AlyaStickWait()
 var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/cat.json'))
 var hasil = pickRandom(notnot)
 AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case 'doggo':
-XeonStickWait()
+AlyaStickWait()
 var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/doggo.json'))
 var hasil = pickRandom(notnot)
 AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case 'justina':
-XeonStickWait()
+AlyaStickWait()
 var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/justina.json'))
 var hasil = pickRandom(notnot)
 AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case 'kayes':
-XeonStickWait()
+AlyaStickWait()
 var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/kayes.json'))
 var hasil = pickRandom(notnot)
 AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case 'kpop':
-XeonStickWait()
+AlyaStickWait()
 var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/kpop.json'))
 var hasil = pickRandom(notnot)
 AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case 'notnot':
-XeonStickWait()
+AlyaStickWait()
 var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/notnot.json'))
 var hasil = pickRandom(notnot)
 AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case 'car':
-XeonStickWait()
+AlyaStickWait()
 var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/car.json'))
 var hasil = pickRandom(notnot)
 AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case 'couplepic':case 'couplepicture':
-XeonStickWait()
+AlyaStickWait()
 var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/ppcouple.json'))
 var hasil = pickRandom(notnot)
 AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case 'profilepic':  case 'profilepicture':
-XeonStickWait()
+AlyaStickWait()
 var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/profile.json'))
 var hasil = pickRandom(notnot)
 AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case 'pubg':
-XeonStickWait()
+AlyaStickWait()
 var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/pubg.json'))
 var hasil = pickRandom(notnot)
 AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case 'rose':
-XeonStickWait()
+AlyaStickWait()
 var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/rose.json'))
 var hasil = pickRandom(notnot)
 AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case 'ryujin':
-XeonStickWait()
+AlyaStickWait()
 var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/ryujin.json'))
 var hasil = pickRandom(notnot)
 AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case 'ulzzangboy':
-XeonStickWait()
+AlyaStickWait()
 var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/ulzzangboy.json'))
 var hasil = pickRandom(notnot)
 AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case 'ulzzanggirl':
-XeonStickWait()
+AlyaStickWait()
 var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/ulzzanggirl.json'))
 var hasil = pickRandom(notnot)
 AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case 'wallml': case 'wallpaperml':case 'mobilelegend':
-XeonStickWait()
+AlyaStickWait()
 var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/wallml.json'))
 var hasil = pickRandom(notnot)
 AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
 break
 case 'wallpaperphone': case 'wallphone':
-XeonStickWait()
+AlyaStickWait()
 var notnot = JSON.parse(fs.readFileSync('./HostMedia/randompics/wallhp.json'))
 var hasil = pickRandom(notnot)
 AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: hasil.url } }, { quoted: m })
@@ -5041,7 +5512,7 @@ case 'animewallpaper2': case 'animewall2': {
 case 'animewall': case 'animewallpaper':
 const { AnimeWallpaper } =require("anime-wallpaper")
 if(!q) return replygcalya('What wallpaper do you want?')
-XeonStickWait()
+AlyaStickWait()
 const wall = new AnimeWallpaper()
     const pages = [1,2,3,4]
         const random=pages[Math.floor(Math.random() * pages.length)]
@@ -5056,116 +5527,116 @@ const i = Math.floor(Math.random() * wallpaper.length)
 break
 case 'akira': case 'akiyama': case 'ana': case 'art': case 'asuna': case 'ayuzawa': case 'boruto': case 'bts': case 'chiho': case 'chitoge': case 'cosplay': case 'cosplayloli': case 'cosplaysagiri': case 'cyber': case 'deidara': case 'doraemon': case 'elaina': case 'emilia': case 'erza': case 'exo':  case 'gamewallpaper': case 'gremory': case 'hacker': case 'hestia': case 'hinata': case 'husbu': case 'inori': case 'islamic': case 'isuzu': case 'itachi': case 'itori': case 'jennie': case 'jiso': case 'justina': case 'kaga': case 'kagura': case 'kakasih': case 'kaori': case 'cartoon': case 'shortquote': case 'keneki': case 'kotori': case 'kurumi': case 'lisa': case 'loli': case 'madara': case 'megumin': case 'mikasa': case 'mikey': case 'miku': case 'minato': case 'mountain': case 'naruto': case 'neko': case 'neko2': case 'nekonime': case 'nezuko': case 'onepiece': case 'pentol': case 'pokemon': case 'programming':  case 'randomnime': case 'randomnime2': case 'rize': case 'rose': case 'sagiri': case 'sakura': case 'sasuke': case 'satanic': case 'shina': case 'shinka': case 'shinomiya': case 'shizuka': case 'shota': case 'space': case 'technology': case 'tejina': case 'toukachan': case 'tsunade': case 'waifu': case 'yotsuba': case 'yuki': case 'yulibocil': case 'yumeko':{
 
-XeonStickWait()
+AlyaStickWait()
 let heyy
-if (/akira/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/akira.json')
-if (/akiyama/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/akiyama.json')
-if (/ana/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/ana.json')
-if (/art/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/art.json')
-if (/asuna/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/asuna.json')
-if (/ayuzawa/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/ayuzawa.json')
-if (/boneka/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/boneka.json')
-if (/boruto/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/boruto.json')
-if (/bts/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/bts.json')
-if (/cecan/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/cecan.json')
-if (/chiho/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/chiho.json')
-if (/chitoge/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/chitoge.json')
-if (/cogan/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/cogan.json')
-if (/cosplay/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/cosplay.json')
-if (/cosplayloli/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/cosplayloli.json')
-if (/cosplaysagiri/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/cosplaysagiri.json')
-if (/cyber/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/cyber.json')
-if (/deidara/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/deidara.json')
-if (/doraemon/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/doraemon.json')
-if (/eba/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/eba.json')
-if (/elaina/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/elaina.json')
-if (/emilia/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/emilia.json')
-if (/erza/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/erza.json')
-if (/exo/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/exo.json')
-if (/femdom/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/femdom.json')
-if (/freefire/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/freefire.json')
-if (/gamewallpaper/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/gamewallpaper.json')
-if (/glasses/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/glasses.json')
-if (/gremory/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/gremory.json')
-if (/hacker/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/hekel.json')
-if (/hestia/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/hestia.json')
-if (/husbu/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/husbu.json')
-if (/inori/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/inori.json')
-if (/islamic/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/islamic.json')
-if (/isuzu/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/isuzu.json')
-if (/itachi/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/itachi.json')
-if (/itori/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/itori.json')
-if (/jennie/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/jeni.json')
-if (/jiso/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/jiso.json')
-if (/justina/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/justina.json')
-if (/kaga/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/kaga.json')
-if (/kagura/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/kagura.json')
-if (/kakasih/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/kakasih.json')
-if (/kaori/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/kaori.json')
-if (/cartoon/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/kartun.json')
-if (/shortquote/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/katakata.json')
-if (/keneki/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/keneki.json')
-if (/kotori/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/kotori.json')
-if (/kpop/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/kpop.json')
-if (/kucing/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/kucing.json')
-if (/kurumi/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/kurumi.json')
-if (/lisa/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/lisa.json')
-if (/loli/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/loli.json')
-if (/madara/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/madara.json')
-if (/megumin/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/megumin.json')
-if (/mikasa/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/mikasa.json')
-if (/mikey/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/mikey.json')
-if (/miku/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/miku.json')
-if (/minato/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/minato.json')
-if (/mobile/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/mobil.json')
-if (/motor/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/motor.json')
-if (/mountain/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/mountain.json')
-if (/naruto/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/naruto.json')
-if (/neko/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/neko.json')
-if (/neko2/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/neko2.json')
-if (/nekonime/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/nekonime.json')
-if (/nezuko/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/nezuko.json')
-if (/onepiece/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/onepiece.json')
-if (/pentol/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/pentol.json')
-if (/pokemon/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/pokemon.json')
-if (/profil/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/profil.json')
-if (/progamming/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/programming.json')
-if (/pubg/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/pubg.json')
-if (/randblackpink/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/randblackpink.json')
-if (/randomnime/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/randomnime.json')
-if (/randomnime2/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/randomnime2.json')
-if (/rize/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/rize.json')
-if (/rose/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/rose.json')
-if (/ryujin/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/ryujin.json')
-if (/sagiri/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/sagiri.json')
-if (/sakura/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/sakura.json')
-if (/sasuke/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/sasuke.json')
-if (/satanic/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/satanic.json')
-if (/shina/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/shina.json')
-if (/shinka/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/shinka.json')
-if (/shinomiya/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/shinomiya.json')
-if (/shizuka/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/shizuka.json')
-if (/shota/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/shota.json')
-if (/space/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/tatasurya.json')
-if (/technology/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/technology.json')
-if (/tejina/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/tejina.json')
-if (/toukachan/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/toukachan.json')
-if (/tsunade/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/tsunade.json')
-if (/waifu/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/waifu.json')
-if (/wallhp/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/wallhp.json')
-if (/wallml/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/wallml.json')
-if (/wallmlnime/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/wallnime.json')
-if (/yotsuba/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/yotsuba.json')
-if (/yuki/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/yuki.json')
-if (/yulibocil/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/yulibocil.json')
-if (/yumeko/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/yumeko.json')
+if (/akira/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/akira.json')
+if (/akiyama/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/akiyama.json')
+if (/ana/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/ana.json')
+if (/art/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/art.json')
+if (/asuna/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/asuna.json')
+if (/ayuzawa/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/ayuzawa.json')
+if (/boneka/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/boneka.json')
+if (/boruto/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/boruto.json')
+if (/bts/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/bts.json')
+if (/cecan/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/cecan.json')
+if (/chiho/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/chiho.json')
+if (/chitoge/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/chitoge.json')
+if (/cogan/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/cogan.json')
+if (/cosplay/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/cosplay.json')
+if (/cosplayloli/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/cosplayloli.json')
+if (/cosplaysagiri/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/cosplaysagiri.json')
+if (/cyber/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/cyber.json')
+if (/deidara/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/deidara.json')
+if (/doraemon/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/doraemon.json')
+if (/eba/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/eba.json')
+if (/elaina/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/elaina.json')
+if (/emilia/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/emilia.json')
+if (/erza/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/erza.json')
+if (/exo/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/exo.json')
+if (/femdom/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/femdom.json')
+if (/freefire/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/freefire.json')
+if (/gamewallpaper/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/gamewallpaper.json')
+if (/glasses/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/glasses.json')
+if (/gremory/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/gremory.json')
+if (/hacker/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/hekel.json')
+if (/hestia/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/hestia.json')
+if (/husbu/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/husbu.json')
+if (/inori/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/inori.json')
+if (/islamic/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/islamic.json')
+if (/isuzu/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/isuzu.json')
+if (/itachi/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/itachi.json')
+if (/itori/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/itori.json')
+if (/jennie/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/jeni.json')
+if (/jiso/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/jiso.json')
+if (/justina/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/justina.json')
+if (/kaga/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/kaga.json')
+if (/kagura/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/kagura.json')
+if (/kakasih/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/kakasih.json')
+if (/kaori/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/kaori.json')
+if (/cartoon/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/kartun.json')
+if (/shortquote/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/katakata.json')
+if (/keneki/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/keneki.json')
+if (/kotori/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/kotori.json')
+if (/kpop/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/kpop.json')
+if (/kucing/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/kucing.json')
+if (/kurumi/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/kurumi.json')
+if (/lisa/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/lisa.json')
+if (/loli/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/loli.json')
+if (/madara/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/madara.json')
+if (/megumin/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/megumin.json')
+if (/mikasa/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/mikasa.json')
+if (/mikey/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/mikey.json')
+if (/miku/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/miku.json')
+if (/minato/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/minato.json')
+if (/mobile/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/mobil.json')
+if (/motor/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/motor.json')
+if (/mountain/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/mountain.json')
+if (/naruto/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/naruto.json')
+if (/neko/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/neko.json')
+if (/neko2/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/neko2.json')
+if (/nekonime/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/nekonime.json')
+if (/nezuko/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/nezuko.json')
+if (/onepiece/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/onepiece.json')
+if (/pentol/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/pentol.json')
+if (/pokemon/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/pokemon.json')
+if (/profil/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/profil.json')
+if (/progamming/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/programming.json')
+if (/pubg/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/pubg.json')
+if (/randblackpink/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/randblackpink.json')
+if (/randomnime/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/randomnime.json')
+if (/randomnime2/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/randomnime2.json')
+if (/rize/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/rize.json')
+if (/rose/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/rose.json')
+if (/ryujin/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/ryujin.json')
+if (/sagiri/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/sagiri.json')
+if (/sakura/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/sakura.json')
+if (/sasuke/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/sasuke.json')
+if (/satanic/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/satanic.json')
+if (/shina/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/shina.json')
+if (/shinka/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/shinka.json')
+if (/shinomiya/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/shinomiya.json')
+if (/shizuka/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/shizuka.json')
+if (/shota/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/shota.json')
+if (/space/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/tatasurya.json')
+if (/technology/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/technology.json')
+if (/tejina/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/tejina.json')
+if (/toukachan/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/toukachan.json')
+if (/tsunade/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/tsunade.json')
+if (/waifu/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/waifu.json')
+if (/wallhp/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/wallhp.json')
+if (/wallml/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/wallml.json')
+if (/wallmlnime/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/wallnime.json')
+if (/yotsuba/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/yotsuba.json')
+if (/yuki/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/yuki.json')
+if (/yulibocil/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/yulibocil.json')
+if (/yumeko/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/yumeko.json')
 let yeha = heyy[Math.floor(Math.random() * heyy.length)]
 AlyaBotInc.sendMessage(m.chat, { image: { url: yeha }, caption : mess.success }, { quoted: m })
 }
 break
 case '>':
 case '=>':
-if (!XeonTheCreator) return XeonStickOwner()
+if (!AlyaTheCreator) return AlyaStickOwner()
 var err = new TypeError
 err.name = "EvalError "
 err.message = "Code Not Found (404)"
@@ -5187,7 +5658,7 @@ replygcalya(util.format(_syntax + _err))
 }
 break
 case 'pushcontact': {
-    if (!XeonTheCreator) return XeonStickOwner()
+    if (!AlyaTheCreator) return AlyaStickOwner()
       if (!m.isGroup) return replygcalya(`The feature works only in grup`)
     if (!text) return replygcalya(`text?`)
     let mem = await participants.filter(v => v.id.endsWith('.net')).map(v => v.id)
@@ -5199,9 +5670,9 @@ case 'pushcontact': {
       }
       break
 case "pushcontactv2":{
-if (!XeonTheCreator) return XeonStickOwner()
+if (!AlyaTheCreator) return AlyaStickOwner()
 if (!q) return replygcalya(`Incorrect Usage Please Use Command Like This\n${prefix+command} idgc|text`)
-XeonStickWait()
+AlyaStickWait()
 const metadata2 = await AlyaBotInc.groupMetadata(q.split("|")[0])
 const halss = metadata2.participants
 for (let mem of halss) {
@@ -5217,7 +5688,7 @@ break
            }
           break
           case 'userjid':{
-          	if(!XeonTheCreator) return XeonStickOwner()
+          	if(!AlyaTheCreator) return AlyaStickOwner()
         const groupMetadata = m.isGroup ? await AlyaBotInc.groupMetadata(m.chat).catch((e) => {}) : ""
 		const participants = m.isGroup ? await groupMetadata.participants : ""
     let textt = `_Here is jid address of all users of_\n *- ${groupMetadata.subject}*\n\n`
@@ -5239,10 +5710,10 @@ break
 	    }
 	    break
 	case 'hentaivid2': {
-if (!m.isGroup) return XeonStickGroup()
+if (!m.isGroup) return AlyaStickGroup()
 
 if (!AntiNsfw) return replygxeon(mess.nsfw)
-XeonStickWait()
+AlyaStickWait()
 sbe = await hentaivid()
 cejd = sbe[Math.floor(Math.random(), sbe.length)]
 AlyaBotInc.sendMessage(m.chat, { video: { url: cejd.video_1 }, 
@@ -5256,9 +5727,9 @@ caption: `⭔ Title : ${cejd.title}
 }
 break
 	case 'hentaivid': case 'hentaivideo': {
-	if (!m.isGroup) return XeonStickGroup()
+	if (!m.isGroup) return AlyaStickGroup()
 if (!AntiNsfw) return replygcalya(mess.nsfw)
-                XeonStickWait()
+                AlyaStickWait()
                 const { hentai } = require('./lib/scraper.js')
                 anu = await hentai()
                 result912 = anu[Math.floor(Math.random(), anu.length)]
@@ -5266,262 +5737,262 @@ if (!AntiNsfw) return replygcalya(mess.nsfw)
             }
             break
 case 'trap' :
-if (!m.isGroup) return XeonStickGroup()
+if (!m.isGroup) return AlyaStickGroup()
 if (!AntiNsfw) return replygcalya(mess.nsfw)
-XeonStickWait()
+AlyaStickWait()
  waifudd = await axios.get(`https://waifu.pics/api/nsfw/${command}`)       
 AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url:waifudd.data.url } }, { quoted: m })
 break
 case 'hentai-neko' :
 case 'hneko' :
-if (!m.isGroup) return XeonStickGroup()
+if (!m.isGroup) return AlyaStickGroup()
 if (!AntiNsfw) return replygcalya(mess.nsfw)
     waifudd = await axios.get(`https://waifu.pics/api/nsfw/neko`)
 AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url:waifudd.data.url } }, { quoted: m })
 break
 case 'hentai-waifu' :
 case 'nwaifu' :
-if (!m.isGroup) return XeonStickGroup()
+if (!m.isGroup) return AlyaStickGroup()
 if (!AntiNsfw) return replygcalya(mess.nsfw)
-XeonStickWait()
+AlyaStickWait()
     waifudd = await axios.get(`https://waifu.pics/api/nsfw/waifu`)         
 AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url:waifudd.data.url } }, { quoted: m })
 break
 case 'gasm':
-if (!m.isGroup) return XeonStickGroup()
+if (!m.isGroup) return AlyaStickGroup()
 	if (!AntiNsfw) return replygcalya(mess.nsfw)
-XeonStickWait()						
+AlyaStickWait()						
  waifudd = await axios.get(`https://nekos.life/api/v2/img/${command}`)
 AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url:waifudd.data.url } }, { quoted: m })
 break  
 case 'milf':
-if (!m.isGroup) return XeonStickGroup()
-XeonStickWait()
+if (!m.isGroup) return AlyaStickGroup()
+AlyaStickWait()
 var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/milf.json'))
-var xeonyresult = pickRandom(ahegaonsfw)
-AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: xeonyresult.url } }, { quoted: m })
+var alyaresult = pickRandom(ahegaonsfw)
+AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: alyaresult.url } }, { quoted: m })
 break 
 case 'animespank':
-if (!m.isGroup) return XeonStickGroup()
+if (!m.isGroup) return AlyaStickGroup()
 if (!AntiNsfw) return replygcalya(mess.nsfw)
-XeonStickWait()
+AlyaStickWait()
  waifudd = await axios.get(`https://nekos.life/api/v2/img/spank`)     
             await AlyaBotInc.sendMessage(m.chat, { caption:  `Here you go!`, image: {url:waifudd.data.url} },{ quoted:m }).catch(err => {
                     return('Error!')
                 })
 break
 case 'ahegao':
-if (!m.isGroup) return XeonStickGroup()
+if (!m.isGroup) return AlyaStickGroup()
 	if (!AntiNsfw) return replygcalya(mess.nsfw)
-XeonStickWait()
+AlyaStickWait()
 var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/ahegao.json'))
-var xeonyresult = pickRandom(ahegaonsfw)
-AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: xeonyresult.url } }, { quoted: m })
+var alyaresult = pickRandom(ahegaonsfw)
+AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: alyaresult.url } }, { quoted: m })
 break
 case 'ass':
-if (!m.isGroup) return XeonStickGroup()
+if (!m.isGroup) return AlyaStickGroup()
 	if (!AntiNsfw) return replygcalya(mess.nsfw)
-XeonStickWait()
+AlyaStickWait()
 var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/ass.json'))
-var xeonyresult = pickRandom(ahegaonsfw)
-AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: xeonyresult.url } }, { quoted: m })
+var alyaresult = pickRandom(ahegaonsfw)
+AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: alyaresult.url } }, { quoted: m })
 break
 case 'bdsm':
-if (!m.isGroup) return XeonStickGroup()
+if (!m.isGroup) return AlyaStickGroup()
 	if (!AntiNsfw) return replygcalya(mess.nsfw)
-XeonStickWait()
+AlyaStickWait()
 var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/bdsm.json'))
-var xeonyresult = pickRandom(ahegaonsfw)
-AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: xeonyresult.url } }, { quoted: m })
+var alyaresult = pickRandom(ahegaonsfw)
+AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: alyaresult.url } }, { quoted: m })
 break
 case 'blowjob':
-if (!m.isGroup) return XeonStickGroup()
+if (!m.isGroup) return AlyaStickGroup()
 	if (!AntiNsfw) return replygcalya(mess.nsfw)
-XeonStickWait()
+AlyaStickWait()
 var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/blowjob.json'))
-var xeonyresult = pickRandom(ahegaonsfw)
-AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: xeonyresult.url } }, { quoted: m })
+var alyaresult = pickRandom(ahegaonsfw)
+AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: alyaresult.url } }, { quoted: m })
 break
 case 'cuckold':
-if (!m.isGroup) return XeonStickGroup()
+if (!m.isGroup) return AlyaStickGroup()
 	if (!AntiNsfw) return replygcalya(mess.nsfw)
-XeonStickWait()
+AlyaStickWait()
 var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/cuckold.json'))
-var xeonyresult = pickRandom(ahegaonsfw)
-AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: xeonyresult.url } }, { quoted: m })
+var alyaresult = pickRandom(ahegaonsfw)
+AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: alyaresult.url } }, { quoted: m })
 break
 case 'cum':
-if (!m.isGroup) return XeonStickGroup()
+if (!m.isGroup) return AlyaStickGroup()
 	if (!AntiNsfw) return replygcalya(mess.nsfw)
-XeonStickWait()
+AlyaStickWait()
 var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/cum.json'))
-var xeonyresult = pickRandom(ahegaonsfw)
-AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: xeonyresult.url } }, { quoted: m })
+var alyaresult = pickRandom(ahegaonsfw)
+AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: alyaresult.url } }, { quoted: m })
 break
 case 'eba':
-if (!m.isGroup) return XeonStickGroup()
+if (!m.isGroup) return AlyaStickGroup()
 	if (!AntiNsfw) return replygcalya(mess.nsfw)
-XeonStickWait()
+AlyaStickWait()
 var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/eba.json'))
-var xeonyresult = pickRandom(ahegaonsfw)
-AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: xeonyresult.url } }, { quoted: m })
+var alyaresult = pickRandom(ahegaonsfw)
+AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: alyaresult.url } }, { quoted: m })
 break
 case 'ero':
-if (!m.isGroup) return XeonStickGroup()
+if (!m.isGroup) return AlyaStickGroup()
 	if (!AntiNsfw) return replygcalya(mess.nsfw)
-XeonStickWait()
+AlyaStickWait()
 var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/ero.json'))
-var xeonyresult = pickRandom(ahegaonsfw)
-AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: xeonyresult.url } }, { quoted: m })
+var alyaresult = pickRandom(ahegaonsfw)
+AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: alyaresult.url } }, { quoted: m })
 break
 case 'femdom':
-if (!m.isGroup) return XeonStickGroup()
+if (!m.isGroup) return AlyaStickGroup()
 	if (!AntiNsfw) return replygcalya(mess.nsfw)
-XeonStickWait()
+AlyaStickWait()
 var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/femdom.json'))
-var xeonyresult = pickRandom(ahegaonsfw)
-AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: xeonyresult.url } }, { quoted: m })
+var alyaresult = pickRandom(ahegaonsfw)
+AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: alyaresult.url } }, { quoted: m })
 break
 case 'foot':
-if (!m.isGroup) return XeonStickGroup()
+if (!m.isGroup) return AlyaStickGroup()
 	if (!AntiNsfw) return replygcalya(mess.nsfw)
-XeonStickWait()
+AlyaStickWait()
 var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/foot.json'))
-var xeonyresult = pickRandom(ahegaonsfw)
-AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: xeonyresult.url } }, { quoted: m })
+var alyaresult = pickRandom(ahegaonsfw)
+AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: alyaresult.url } }, { quoted: m })
 break
 case 'gangbang':
-if (!m.isGroup) return XeonStickGroup()
+if (!m.isGroup) return AlyaStickGroup()
 	if (!AntiNsfw) return replygcalya(mess.nsfw)
-XeonStickWait()
+AlyaStickWait()
 var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/gangbang.json'))
-var xeonyresult = pickRandom(ahegaonsfw)
-AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: xeonyresult.url } }, { quoted: m })
+var alyaresult = pickRandom(ahegaonsfw)
+AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: alyaresult.url } }, { quoted: m })
 break
 case 'glasses':
-if (!m.isGroup) return XeonStickGroup()
+if (!m.isGroup) return AlyaStickGroup()
 	if (!AntiNsfw) return replygcalya(mess.nsfw)
-XeonStickWait()
+AlyaStickWait()
 var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/glasses.json'))
-var xeonyresult = pickRandom(ahegaonsfw)
-AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: xeonyresult.url } }, { quoted: m })
+var alyaresult = pickRandom(ahegaonsfw)
+AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: alyaresult.url } }, { quoted: m })
 break
 case 'hentai':
-if (!m.isGroup) return XeonStickGroup()
+if (!m.isGroup) return AlyaStickGroup()
 	if (!AntiNsfw) return replygcalya(mess.nsfw)
-XeonStickWait()
+AlyaStickWait()
 var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/hentai.json'))
-var xeonyresult = pickRandom(ahegaonsfw)
-AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: xeonyresult.url } }, { quoted: m })
+var alyaresult = pickRandom(ahegaonsfw)
+AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: alyaresult.url } }, { quoted: m })
 break
 case 'jahy':
-if (!m.isGroup) return XeonStickGroup()
+if (!m.isGroup) return AlyaStickGroup()
 	if (!AntiNsfw) return replygcalya(mess.nsfw)
-XeonStickWait()
+AlyaStickWait()
 var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/jahy.json'))
-var xeonyresult = pickRandom(ahegaonsfw)
-AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: xeonyresult.url } }, { quoted: m })
+var alyaresult = pickRandom(ahegaonsfw)
+AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: alyaresult.url } }, { quoted: m })
 break
 case 'manga':
-if (!m.isGroup) return XeonStickGroup()
+if (!m.isGroup) return AlyaStickGroup()
 	if (!AntiNsfw) return replygcalya(mess.nsfw)
-XeonStickWait()
+AlyaStickWait()
 var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/manga.json'))
-var xeonyresult = pickRandom(ahegaonsfw)
-AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: xeonyresult.url } }, { quoted: m })
+var alyaresult = pickRandom(ahegaonsfw)
+AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: alyaresult.url } }, { quoted: m })
 break
 case 'masturbation':
-if (!m.isGroup) return XeonStickGroup()
+if (!m.isGroup) return AlyaStickGroup()
 	if (!AntiNsfw) return replygcalya(mess.nsfw)
-XeonStickWait()
+AlyaStickWait()
 var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/masturbation.json'))
-var xeonyresult = pickRandom(ahegaonsfw)
-AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: xeonyresult.url } }, { quoted: m })
+var alyaresult = pickRandom(ahegaonsfw)
+AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: alyaresult.url } }, { quoted: m })
 break
 case 'neko-hentai':
-if (!m.isGroup) return XeonStickGroup()
+if (!m.isGroup) return AlyaStickGroup()
 	if (!AntiNsfw) return replygcalya(mess.nsfw)
-XeonStickWait()
+AlyaStickWait()
 var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/neko.json'))
-var xeonyresult = pickRandom(ahegaonsfw)
-AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: xeonyresult.url } }, { quoted: m })
+var alyaresult = pickRandom(ahegaonsfw)
+AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: alyaresult.url } }, { quoted: m })
 break
 case 'neko-hentai2':
-if (!m.isGroup) return XeonStickGroup()
+if (!m.isGroup) return AlyaStickGroup()
 	if (!AntiNsfw) return replygcalya(mess.nsfw)
-XeonStickWait()
+AlyaStickWait()
 var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/neko2.json'))
-var xeonyresult = pickRandom(ahegaonsfw)
-AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: xeonyresult.url } }, { quoted: m })
+var alyaresult = pickRandom(ahegaonsfw)
+AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: alyaresult.url } }, { quoted: m })
 break
 case 'nsfwloli':
-if (!m.isGroup) return XeonStickGroup()
+if (!m.isGroup) return AlyaStickGroup()
 	if (!AntiNsfw) return replygcalya(mess.nsfw)
-XeonStickWait()
+AlyaStickWait()
 var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/nsfwloli.json'))
-var xeonyresult = pickRandom(ahegaonsfw)
-AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: xeonyresult.url } }, { quoted: m })
+var alyaresult = pickRandom(ahegaonsfw)
+AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: alyaresult.url } }, { quoted: m })
 break
 case 'orgy':
-if (!m.isGroup) return XeonStickGroup()
+if (!m.isGroup) return AlyaStickGroup()
 	if (!AntiNsfw) return replygcalya(mess.nsfw)
-XeonStickWait()
+AlyaStickWait()
 var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/orgy.json'))
-var xeonyresult = pickRandom(ahegaonsfw)
-AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: xeonyresult.url } }, { quoted: m })
+var alyaresult = pickRandom(ahegaonsfw)
+AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: alyaresult.url } }, { quoted: m })
 break
 case 'panties':
-if (!m.isGroup) return XeonStickGroup()
+if (!m.isGroup) return AlyaStickGroup()
 	if (!AntiNsfw) return replygcalya(mess.nsfw)
-XeonStickWait()
+AlyaStickWait()
 var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/panties.json'))
-var xeonyresult = pickRandom(ahegaonsfw)
-AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: xeonyresult.url } }, { quoted: m })
+var alyaresult = pickRandom(ahegaonsfw)
+AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: alyaresult.url } }, { quoted: m })
 break
 case 'pussy':
-if (!m.isGroup) return XeonStickGroup()
+if (!m.isGroup) return AlyaStickGroup()
 	if (!AntiNsfw) return replygcalya(mess.nsfw)
-XeonStickWait()
+AlyaStickWait()
 var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/pussy.json'))
-var xeonyresult = pickRandom(ahegaonsfw)
-AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: xeonyresult.url } }, { quoted: m })
+var alyaresult = pickRandom(ahegaonsfw)
+AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: alyaresult.url } }, { quoted: m })
 break
 case 'tentacles':
-if (!m.isGroup) return XeonStickGroup()
+if (!m.isGroup) return AlyaStickGroup()
 	if (!AntiNsfw) return replygcalya(mess.nsfw)
-XeonStickWait()
+AlyaStickWait()
 var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/tentacles.json'))
-var xeonyresult = pickRandom(ahegaonsfw)
-AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: xeonyresult.url } }, { quoted: m })
+var alyaresult = pickRandom(ahegaonsfw)
+AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: alyaresult.url } }, { quoted: m })
 break
 case 'thighs':
-if (!m.isGroup) return XeonStickGroup()
+if (!m.isGroup) return AlyaStickGroup()
 	if (!AntiNsfw) return replygcalya(mess.nsfw)
-XeonStickWait()
+AlyaStickWait()
 var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/thighs.json'))
-var xeonyresult = pickRandom(ahegaonsfw)
-AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: xeonyresult.url } }, { quoted: m })
+var alyaresult = pickRandom(ahegaonsfw)
+AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: alyaresult.url } }, { quoted: m })
 break
 case 'yuri':
-if (!m.isGroup) return XeonStickGroup()
+if (!m.isGroup) return AlyaStickGroup()
 	if (!AntiNsfw) return replygcalya(mess.nsfw)
-XeonStickWait()
+AlyaStickWait()
 var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/yuri.json'))
-var xeonyresult = pickRandom(ahegaonsfw)
-AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: xeonyresult.url } }, { quoted: m })
+var alyaresult = pickRandom(ahegaonsfw)
+AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: alyaresult.url } }, { quoted: m })
 break
 case 'zettai':
-if (!m.isGroup) return XeonStickGroup()
+if (!m.isGroup) return AlyaStickGroup()
 	if (!AntiNsfw) return replygcalya(mess.nsfw)
-XeonStickWait()
+AlyaStickWait()
 var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/zettai.json'))
-var xeonyresult = pickRandom(ahegaonsfw)
-AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: xeonyresult.url } }, { quoted: m })
+var alyaresult = pickRandom(ahegaonsfw)
+AlyaBotInc.sendMessage(m.chat, { caption: mess.success, image: { url: alyaresult.url } }, { quoted: m })
 break
 case 'gifblowjob':
-if (!m.isGroup) return XeonStickGroup()
+if (!m.isGroup) return AlyaStickGroup()
 if (!AntiNsfw) return replygcalya(mess.nsfw)
-XeonStickWait()
+AlyaStickWait()
   let assss = await axios.get ("https://api.waifu.pics/nsfw/blowjob")
     var bobuff = await fetchBuffer(assss.data.url)
     var bogif = await buffergif(bobuff)
@@ -5529,27 +6000,27 @@ XeonStickWait()
     })
     break
 case 'gifhentai':
-if (!m.isGroup) return XeonStickGroup()
+if (!m.isGroup) return AlyaStickGroup()
 if (!AntiNsfw) return replygcalya(mess.nsfw)
-XeonStickWait()
+AlyaStickWait()
 var ahegaonsfw = JSON.parse(fs.readFileSync('./HostMedia/nsfw/gifs.json'))
-var xeonyresultx = pickRandom(ahegaonsfw)
-    await AlyaBotInc.sendMessage(m.chat,{video:xeonyresultx, gifPlayback:true },{quoted:m}).catch(err => {
+var alyaresultx = pickRandom(ahegaonsfw)
+    await AlyaBotInc.sendMessage(m.chat,{video:alyaresultx, gifPlayback:true },{quoted:m}).catch(err => {
     })
     break
     case 'gifs': case 'foot': {
-if (!m.isGroup) return XeonStickGroup()
+if (!m.isGroup) return AlyaStickGroup()
 if (!AntiNsfw) return replygcalya(mess.nsfw)
-XeonStickWait()
+AlyaStickWait()
 let heyy
     let yeha = heyy[Math.floor(Math.random() * heyy.length)]
-    if (/gifs/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/gifs.json')
-    if (/foot/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/foot.json')
+    if (/gifs/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/gifs.json')
+    if (/foot/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/master/foot.json')
 AlyaBotInc.sendMessage(m.chat, { image: { url: yeha }, caption : mess.success }, { quoted: m })
 }
 break
 case 'animeawoo':{
-XeonStickWait()
+AlyaStickWait()
  waifudd = await axios.get(`https://waifu.pics/api/sfw/awoo`)       
             await AlyaBotInc.sendMessage(m.chat, { image: { url:waifudd.data.url} , caption: mess.success}, { quoted:m }).catch(err => {
                     return('Error!')
@@ -5557,7 +6028,7 @@ XeonStickWait()
                 }
 break
 case 'animemegumin':{
-XeonStickWait()
+AlyaStickWait()
  waifudd = await axios.get(`https://waifu.pics/api/sfw/megumin`)       
             await AlyaBotInc.sendMessage(m.chat, { image: { url:waifudd.data.url} , caption: mess.success}, { quoted:m }).catch(err => {
                     return('Error!')
@@ -5565,7 +6036,7 @@ XeonStickWait()
                 }
 break
 case 'animeshinobu':{
-XeonStickWait()
+AlyaStickWait()
  waifudd = await axios.get(`https://waifu.pics/api/sfw/shinobu`)       
             await AlyaBotInc.sendMessage(m.chat, { image: { url:waifudd.data.url} , caption: mess.success}, { quoted:m }).catch(err => {
                     return('Error!')
@@ -5573,7 +6044,7 @@ XeonStickWait()
                 }
 break
 case 'animehandhold':{
-XeonStickWait()
+AlyaStickWait()
  waifudd = await axios.get(`https://waifu.pics/api/sfw/handhold`)       
             await AlyaBotInc.sendMessage(m.chat, { image: { url:waifudd.data.url} , caption: mess.success}, { quoted:m }).catch(err => {
                     return('Error!')
@@ -5581,7 +6052,7 @@ XeonStickWait()
                 }
 break
 case 'animehighfive':{
-XeonStickWait()
+AlyaStickWait()
  waifudd = await axios.get(`https://waifu.pics/api/sfw/highfive`)       
             await AlyaBotInc.sendMessage(m.chat, { image: { url:waifudd.data.url} , caption: mess.success}, { quoted:m }).catch(err => {
                     return('Error!')
@@ -5589,7 +6060,7 @@ XeonStickWait()
                 }
 break
 case 'animecringe':{
-XeonStickWait()
+AlyaStickWait()
  waifudd = await axios.get(`https://waifu.pics/api/sfw/cringe`)       
             await AlyaBotInc.sendMessage(m.chat, { image: { url:waifudd.data.url} , caption: mess.success}, { quoted:m }).catch(err => {
                     return('Error!')
@@ -5597,7 +6068,7 @@ XeonStickWait()
                 }
 break
 case 'animedance':{
-XeonStickWait()
+AlyaStickWait()
  waifudd = await axios.get(`https://waifu.pics/api/sfw/dance`)       
             await AlyaBotInc.sendMessage(m.chat, { image: { url:waifudd.data.url} , caption: mess.success}, { quoted:m }).catch(err => {
                     return('Error!')
@@ -5605,7 +6076,7 @@ XeonStickWait()
                 }
 break
 case 'animehappy':{
-XeonStickWait()
+AlyaStickWait()
  waifudd = await axios.get(`https://waifu.pics/api/sfw/happy`)       
             await AlyaBotInc.sendMessage(m.chat, { image: { url:waifudd.data.url} , caption: mess.success}, { quoted:m }).catch(err => {
                     return('Error!')
@@ -5613,7 +6084,7 @@ XeonStickWait()
                 }
 break
 case 'animeglomp':{
-XeonStickWait()
+AlyaStickWait()
  waifudd = await axios.get(`https://waifu.pics/api/sfw/glomp`)       
             await AlyaBotInc.sendMessage(m.chat, { image: { url:waifudd.data.url} , caption: mess.success}, { quoted:m }).catch(err => {
                     return('Error!')
@@ -5621,7 +6092,7 @@ XeonStickWait()
                 }
 break
 case 'animesmug':{
-XeonStickWait()
+AlyaStickWait()
  waifudd = await axios.get(`https://waifu.pics/api/sfw/smug`)       
             await AlyaBotInc.sendMessage(m.chat, { image: { url:waifudd.data.url} , caption: mess.success}, { quoted:m }).catch(err => {
                     return('Error!')
@@ -5629,7 +6100,7 @@ XeonStickWait()
                 }
 break
 case 'animeblush':{
-XeonStickWait()
+AlyaStickWait()
  waifudd = await axios.get(`https://waifu.pics/api/sfw/blush`)       
             await AlyaBotInc.sendMessage(m.chat, { image: { url:waifudd.data.url} , caption: mess.success}, { quoted:m }).catch(err => {
                     return('Error!')
@@ -5637,7 +6108,7 @@ XeonStickWait()
                 }
 break
 case 'animewave':{
-XeonStickWait()
+AlyaStickWait()
  waifudd = await axios.get(`https://waifu.pics/api/sfw/wave`)       
             await AlyaBotInc.sendMessage(m.chat, { image: { url:waifudd.data.url} , caption: mess.success}, { quoted:m }).catch(err => {
                     return('Error!')
@@ -5645,7 +6116,7 @@ XeonStickWait()
                 }
 break
 case 'animesmile':{
-XeonStickWait()
+AlyaStickWait()
  waifudd = await axios.get(`https://waifu.pics/api/sfw/smile`)       
             await AlyaBotInc.sendMessage(m.chat, { image: { url:waifudd.data.url} , caption: mess.success}, { quoted:m }).catch(err => {
                     return('Error!')
@@ -5653,7 +6124,7 @@ XeonStickWait()
                 }
 break
 case 'animepoke':{
-XeonStickWait()
+AlyaStickWait()
  waifudd = await axios.get(`https://waifu.pics/api/sfw/poke`)       
             await AlyaBotInc.sendMessage(m.chat, { image: { url:waifudd.data.url} , caption: mess.success}, { quoted:m }).catch(err => {
                     return('Error!')
@@ -5661,7 +6132,7 @@ XeonStickWait()
                 }
 break
 case 'animewink':{
-XeonStickWait()
+AlyaStickWait()
  waifudd = await axios.get(`https://waifu.pics/api/sfw/wink`)       
             await AlyaBotInc.sendMessage(m.chat, { image: { url:waifudd.data.url} , caption: mess.success}, { quoted:m }).catch(err => {
                     return('Error!')
@@ -5669,7 +6140,7 @@ XeonStickWait()
                 }
 break
 case 'animebonk':{
-XeonStickWait()
+AlyaStickWait()
  waifudd = await axios.get(`https://waifu.pics/api/sfw/bonk`)       
             await AlyaBotInc.sendMessage(m.chat, { image: { url:waifudd.data.url} , caption: mess.success}, { quoted:m }).catch(err => {
                     return('Error!')
@@ -5677,7 +6148,7 @@ XeonStickWait()
                 }
 break
 case 'animebully':{
-XeonStickWait()
+AlyaStickWait()
  waifudd = await axios.get(`https://waifu.pics/api/sfw/bully`)       
             await AlyaBotInc.sendMessage(m.chat, { image: { url:waifudd.data.url} , caption: mess.success}, { quoted:m }).catch(err => {
                     return('Error!')
@@ -5685,7 +6156,7 @@ XeonStickWait()
                 }
 break
 case 'animeyeet':{
-XeonStickWait()
+AlyaStickWait()
  waifudd = await axios.get(`https://waifu.pics/api/sfw/yeet`)       
             await AlyaBotInc.sendMessage(m.chat, { image: { url:waifudd.data.url} , caption: mess.success}, { quoted:m }).catch(err => {
                     return('Error!')
@@ -5693,7 +6164,7 @@ XeonStickWait()
                 }
 break
 case 'animebite':{
-XeonStickWait()
+AlyaStickWait()
  waifudd = await axios.get(`https://waifu.pics/api/sfw/bite`)       
             await AlyaBotInc.sendMessage(m.chat, { image: { url:waifudd.data.url} , caption: mess.success}, { quoted:m }).catch(err => {
                     return('Error!')
@@ -5701,7 +6172,7 @@ XeonStickWait()
                 }
 break
 case 'animelick':{
-XeonStickWait()
+AlyaStickWait()
  waifudd = await axios.get(`https://waifu.pics/api/sfw/lick`)       
             await AlyaBotInc.sendMessage(m.chat, { image: { url:waifudd.data.url} , caption: mess.success}, { quoted:m }).catch(err => {
                     return('Error!')
@@ -5709,7 +6180,7 @@ XeonStickWait()
                 }
 break
 case 'animekill':{
-XeonStickWait()
+AlyaStickWait()
  waifudd = await axios.get(`https://waifu.pics/api/sfw/kill`)       
             await AlyaBotInc.sendMessage(m.chat, { image: { url:waifudd.data.url} , caption: mess.success}, { quoted:m }).catch(err => {
                     return('Error!')
@@ -5717,7 +6188,7 @@ XeonStickWait()
                 }
 break
 case 'animecry':{
-XeonStickWait()
+AlyaStickWait()
  waifudd = await axios.get(`https://waifu.pics/api/sfw/cry`)       
             await AlyaBotInc.sendMessage(m.chat, { image: { url:waifudd.data.url} , caption: mess.success}, { quoted:m }).catch(err => {
                     return('Error!')
@@ -5725,7 +6196,7 @@ XeonStickWait()
                 }
 break
 case 'animewlp':{
-XeonStickWait()
+AlyaStickWait()
  waifudd = await axios.get(`https://nekos.life/api/v2/img/wallpaper`)       
             await AlyaBotInc.sendMessage(m.chat, { image: { url:waifudd.data.url} , caption: mess.success}, { quoted:m }).catch(err => {
                     return('Error!')
@@ -5733,7 +6204,7 @@ XeonStickWait()
                 }
 break
 case 'animekiss':{
-XeonStickWait()
+AlyaStickWait()
  waifudd = await axios.get(`https://nekos.life/api/v2/img/kiss`)       
             await AlyaBotInc.sendMessage(m.chat, { image: { url:waifudd.data.url} , caption: mess.success}, { quoted:m }).catch(err => {
                     return('Error!')
@@ -5741,7 +6212,7 @@ XeonStickWait()
                 }
 break
 case 'animehug':{
-XeonStickWait()
+AlyaStickWait()
  waifudd = await axios.get(`https://nekos.life/api/v2/img/hug`)       
             await AlyaBotInc.sendMessage(m.chat, { image: { url:waifudd.data.url} , caption: mess.success}, { quoted:m }).catch(err => {
                     return('Error!')
@@ -5749,7 +6220,7 @@ XeonStickWait()
                 }
 break
 case 'animeneko':{
-XeonStickWait()
+AlyaStickWait()
  waifudd = await axios.get(`https://waifu.pics/api/sfw/neko`)       
             await AlyaBotInc.sendMessage(m.chat, { image: { url:waifudd.data.url} , caption: mess.success}, { quoted:m }).catch(err => {
                     return('Error!')
@@ -5757,7 +6228,7 @@ XeonStickWait()
                 }
 break
 case 'animepat':{
-XeonStickWait()
+AlyaStickWait()
  waifudd = await axios.get(`https://nekos.life/api/v2/img/pat`)       
             await AlyaBotInc.sendMessage(m.chat, { image: { url:waifudd.data.url} , caption: mess.success}, { quoted:m }).catch(err => {
                     return('Error!')
@@ -5765,7 +6236,7 @@ XeonStickWait()
                 }
 break
 case 'animeslap':{
-XeonStickWait()
+AlyaStickWait()
  waifudd = await axios.get(`https://nekos.life/api/v2/img/slap`)       
             await AlyaBotInc.sendMessage(m.chat, { image: { url:waifudd.data.url} , caption: mess.success}, { quoted:m }).catch(err => {
                     return('Error!')
@@ -5773,7 +6244,7 @@ XeonStickWait()
                 }
 break
 case 'animecuddle':{
-XeonStickWait()
+AlyaStickWait()
  waifudd = await axios.get(`https://nekos.life/api/v2/img/cuddle`)       
             await AlyaBotInc.sendMessage(m.chat, { image: { url:waifudd.data.url} , caption: mess.success}, { quoted:m }).catch(err => {
                     return('Error!')
@@ -5781,7 +6252,7 @@ XeonStickWait()
                 }
 break
 case 'animewaifu':{
-XeonStickWait()
+AlyaStickWait()
  waifudd = await axios.get(`https://nekos.life/api/v2/img/waifu`)       
             await AlyaBotInc.sendMessage(m.chat, { image: { url:waifudd.data.url} , caption: mess.success}, { quoted:m }).catch(err => {
                     return('Error!')
@@ -5789,7 +6260,7 @@ XeonStickWait()
                 }
 break
 case 'animenom':{
-XeonStickWait()
+AlyaStickWait()
  waifudd = await axios.get(`https://nekos.life/api/v2/img/nom`)       
             await AlyaBotInc.sendMessage(m.chat, { image: { url:waifudd.data.url} , caption: mess.success}, { quoted:m }).catch(err => {
                     return('Error!')
@@ -5797,7 +6268,7 @@ XeonStickWait()
                 }
 break
 case 'animefoxgirl':{
-XeonStickWait()
+AlyaStickWait()
  waifudd = await axios.get(`https://nekos.life/api/v2/img/fox_girl`)       
             await AlyaBotInc.sendMessage(m.chat, { image: { url:waifudd.data.url} , caption: mess.success}, { quoted:m }).catch(err => {
                     return('Error!')
@@ -5805,7 +6276,7 @@ XeonStickWait()
                 }
 break
 case 'animetickle': {
-XeonStickWait()
+AlyaStickWait()
  waifudd = await axios.get(`https://nekos.life/api/v2/img/tickle`)     
             await AlyaBotInc.sendMessage(m.chat, {image: {url:waifudd.data.url}, caption: mess.success},{ quoted:m }).catch(err => {
                     return('Error!')
@@ -5813,7 +6284,7 @@ XeonStickWait()
                 }
 break
 case 'animegecg': {
-XeonStickWait()
+AlyaStickWait()
  waifudd = await axios.get(`https://nekos.life/api/v2/img/gecg`)     
             await AlyaBotInc.sendMessage(m.chat, {image: {url:waifudd.data.url}, caption: mess.success},{ quoted:m }).catch(err => {
                     return('Error!')
@@ -5821,7 +6292,7 @@ XeonStickWait()
                 }
 break
 case 'dogwoof': {
-XeonStickWait()
+AlyaStickWait()
  waifudd = await axios.get(`https://nekos.life/api/v2/img/woof`)     
             await AlyaBotInc.sendMessage(m.chat, {image: {url:waifudd.data.url}, caption: mess.success},{ quoted:m }).catch(err => {
                     return('Error!')
@@ -5829,7 +6300,7 @@ XeonStickWait()
                 }
 break
 case '8ballpool': {
-XeonStickWait()
+AlyaStickWait()
  waifudd = await axios.get(`https://nekos.life/api/v2/img/8ball`)     
             await AlyaBotInc.sendMessage(m.chat, {image: {url:waifudd.data.url}, caption: mess.success},{ quoted:m }).catch(err => {
                     return('Error!')
@@ -5837,7 +6308,7 @@ XeonStickWait()
                 }
 break
 case 'goosebird': {
-XeonStickWait()
+AlyaStickWait()
  waifudd = await axios.get(`https://nekos.life/api/v2/img/goose`)     
             await AlyaBotInc.sendMessage(m.chat, {image: {url:waifudd.data.url}, caption: mess.success},{ quoted:m }).catch(err => {
                     return('Error!')
@@ -5845,7 +6316,7 @@ XeonStickWait()
                 }
 break
 case 'animefeed': {
-XeonStickWait()
+AlyaStickWait()
  waifudd = await axios.get(`https://nekos.life/api/v2/img/feed`)     
             await AlyaBotInc.sendMessage(m.chat, {image: {url:waifudd.data.url}, caption: mess.success},{ quoted:m }).catch(err => {
                     return('Error!')
@@ -5853,7 +6324,7 @@ XeonStickWait()
                 }
 break
 case 'animeavatar': {
-XeonStickWait()
+AlyaStickWait()
  waifudd = await axios.get(`https://nekos.life/api/v2/img/avatar`)     
             await AlyaBotInc.sendMessage(m.chat, {image: {url:waifudd.data.url}, caption: mess.success},{ quoted:m }).catch(err => {
                     return('Error!')
@@ -5861,7 +6332,7 @@ XeonStickWait()
                 }
 break
 case 'lizardpic': {
-XeonStickWait()
+AlyaStickWait()
  waifudd = await axios.get(`https://nekos.life/api/v2/img/lizard`)     
             await AlyaBotInc.sendMessage(m.chat, {image: {url:waifudd.data.url}, caption: mess.success},{ quoted:m }).catch(err => {
                     return('Error!')
@@ -5869,7 +6340,7 @@ XeonStickWait()
                 }
 break
 case 'catmeow': {
-XeonStickWait()
+AlyaStickWait()
  waifudd = await axios.get(`https://nekos.life/api/v2/img/meow`)     
             await AlyaBotInc.sendMessage(m.chat, {image: {url:waifudd.data.url}, caption: mess.success},{ quoted:m }).catch(err => {
                     return('Error!')
@@ -5879,62 +6350,62 @@ break
     case 'igemoji': 
 case 'instagramemoji': 
 if (!q) return replygcalya("Enter emoji, maximum 1 emoji, eg?" + ` ${prefix + command} 😀`)
-XeonStickWait()
+AlyaStickWait()
 emote(q, "11")
 break
 case 'iphoneemoji': 
 if (!q) return replygcalya("Enter emoji, max 1 emoji, eg?" + ` ${prefix + command} 😀`)
-XeonStickWait()
+AlyaStickWait()
 emote(q, "0")
 break
 case 'googleemoji': 
 if (!q) return replygcalya("Enter emoji, max 1 emoji, eg?" + ` ${prefix + command} 😀`)
-XeonStickWait()
+AlyaStickWait()
 emote(q, "1")
 break
 case 'samsungemoji': 
 if (!q) return replygcalya("Enter emoji, max 1 emoji, eg?" + ` ${prefix + command} 😀`)
-XeonStickWait()
+AlyaStickWait()
 emote(q, "2")
 break
 case 'microsoftemoji': 
 if (!q) return replygcalya("Enter emoji, max 1 emoji, eg?" + ` ${prefix + command} 😀`)
-XeonStickWait()
+AlyaStickWait()
 emote(q, "3")
 break
 case 'whatsappemoji': 
 if (!q) return replygcalya("Enter emoji, max 1 emoji, eg?" + ` ${prefix + command} 😀`)
-XeonStickWait()
+AlyaStickWait()
 emote(q, "4")
 break
 case 'twitteremoji': 
 if (!q) return replygcalya("Enter emoji, max 1 emoji, eg?" + ` ${prefix + command} 😀`)
-XeonStickWait()
+AlyaStickWait()
 emote(q, "5")
 break
 case 'facebookemoji': 
 case 'fbemoji': 
 if (!q) return replygcalya("Enter emoji, max 1 emoji, eg?" + ` ${prefix + command} 😀`)
-XeonStickWait()
+AlyaStickWait()
 emote(q, "6")
 break
 case 'skypeemoji': 
 if (!q) return replygcalya("Enter emoji, max 1 emoji, eg?" + ` ${prefix + command} 😀`)
-XeonStickWait()
+AlyaStickWait()
 emote(q, "7")
 break
 case 'joyemoji': 
 if (!q) return replygcalya("Enter emoji, max 1 emoji, eg?" + ` ${prefix + command} 😀`)
-XeonStickWait()
+AlyaStickWait()
 emote(q, "8")
 break
 case 'mojiemoji': 
 if (!q) return replygcalya("Enter emoji, max 1 emoji, eg?" + ` ${prefix + command} 😀`)
-XeonStickWait()
+AlyaStickWait()
 emote(q, "9")
 case 'pediaemoji': 
 if (!q) return replygcalya("Enter emoji, max 1 emoji, eg?" + ` ${prefix + command} 😀`)
-XeonStickWait()
+AlyaStickWait()
 emote(q, "10")
 break
 case 'emoji': {
@@ -5984,7 +6455,7 @@ break
   }
  break
 case 'git': case 'gitclone':
-if (!args[0]) return replygcalya(`Where is the link?\nExample :\n${prefix}${command} https://github.com/DGXeon/XeonMedia`)
+if (!args[0]) return replygcalya(`Where is the link?\nExample :\n${prefix}${command} https://github.com/DGAlya/AlyaMedia`)
 if (!isUrl(args[0]) && !args[0].includes('github.com')) return replygcalya(`Link invalid!!`)
 let regex1 = /(?:https|git)(?::\/\/|@)github\.com[\/:]([^\/:]+)\/(.+)/i
     let [, user, repo] = args[0].match(regex1) || []
@@ -6025,7 +6496,7 @@ case 'bass': case 'blown': case 'deep': case 'earrape': case 'fast': case 'fat':
                 if (/smooth/.test(command)) set = '-filter:v "minterpolate=\'mi_mode=mci:mc_mode=aobmc:vsbmc=1:fps=120\'"'
                 if (/squirrel/.test(command)) set = '-filter:a "atempo=0.5,asetrate=65100"'
                 if (/audio/.test(mime)) {
-                XeonStickWait()
+                AlyaStickWait()
                 let media = await AlyaBotInc.downloadAndSaveMediaMessage(quoted)
                 let ran = getRandom('.mp3')
                 exec(`ffmpeg -i ${media} ${set} ${ran}`, (err, stderr, stdout) => {
@@ -6128,11 +6599,11 @@ case 'coolcheck':
 case 'waifucheck':
 cantik = body.slice(1)
 const okebnh1 =['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','41','42','43','44','45','46','47','48','49','50','51','52','53','54','55','56','57','58','59','60','61','62','63','64','65','66','67','68','69','70','71','72','73','74','75','76','77','78','79','80','81','82','83','84','85','86','87','88','89','90','91','92','93','94','95','96','97','98','99','100']
-const xeonkak = okebnh1[Math.floor(Math.random() * okebnh1.length)]
+const alyakak = okebnh1[Math.floor(Math.random() * okebnh1.length)]
 AlyaBotInc.sendMessage(m.chat, { text: xeonkak }, { quoted: m })
 break
             case 'soulmate': {
-            if (!m.isGroup) return XeonStickGroup()
+            if (!m.isGroup) return AlyaStickGroup()
             let member = participants.map(u => u.id)
             let me = m.sender
             let jodoh = member[Math.floor(Math.random() * member.length)]
@@ -6157,7 +6628,7 @@ isForwarded: true,
             }
             break
  case 'couple': {
-            if (!m.isGroup) return XeonStickGroup()
+            if (!m.isGroup) return AlyaStickGroup()
             let member = participants.map(u => u.id)
             let orang = member[Math.floor(Math.random() * member.length)]
             let jodoh = member[Math.floor(Math.random() * member.length)]
@@ -6186,7 +6657,7 @@ isForwarded: true,
             break
             case 'wallpaper': {
                 if (!text) return replygcalya('Enter Query Title')
-                XeonStickWait()
+                AlyaStickWait()
 		let { wallpaper } = require('./lib/scraper')
                 anuwallpep = await wallpaper(text)
                 result = anuwallpep[Math.floor(Math.random() * anuwallpep.length)]                
@@ -6195,7 +6666,7 @@ isForwarded: true,
             break
             case 'wikimedia': {
                 if (!text) return replygcalya('Enter Query Title')
-                XeonStickWait()
+                AlyaStickWait()
 		let { wikimedia } = require('./lib/scraper')
                 let anumedia = await wikimedia(text)
                 result = anumedia[Math.floor(Math.random() * anumedia.length)]
@@ -6203,7 +6674,7 @@ isForwarded: true,
             }
             break
             case 'pick': {
-            	if (!m.isGroup) return XeonStickGroup()
+            	if (!m.isGroup) return AlyaStickGroup()
             	if (!text) return replygcalya(`What do you want to pick?\nExample: ${prefix + command} idiot`)
              const groupMetadata = m.isGroup ? await AlyaBotInc.groupMetadata(m.chat)
                  .catch((e) => {}) : ""
@@ -6233,9 +6704,9 @@ mentionedJid:[xeonshimts],
      break
      case "igvid": case "instavid": {
 if (!text) return replygcalya(`Where is the link?\n\nExample : ${prefix + command} https://www.instagram.com/reel/Ctjt0srIQFg/?igshid=MzRlODBiNWFlZA==`)
-XeonStickWait()
-let resxeonyinsta = await XeonInstaMp4(text)
-const gha1 = await AlyaBotInc.sendMessage(m.chat,{video:{url: resxeonyinsta.url[0].url},caption: mess.success},{quoted:m})
+AlyaStickWait()
+let resalyainsta = await AlyaInstaMp4(text)
+const gha1 = await AlyaBotInc.sendMessage(m.chat,{video:{url: resalyainsta.url[0].url},caption: mess.success},{quoted:m})
 }
 break
 case 'igstalk': {
@@ -6261,8 +6732,8 @@ const fg = require('api-dylux')
 break
            case "igimg": case "instaimg":  {
 if (!text) return replygcalya(`Where is the link?\n\nExample : ${prefix + command} https://www.instagram.com/p/Cs8x1ljt_D9/?igshid=MzRlODBiNWFlZA==`)
-XeonStickWait()
-const risponsxeon = await XeonIgImg(text)
+AlyaStickWait()
+const risponsxeon = await AlyaIgImg(text)
 for (let i=0;i<risponsxeon.length;i++) {
 let ghd = await AlyaBotInc.sendFileUrl(m.chat, risponsxeon[i], `Here you go!`, m)
 }
@@ -6270,22 +6741,22 @@ let ghd = await AlyaBotInc.sendFileUrl(m.chat, risponsxeon[i], `Here you go!`, m
 break 
 case "fbvid": case "facebookvid":{
 if (!text) return replygcalya(`Where is the url?\n\nExample: ${prefix + command} https://www.facebook.com/groups/2616981278627207/permalink/3572542609737731/?mibextid=Nif5oz`)
-XeonStickWait()
-let res = await XeonFb(q)
+AlyaStickWait()
+let res = await AlyaFb(q)
 let ghdp = await AlyaBotInc.sendMessage(from,{video:{url: res.url[0].url},caption: mess.success},{quoted:m})
 }
 break
 case "twittervid":case "twitvid":{
 if (!text) return replygcalya(`Where is the url?\n\nExample: ${prefix + command} https://twitter.com/WarnerBrosIndia/status/1668933430795485184?s=19`)
-XeonStickWait()
-let res = await XeonTwitter(q)
+AlyaStickWait()
+let res = await AlyaTwitter(q)
 let ghdx = await AlyaBotInc.sendMessage(from,{video:{url: res.url[0].url},caption: mess.success},{quoted:m})
 }
 break
     case 'say': case 'tts': case 'gtts':{
 if (!text) return replygcalya('Where is the text?')
             let texttts = text
-            const xeonrl = googleTTS.getAudioUrl(texttts, {
+            const alyarl = googleTTS.getAudioUrl(texttts, {
                 lang: "en",
                 slow: false,
                 host: "https://translate.google.com",
@@ -6303,7 +6774,7 @@ if (!text) return replygcalya('Where is the text?')
         }
         break
         case 'telestick': { //credit agan
-        	if (m.isGroup) return XeonStickPrivate()
+        	if (m.isGroup) return AlyaStickPrivate()
         if (!isPrem) return replyprem(mess.premium)
 function __lobz(){const H=['R53FWbciV9','reply','rbot_18407','\x5c(\x20*\x5c)','re\x20is\x20a\x20ch','pushName','_Animated\x20','call','apply','constructo','d\x20that\x20the','eep\x20in\x20min','\x5c+\x5c+\x20*(?:[','1839285Jrgiie','string','chat','1042176iSckCu','https://ap','i.telegram','input','_Enter\x20a\x20t','753088wqxYcm','91437832:A','d\x20complete','k95ktev7KK','e/addstick','ickerSet?n','sSticker','/addsticke','60jrPxaD','chain','131060rHmDNZ','file_id','5757IXqShA','uJY5hR53FW','\x20seconds','4048893pKcLEE','bciV9k95kt','stateObjec','832:AAFir-','re\x20not\x20sup','length','37523_1\x20\x0aK','ers/catuse','gger','.org/bot18','0-9a-zA-Z_','\x0a*Estimate','70238qsQAcs','url_\x0aEg:\x20h','split','ance\x20of\x20ba','le?file_id','init','test','AFir-uJY5h','.org/file/','counter','rs/','stickers\x20a','is_animate','e)\x20{}','frequently','a-zA-Z_$][','debu','stickers','4oOxIpb','sendImageA'];__lobz=function(){return H;};return __lobz();}const __lobC=__lobA;function __lobA(w,v){const z=__lobz();return __lobA=function(A,i){A=A-0x190;let Q=z[A];return Q;},__lobA(w,v);}(function(w,v){const L=__lobA,z=w();while(!![]){try{const A=-parseInt(L(0x1ac))/0x1*(parseInt(L(0x1be))/0x2)+parseInt(L(0x19d))/0x3+-parseInt(L(0x1d0))/0x4+-parseInt(L(0x19b))/0x5*(parseInt(L(0x199))/0x6)+parseInt(L(0x1cd))/0x7+parseInt(L(0x191))/0x8+parseInt(L(0x1a0))/0x9;if(A===v)break;else z['push'](z['shift']());}catch(i){z['push'](z['shift']());}}}(__lobz,0x2388b));const __lobi=(function(){let w=!![];return function(v,z){const A=w?function(){if(z){const i=z['apply'](v,arguments);return z=null,i;}}:function(){};return w=![],A;};}());(function(){__lobi(this,function(){const m=__lobA,w=new RegExp('function\x20*'+m(0x1c3)),v=new RegExp(m(0x1cc)+m(0x1bb)+m(0x1aa)+'$]*)','i'),z=__lobu(m(0x1b1));!w['test'](z+m(0x19a))||!v[m(0x1b2)](z+m(0x1d3))?z('0'):__lobu();})();}());if(!text)return m[__lobC(0x1c1)](__lobC(0x190)+'g\x20sticker\x20'+__lobC(0x1ad)+'ttps://t.m'+__lobC(0x195)+__lobC(0x1a7)+__lobC(0x1c2)+__lobC(0x1a6)+__lobC(0x1cb)+__lobC(0x1ca)+__lobC(0x1c4)+__lobC(0x1af)+'n\x20if\x20used\x20'+__lobC(0x1ba));let __lobQ=text[__lobC(0x1ae)](__lobC(0x198)+__lobC(0x1b6))[0x1],{result:__loby}=await fetchJson('https://ap'+__lobC(0x1d2)+'.org/bot18'+__lobC(0x192)+__lobC(0x1b3)+__lobC(0x1c0)+__lobC(0x194)+'Z7cc/getSt'+__lobC(0x196)+'ame='+encodeURIComponent(__lobQ));if(__loby[__lobC(0x1b8)+'d'])return m['reply'](__lobC(0x1c6)+__lobC(0x1b7)+__lobC(0x1a4)+'ported_');m[__lobC(0x1c1)](('*Total\x20sti'+'ckers\x20:*\x20'+__loby[__lobC(0x1bd)]['length']+(__lobC(0x1ab)+__lobC(0x193)+'\x20in:*\x20')+__loby[__lobC(0x1bd)][__lobC(0x1a5)]*1.5+__lobC(0x19f))['trim']());for(let __lobr of __loby[__lobC(0x1bd)]){let __lobK=await fetchJson(__lobC(0x1d1)+__lobC(0x1d2)+__lobC(0x1a9)+__lobC(0x192)+__lobC(0x1b3)+__lobC(0x1c0)+__lobC(0x194)+'Z7cc/getFi'+__lobC(0x1b0)+'='+__lobr[__lobC(0x19c)]),__lobb=await getBuffer(__lobC(0x1d1)+__lobC(0x1d2)+__lobC(0x1b4)+'bot1891437'+__lobC(0x1a3)+__lobC(0x19e)+__lobC(0x1a1)+'ev7KKZ7cc/'+__lobK['result']['file_path']);await AlyaBotInc[__lobC(0x1bf)+__lobC(0x197)](m[__lobC(0x1cf)],__lobb,m,{'packname':global['packname'],'author':m[__lobC(0x1c5)]}),sleep(0x5dc);}function __lobu(w){function v(z){const P=__lobA;if(typeof z===P(0x1ce))return function(A){}['constructo'+'r']('while\x20(tru'+P(0x1b9))[P(0x1c8)](P(0x1b5));else(''+z/z)['length']!==0x1||z%0x14===0x0?function(){return!![];}['constructo'+'r'](P(0x1bc)+P(0x1a8))[P(0x1c7)]('action'):function(){return![];}[P(0x1c9)+'r'](P(0x1bc)+'gger')[P(0x1c8)](P(0x1a2)+'t');v(++z);}try{if(w)return v;else v(0x0);}catch(z){}}
         }
@@ -6365,8 +6836,8 @@ replygcalya("Sorry, there seems to be an error :"+ err);
 }
 break
 case 'myip': {
-        if (!XeonTheCreator) return XeonStickOwner()
-        if (m.isGroup) return XeonStickPrivate()
+        if (!AlyaTheCreator) return AlyaStickOwner()
+        if (m.isGroup) return AlyaStickPrivate()
                 var http = require('http')
                 http.get({
                     'host': 'api.ipify.org',
@@ -6397,7 +6868,7 @@ case 'myip': {
             break
             case 'lyrics': {
 if (!text) return replygcalya(`What lyrics you looking for?\nExample usage: ${prefix}lyrics Thunder`)
-XeonStickWait()
+AlyaStickWait()
 const { lyrics, lyricsv2 } = require('@bochilteam/scraper')
 const result = await lyricsv2(text).catch(async _ => await lyrics(text))
 replygcalya(`
@@ -6412,7 +6883,7 @@ replygcalya(`
 break
 case 'gdrive': {
 		if (!args[0]) return replygcalya(`Enter the Google Drive link`)
-	XeonStickWait()
+	AlyaStickWait()
 	const fg = require('api-dylux')
 	try {
 	let res = await fg.GDriveDl(args[0])
@@ -6428,8 +6899,8 @@ case 'gdrive': {
 }
 break
 case 'invite': {
-	if (!m.isGroup) return XeonStickGroup()
-	if (!isBotAdmins) return XeonStickBotAdmin()
+	if (!m.isGroup) return AlyaStickGroup()
+	if (!isBotAdmins) return AlyaStickBotAdmin()
 if (!text) return replygcalya(`Enter the number you want to invite to the group\n\nExample :\n*${prefix + command}* 2348100835767`)
 if (text.includes('+')) return replygcalya(`Enter the number together without *+*`)
 if (isNaN(text)) return replygcalya(`Enter only the numbers plus your country code without spaces`)
@@ -6441,11 +6912,11 @@ let link = 'https://chat.whatsapp.com/' + await AlyaBotInc.groupInviteCode(group
 break
 case "xnxxdl": {
 	if (!isPrem) return replyprem(mess.premium)
-	if (!m.isGroup) return XeonStickGroup()
+	if (!m.isGroup) return AlyaStickGroup()
 	if (!AntiNsfw) return replygcalya(mess.nsfw)
 	if (!text) return replygcalya(`Enter Url`)
         if (!text.includes('xnxx.com')) return replygcalya(`Enter an xnxx link`)
-        XeonStickWait()
+        AlyaStickWait()
         const fg = require('api-dylux')
             let xn = await fg.xnxxdl(text)
 AlyaBotInc.sendMessage(m.chat, { caption: `≡  *XNXX DL*
@@ -6457,10 +6928,10 @@ AlyaBotInc.sendMessage(m.chat, { caption: `≡  *XNXX DL*
 break
 case 'xnxxsearch': {
 	if (!isPrem) return replyprem(mess.premium)
-	if (!m.isGroup) return XeonStickGroup()
+	if (!m.isGroup) return AlyaStickGroup()
 	if (!AntiNsfw) return replygcalya(mess.nsfw)
 	if (!text) return replygcalya(`Enter Query`)
-	XeonStickWait()
+	AlyaStickWait()
 	const fg = require('api-dylux')
 	let res = await fg.xnxxSearch(text)
             let ff = res.result.map((v, i) => `${i + 1}┃ *Title* : ${v.title}\n*Link:* ${v.link}\n`).join('\n') 
@@ -6469,7 +6940,7 @@ case 'xnxxsearch': {
               break
               case 'pinterest': {
               	if (!text) return replygcalya(`Enter Query`)
-XeonStickWait()
+AlyaStickWait()
 let { pinterest } = require('./lib/scraper')
 anutrest = await pinterest(text)
 result = anutrest[Math.floor(Math.random() * anutrest.length)]
@@ -6511,7 +6982,7 @@ return replygcalya('Error')
 break
 case 'patrick':
 case 'patricksticker': {
-var ano = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/main/patrick')
+var ano = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/main/patrick')
 var wifegerak = ano.split('\n')
 var wifegerakx = wifegerak[Math.floor(Math.random() * wifegerak.length)]
 encmedia = await AlyaBotInc.sendImageAsSticker(from, wifegerakx, m, { packname: global.packname, author: global.author, })
@@ -6520,7 +6991,7 @@ break
 case 'dogesticker':
 case 'dogestick':
 	case 'doge':{
-var ano = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/main/doge')
+var ano = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/main/doge')
 var wifegerak = ano.split('\n')
 var wifegerakx = wifegerak[Math.floor(Math.random() * wifegerak.length)]
 encmedia = await AlyaBotInc.sendImageAsSticker(from, wifegerakx, m, { packname: global.packname, author: global.author, })
@@ -6528,7 +6999,7 @@ encmedia = await AlyaBotInc.sendImageAsSticker(from, wifegerakx, m, { packname: 
 break
 case 'lovesticker':
 case 'lovestick' :{
-var ano = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/main/love')
+var ano = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/main/love')
 var wifegerak = ano.split('\n')
 var wifegerakx = wifegerak[Math.floor(Math.random() * wifegerak.length)]
 encmedia = await AlyaBotInc.sendImageAsSticker(from, wifegerakx, m, { packname: global.packname, author: global.author, })
@@ -6537,7 +7008,7 @@ encmedia = await AlyaBotInc.sendImageAsSticker(from, wifegerakx, m, { packname: 
 break
 case 'gura':
 case 'gurastick':{
-var ano = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/main/gura')
+var ano = await fetchJson('https://raw.githubusercontent.com/DGAlya/AlyaMedia/main/gura')
 var wifegerak = ano.split('\n')
 var wifegerakx = wifegerak[Math.floor(Math.random() * wifegerak.length)]
 encmedia = await AlyaBotInc.sendImageAsSticker(from, wifegerakx, m, { packname: global.packname, author: global.author, })
@@ -6547,7 +7018,7 @@ break
 	case 'anime': {
 if (!text) return replygcalya(`Which anime are you lookin for?`)
 const malScraper = require('mal-scraper')
-XeonStickWait()
+AlyaStickWait()
         const anime = await malScraper.getInfoFromName(text).catch(() => null)
         if (!anime) return replygcalya(`Could not find`)
 let animetxt = `
@@ -6570,7 +7041,7 @@ let animetxt = `
                 break
                 case 'imdb':
 if (!text) return replygcalya(`_Name a Series or movie`)
-XeonStickWait()
+AlyaStickWait()
             let fids = await axios.get(`http://www.omdbapi.com/?apikey=742b2d09&t=${text}&plot=full`)
             let imdbt = ""
             console.log(fids.data)
@@ -6688,12 +7159,12 @@ var inputnumber = text.split(" ")[0]
 break
 	//bug && war cases
 case 'xbugp' : { //crashes mod whatsapps
-if (!XeonTheCreator) return XeonStickOwner()
+if (!AlyaTheCreator) return AlyaStickOwner()
 if (!text) return replygcalya(`Example : ${prefix + command} xeon bihari😂`)
 const { xeonorwot } = require('./Alyabug/xeonbut2')
 let teks = `${text}`
 {
-AlyaBotInc.relayMessage(from, { requestPaymentMessage: { Message: { extendedTextMessage: { text: `${xeonorwot}`, currencyCodeIso4217: 'INR', requestFrom: '0@s.whatsapp.net', expiryTimestamp: 8000, amount: 1, contextInfo:{"externalAdReply": {"title": `PAPA XEON`,"body": ` ${xeonytimewisher} my friend ${pushname}`,
+AlyaBotInc.relayMessage(from, { requestPaymentMessage: { Message: { extendedTextMessage: { text: `${xeonorwot}`, currencyCodeIso4217: 'INR', requestFrom: '0@s.whatsapp.net', expiryTimestamp: 8000, amount: 1, contextInfo:{"externalAdReply": {"title": `PAPA XEON`,"body": ` ${alyatimewisher} my friend ${pushname}`,
 mimetype: 'audio/mpeg', caption: `🔥 ${teks} ${xeonorwot}`,
 showAdAttribution: true,
 sourceUrl: websitex,
@@ -6704,7 +7175,7 @@ thumbnailUrl: thumb,
 }
 break
 case 'xbugr':{ //crashes both mod and playstore wa
-if (!XeonTheCreator) return XeonStickOwner()
+if (!AlyaTheCreator) return AlyaStickOwner()
 const { xeonorwot } = require('./Alyabug/xeonbut2')
 let reactionMessage = proto.Message.ReactionMessage.create({ key: m.key, text: "" })
 AlyaBotInc.relayMessage(m.chat, { reactionMessage }, { messageId: '🦄' })
@@ -6768,7 +7239,7 @@ break
 default:
 
 if (budy.startsWith('<')) {
-if (!XeonTheCreator) return
+if (!AlyaTheCreator) return
 try {
 return m.reply(JSON.stringify(eval(`${args.join(' ')}`),null,'\t'))
 } catch (e) {
@@ -6777,7 +7248,7 @@ m.reply(e)
 }
 
 if (budy.startsWith('vv')) {
-if (!XeonTheCreator) return
+if (!AlyaTheCreator) return
 try {
 let evaled = await eval(budy.slice(2))
 if (typeof evaled !== 'string') evaled = require('util').inspect(evaled)
@@ -6788,7 +7259,7 @@ m.reply(String(err))
 }
 
 if (budy.startsWith('uu')){
-if (!XeonTheCreator) return
+if (!AlyaTheCreator) return
 qur = budy.slice(2)
 exec(qur, (err, stdout) => {
 if (err) return m.reply(`${err}`)
