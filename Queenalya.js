@@ -502,7 +502,7 @@ isForwarded: true,
 "body": `${ownername}`,
 "previewType": "PHOTO",
 "thumbnailUrl": ``,
-"thumbnail": fs.readFileSync(`./AlyaMedia/theme/cheemspic.jpg`),
+"thumbnail": fs.readFileSync(`./AlyaMedia/theme/alya.jpg`),
 "sourceUrl": `${wagc}`}}},
 { quoted: m})
 }
@@ -623,7 +623,7 @@ quoted:m
 		const fvideo = {key: { fromMe: false,participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: "status@broadcast" } : {}) },message: { "videoMessage": { "title":botname, "h": wm,'seconds': '359996400', 'caption': `${pushname}`, 'jpegThumbnail': thumb}}}
 		const floc = {key : {participant : '0@s.whatsapp.net', ...(m.chat ? { remoteJid: `status@broadcast` } : {}) },message: {locationMessage: {name: wm,jpegThumbnail: thumb}}}
 		const fkontak = { key: {participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: `status@broadcast` } : {}) }, message: { 'contactMessage': { 'displayName': ownername, 'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:XL;${ownername},;;;\nFN:${ownername}\nitem1.TEL;waid=2348100835767:2348100835767\nitem1.X-ABLabel:Mobile\nEND:VCARD`, 'jpegThumbnail': thumb, thumbnail: thumb,sendEphemeral: true}}}
-	    const fakestatus = {key: {fromMe: false,participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: "status@broadcast" } : {})},message: { "imageMessage": {"url": "https://mmg.whatsapp.net/d/f/At0x7ZdIvuicfjlf9oWS6A3AR9XPh0P-hZIVPLsI70nM.enc","mimetype": "image/jpeg","caption": wm,"fileSha256": "+Ia+Dwib70Y1CWRMAP9QLJKjIJt54fKycOfB2OEZbTU=","fileLength": "28777","height": 1080,"width": 1079,"mediaKey": "vXmRR7ZUeDWjXy5iQk17TrowBzuwRya0errAFnXxbGc=","fileEncSha256": "sR9D2RS5JSifw49HeBADguI23fWDz1aZu4faWG/CyRY=","directPath": "/v/t62.7118-24/21427642_840952686474581_572788076332761430_n.enc?oh=3f57c1ba2fcab95f2c0bb475d72720ba&oe=602F3D69","mediaKeyTimestamp": "1610993486","jpegThumbnail": fs.readFileSync('./AlyaMedia/theme/cheemspic.jpg'),"scansSidecar": "1W0XhfaAcDwc7xh1R8lca6Qg/1bB4naFCSngM2LKO2NoP5RI7K+zLw=="}}}
+	    const fakestatus = {key: {fromMe: false,participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: "status@broadcast" } : {})},message: { "imageMessage": {"url": "https://mmg.whatsapp.net/d/f/At0x7ZdIvuicfjlf9oWS6A3AR9XPh0P-hZIVPLsI70nM.enc","mimetype": "image/jpeg","caption": wm,"fileSha256": "+Ia+Dwib70Y1CWRMAP9QLJKjIJt54fKycOfB2OEZbTU=","fileLength": "28777","height": 1080,"width": 1079,"mediaKey": "vXmRR7ZUeDWjXy5iQk17TrowBzuwRya0errAFnXxbGc=","fileEncSha256": "sR9D2RS5JSifw49HeBADguI23fWDz1aZu4faWG/CyRY=","directPath": "/v/t62.7118-24/21427642_840952686474581_572788076332761430_n.enc?oh=3f57c1ba2fcab95f2c0bb475d72720ba&oe=602F3D69","mediaKeyTimestamp": "1610993486","jpegThumbnail": fs.readFileSync('./AlyaMedia/theme/alya.jpg'),"scansSidecar": "1W0XhfaAcDwc7xh1R8lca6Qg/1bB4naFCSngM2LKO2NoP5RI7K+zLw=="}}}
 
 if (isCmd && isBanned) {
 return banRep()
@@ -1484,38 +1484,38 @@ contacts: list }, mentions: [sender] }, { quoted: m })
 AlyaBotInc.sendMessage(from, { text : `Hi @${sender.split("@")[0]}, Here is my handsome owner😇`, mentions: [sender]}, { quoted: repf })
 }
 break
-case 'alive': case 'panel': case 'list': case 'menu': case 'help': case '?': {
+case 'menu': {
 	        let ownernya = ownernomer + '@s.whatsapp.net'
             let me = m.sender
             let timestampe = speed()
             let latensie = speed() - timestampe
-            xeonezy = `┌─❖
-│ Hi 👋 
+            alyamenu = `┌─❖
+┃ Hi 👋 
 └┬❖  ${pushname} 
 ┌┤✑  ${xeonytimewisher} 💓
-│└────────────┈ ⳹
-│
-└─ 𝘽𝙊𝙏 𝙄𝙉𝙁𝙊        
-│𝗦𝗽𝗲𝗲𝗱 : ${latensie.toFixed(4)} miliseconds
-│𝗥𝘂𝗻𝘁𝗶𝗺𝗲 : ${runtime(process.uptime())}
-│𝗕𝗼𝘁 : ${global.botname}
-│𝗢𝘄𝗻𝗲𝗿 𝗡𝗼: ${ownernumber}
-│𝗣𝗿𝗲𝗳𝗶𝘅 :  NO-PREFIX 
-│𝗠𝗼𝗱𝗲 : ${AlyaBotInc.public ? 'Public' : `Self`}
-│𝗛𝗼𝘀𝘁 𝗡𝗮𝗺𝗲 : ${os.hostname()}
-│𝗣𝗹𝗮𝘁𝗳𝗼𝗿𝗺 : ${os.platform()}
-│
-└─ 𝙐𝙎𝙀𝙍 𝙄𝙉𝙁𝙊 
-│𝗡𝗮𝗺𝗲 : ${pushname}
-│𝗡𝘂𝗺𝗯𝗲𝗿 : @${me.split('@')[0]}
-│𝗣𝗿𝗲𝗺𝗶𝘂𝗺 : ${isPrem ? '✅' : `❌`}
-│
-└─ 𝙏𝙄𝙈𝙀 𝙄𝙉𝙁𝙊 
-│𝗧𝗶??𝗲 : ${xtime}
-│𝗗𝗮𝘁𝗲 : ${xdate}
+┃┗⊶⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷❐
+┃
+┗⊶ 𝘽𝙊𝙏 𝙄𝙉𝙁𝙊        
+┃𝗦𝗽𝗲𝗲𝗱 : ${latensie.toFixed(4)} miliseconds
+┃𝗥𝘂𝗻𝘁𝗶𝗺𝗲 : ${runtime(process.uptime())}
+┃𝗕𝗼𝘁 : ${global.botname}
+┃𝗢𝘄𝗻𝗲𝗿 𝗡𝗼: ${ownernumber}
+┃𝗣𝗿𝗲𝗳𝗶𝘅 :  NO-PREFIX 
+┃𝗠𝗼𝗱𝗲 : ${AlyaBotInc.public ? 'Public' : `Self`}
+┃𝗛𝗼𝘀𝘁 𝗡𝗮𝗺𝗲 : ${os.hostname()}
+┃𝗣𝗹𝗮𝘁𝗳𝗼𝗿𝗺 : ${os.platform()}
+┃
+┗⊶ 𝙐𝙎𝙀𝙍 𝙄𝙉𝙁𝙊 
+┃𝗡𝗮𝗺𝗲 : ${pushname}
+┃𝗡𝘂𝗺𝗯𝗲𝗿 : @${me.split('@')[0]}
+┃𝗣𝗿𝗲𝗺𝗶𝘂𝗺 : ${isPrem ? '✅' : `❌`}
+┃
+┗⊶ 𝙏𝙄𝙈𝙀 𝙄𝙉𝙁𝙊 
+┃𝗧𝗶??𝗲 : ${xtime}
+┃𝗗𝗮𝘁𝗲 : ${xdate}
 ┗⊶⊶⊶⊶⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷❐
-   │✑  Please Type The *MENU*
-   │✑  Given *BELOW*
+   ┃�  Please Type The *MENU*
+   ┃�  Given *BELOW*
 ┌┗⊶⊶⊶⊶⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷❐
 ┃💫.allmenu
 ┃💫.downloadmenu
@@ -1536,25 +1536,73 @@ case 'alive': case 'panel': case 'list': case 'menu': case 'help': case '?': {
 ┃💫.bugmenu
 ┃💫.othermenu
 ┗⊶⊶⊶⊶⊷⊷⊷⊷⊷⊷⊷⊷⊷⊷❐`
-            let ments = [ownernya, me, mark]        
-           AlyaBotInc.sendMessage(from, { 
-text: xeonezy,
-contextInfo:{
-forwardingScore: 9999999,
-isForwarded: true, 
-mentionedJid:[sender],
-"externalAdReply": {
-"showAdAttribution": true,
-"renderLargerThumbnail": true,
-"title": botname, 
-"containsAutoReply": true,
-"mediaType": 1, 
-"thumbnail": fs.readFileSync("./AlyaMedia/theme/cheemspic.jpg"),
-"mediaUrl": `${wagc}`,
-"sourceUrl": `${wagc}`
-}
-}
-}, { quoted: m })
+let msg = generateWAMessageFromContent(m.chat, {
+        viewOnceMessage: {
+          message: {
+              "messageContextInfo": {
+                "deviceListMetadata": {},
+                "deviceListMetadataVersion": 2
+              },
+              interactiveMessage: proto.Message.InteractiveMessage.create({
+                body: proto.Message.InteractiveMessage.Body.create({
+                  text: alyamenu
+                }),
+                footer: proto.Message.InteractiveMessage.Footer.create({
+                  text: botname
+                }),
+                header: proto.Message.InteractiveMessage.Header.create({
+                ...(await prepareWAMessageMedia({ image : fs.readFileSync('./AlyaMedia/theme/alya.jpg')}, { upload: AlyaBotInc.waUploadToServer})), 
+                  title: ``,
+                  gifPlayback: true,
+                  subtitle: ownername,
+                  hasMediaAttachment: false  
+                }),
+                nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
+                  buttons: [
+             {
+                 "name": "cta_url",
+                 "buttonParamsJson": "{\"display_text\":\"YouTube 🎥\",\"url\":\"https://youtube.com/@star_king0\",\"merchant_url\":\"https://www.google.com\"}"
+              },
+              {
+                 "name": "cta_url",
+                 "buttonParamsJson": "{\"display_text\":\"Telegram 🌀\",\"url\":\"https://t.me/AlyaBotInc\",\"merchant_url\":\"https://www.google.com\"}"
+              },
+              {
+                 "name": "cta_url",
+                 "buttonParamsJson": "{\"display_text\":\"GitHub 😺\",\"url\":\"https://github.com/STAR-KING0\",\"merchant_url\":\"https://www.google.com\"}"
+              },
+              {
+                 "name": "cta_url",
+                 "buttonParamsJson": "{\"display_text\":\"WhatsApp ☘️\",\"url\":\"https://chat.whatsapp.com/IwYkcQnIZiWGNlUPAT29Yc\",\"merchant_url\":\"https://www.google.com\"}"
+              },              
+              {
+  "name": "quick_reply",
+  "buttonParamsJson": `{"display_text":"Allmenu 🗂️","id":"${prefix}allmenu"}`
+   },
+              {
+                "name": "quick_reply",
+                "buttonParamsJson": `{"display_text":"Owner 👤","id":"${prefix}owner"}`
+              },
+              {
+                "name": "quick_reply",
+                "buttonParamsJson": `{"display_text":"Script 📃","id":"${prefix}script"}`
+              }
+                                  ],
+                }),
+                contextInfo: {
+                  mentionedJid: [m.sender], 
+                  forwardingScore: 999,
+                  isForwarded: true,
+                forwardedNewsletterMessageInfo: {
+                  newsletterJid: 'https://whatsapp.com/channel/0029VaeW5Tw4yltQOYIO5E2D',
+                  newsletterName: ownername,
+                  serverMessageId: 143
+                }
+              }
+              })
+          }
+        },
+      }, { quoted: m })
            }
            break
 case 'allmenu': {
@@ -1570,7 +1618,7 @@ mentionedJid:[sender],
 "title": botname, 
 "containsAutoReply": true,
 "mediaType": 1, 
-"thumbnail": fs.readFileSync("./AlyaMedia/theme/cheemspic.jpg"),
+"thumbnail": fs.readFileSync("./AlyaMedia/theme/alya.jpg"),
 "mediaUrl": `${wagc}`,
 "sourceUrl": `${wagc}`
 }
@@ -1591,7 +1639,7 @@ mentionedJid:[sender],
 "title": botname, 
 "containsAutoReply": true,
 "mediaType": 1, 
-"thumbnail": fs.readFileSync("./AlyaMedia/theme/cheemspic.jpg"),
+"thumbnail": fs.readFileSync("./AlyaMedia/theme/alya.jpg"),
 "mediaUrl": `${wagc}`,
 "sourceUrl": `${wagc}`
 }
@@ -1612,7 +1660,7 @@ mentionedJid:[sender],
 "title": botname, 
 "containsAutoReply": true,
 "mediaType": 1, 
-"thumbnail": fs.readFileSync("./AlyaMedia/theme/cheemspic.jpg"),
+"thumbnail": fs.readFileSync("./AlyaMedia/theme/alya.jpg"),
 "mediaUrl": `${wagc}`,
 "sourceUrl": `${wagc}`
 }
@@ -1633,7 +1681,7 @@ mentionedJid:[sender],
 "title": botname, 
 "containsAutoReply": true,
 "mediaType": 1, 
-"thumbnail": fs.readFileSync("./AlyaMedia/theme/cheemspic.jpg"),
+"thumbnail": fs.readFileSync("./AlyaMedia/theme/alya.jpg"),
 "mediaUrl": `${wagc}`,
 "sourceUrl": `${wagc}`
 }
@@ -1654,7 +1702,7 @@ mentionedJid:[sender],
 "title": botname, 
 "containsAutoReply": true,
 "mediaType": 1, 
-"thumbnail": fs.readFileSync("./AlyaMedia/theme/cheemspic.jpg"),
+"thumbnail": fs.readFileSync("./AlyaMedia/theme/alya.jpg"),
 "mediaUrl": `${wagc}`,
 "sourceUrl": `${wagc}`
 }
@@ -1675,7 +1723,7 @@ mentionedJid:[sender],
 "title": botname, 
 "containsAutoReply": true,
 "mediaType": 1, 
-"thumbnail": fs.readFileSync("./AlyaMedia/theme/cheemspic.jpg"),
+"thumbnail": fs.readFileSync("./AlyaMedia/theme/alya.jpg"),
 "mediaUrl": `${wagc}`,
 "sourceUrl": `${wagc}`
 }
@@ -1696,7 +1744,7 @@ mentionedJid:[sender],
 "title": botname, 
 "containsAutoReply": true,
 "mediaType": 1, 
-"thumbnail": fs.readFileSync("./AlyaMedia/theme/cheemspic.jpg"),
+"thumbnail": fs.readFileSync("./AlyaMedia/theme/alya.jpg"),
 "mediaUrl": `${wagc}`,
 "sourceUrl": `${wagc}`
 }
@@ -1717,7 +1765,7 @@ mentionedJid:[sender],
 "title": botname, 
 "containsAutoReply": true,
 "mediaType": 1, 
-"thumbnail": fs.readFileSync("./AlyaMedia/theme/cheemspic.jpg"),
+"thumbnail": fs.readFileSync("./AlyaMedia/theme/alya.jpg"),
 "mediaUrl": `${wagc}`,
 "sourceUrl": `${wagc}`
 }
@@ -1738,7 +1786,7 @@ mentionedJid:[sender],
 "title": botname, 
 "containsAutoReply": true,
 "mediaType": 1, 
-"thumbnail": fs.readFileSync("./AlyaMedia/theme/cheemspic.jpg"),
+"thumbnail": fs.readFileSync("./AlyaMedia/theme/alya.jpg"),
 "mediaUrl": `${wagc}`,
 "sourceUrl": `${wagc}`
 }
@@ -1759,7 +1807,7 @@ mentionedJid:[sender],
 "title": botname, 
 "containsAutoReply": true,
 "mediaType": 1, 
-"thumbnail": fs.readFileSync("./AlyaMedia/theme/cheemspic.jpg"),
+"thumbnail": fs.readFileSync("./AlyaMedia/theme/alya.jpg"),
 "mediaUrl": `${wagc}`,
 "sourceUrl": `${wagc}`
 }
@@ -1780,7 +1828,7 @@ mentionedJid:[sender],
 "title": botname, 
 "containsAutoReply": true,
 "mediaType": 1, 
-"thumbnail": fs.readFileSync("./AlyaMedia/theme/cheemspic.jpg"),
+"thumbnail": fs.readFileSync("./AlyaMedia/theme/alya.jpg"),
 "mediaUrl": `${wagc}`,
 "sourceUrl": `${wagc}`
 }
@@ -1801,7 +1849,7 @@ mentionedJid:[sender],
 "title": botname, 
 "containsAutoReply": true,
 "mediaType": 1, 
-"thumbnail": fs.readFileSync("./AlyaMedia/theme/cheemspic.jpg"),
+"thumbnail": fs.readFileSync("./AlyaMedia/theme/alya.jpg"),
 "mediaUrl": `${wagc}`,
 "sourceUrl": `${wagc}`
 }
@@ -1822,7 +1870,7 @@ mentionedJid:[sender],
 "title": botname, 
 "containsAutoReply": true,
 "mediaType": 1, 
-"thumbnail": fs.readFileSync("./AlyaMedia/theme/cheemspic.jpg"),
+"thumbnail": fs.readFileSync("./AlyaMedia/theme/alya.jpg"),
 "mediaUrl": `${wagc}`,
 "sourceUrl": `${wagc}`
 }
@@ -1843,7 +1891,7 @@ mentionedJid:[sender],
 "title": botname, 
 "containsAutoReply": true,
 "mediaType": 1, 
-"thumbnail": fs.readFileSync("./AlyaMedia/theme/cheemspic.jpg"),
+"thumbnail": fs.readFileSync("./AlyaMedia/theme/alya.jpg"),
 "mediaUrl": `${wagc}`,
 "sourceUrl": `${wagc}`
 }
@@ -1864,7 +1912,7 @@ mentionedJid:[sender],
 "title": botname, 
 "containsAutoReply": true,
 "mediaType": 1, 
-"thumbnail": fs.readFileSync("./AlyaMedia/theme/cheemspic.jpg"),
+"thumbnail": fs.readFileSync("./AlyaMedia/theme/alya.jpg"),
 "mediaUrl": `${wagc}`,
 "sourceUrl": `${wagc}`
 }
@@ -1885,7 +1933,7 @@ mentionedJid:[sender],
 "title": botname, 
 "containsAutoReply": true,
 "mediaType": 1, 
-"thumbnail": fs.readFileSync("./AlyaMedia/theme/cheemspic.jpg"),
+"thumbnail": fs.readFileSync("./AlyaMedia/theme/alya.jpg"),
 "mediaUrl": `${wagc}`,
 "sourceUrl": `${wagc}`
 }
@@ -1906,7 +1954,7 @@ mentionedJid:[sender],
 "title": botname, 
 "containsAutoReply": true,
 "mediaType": 1, 
-"thumbnail": fs.readFileSync("./AlyaMedia/theme/cheemspic.jpg"),
+"thumbnail": fs.readFileSync("./AlyaMedia/theme/alya.jpg"),
 "mediaUrl": `${wagc}`,
 "sourceUrl": `${wagc}`
 }
@@ -1927,7 +1975,7 @@ mentionedJid:[sender],
 "title": botname, 
 "containsAutoReply": true,
 "mediaType": 1, 
-"thumbnail": fs.readFileSync("./AlyaMedia/theme/cheemspic.jpg"),
+"thumbnail": fs.readFileSync("./AlyaMedia/theme/alya.jpg"),
 "mediaUrl": `${wagc}`,
 "sourceUrl": `${wagc}`
 }
@@ -2303,18 +2351,18 @@ case 'poll': {
 *Reason:* ${vote[m.chat][0]}
 
 ┌〔 UPVOTE 〕
-│ 
+┃ 
 ├ Total: ${vote[m.chat][1].length}
-│
-│ 
-└────
+┃
+┃ 
+┗⊶───
 
 ┌〔 DOWNVOTE 〕
-│ 
+┃ 
 ├ Total: ${vote[m.chat][2].length}
-│
-│ 
-└────
+┃
+┃ 
+┗⊶───
 
 Please Type Below
 *${prefix}upvote* - to cast vote
@@ -2336,18 +2384,18 @@ Please Type Below
 *Reason:* ${vote[m.chat][0]}
 
 ┌〔 UPVOTE 〕
-│ 
+┃ 
 ├ Total: ${vote[m.chat][1].length}
 ${vote[m.chat][1].map((v, i) => `├ ${i + 1}. @${v.split`@`[0]}`).join('\n')}
-│ 
-└────
+┃ 
+┗⊶───
 
 ┌〔 DOWNVOTE 〕
-│ 
+┃ 
 ├ Total: ${vote[m.chat][2].length}
 ${vote[m.chat][2].map((v, i) => `├ ${i + 1}. @${v.split`@`[0]}`).join('\n')}
-│ 
-└────
+┃ 
+┗⊶───
 
 Please Type Below
 *${prefix}upvote* - to upvote
@@ -2369,18 +2417,18 @@ Please Type Below
 *Reason:* ${vote[m.chat][0]}
 
 ┌〔 UPVOTE 〕
-│ 
+┃ 
 ├ Total: ${vote[m.chat][1].length}
 ${vote[m.chat][1].map((v, i) => `├ ${i + 1}. @${v.split`@`[0]}`).join('\n')}
-│ 
-└────
+┃ 
+┗⊶───
 
 ┌〔 DOWNVOTE 〕
-│ 
+┃ 
 ├ Total: ${vote[m.chat][2].length}
 ${vote[m.chat][2].map((v, i) => `├ ${i + 1}. @${v.split`@`[0]}`).join('\n')}
-│ 
-└────
+┃ 
+┗⊶───
 
 Please Type Below
 *${prefix}upvote* - to upvote
@@ -2398,18 +2446,18 @@ teks_vote = `* VOTE *
 *Reason:* ${vote[m.chat][0]}
 
 ┌〔 UPVOTE 〕
-│ 
+┃ 
 ├ Total: ${upvote.length}
 ${vote[m.chat][1].map((v, i) => `├ ${i + 1}. @${v.split`@`[0]}`).join('\n')}
-│ 
-└────
+┃ 
+┗⊶───
 
 ┌〔 DOWNVOTE 〕
-│ 
+┃ 
 ├ Total: ${devote.length}
 ${vote[m.chat][2].map((v, i) => `├ ${i + 1}. @${v.split`@`[0]}`).join('\n')}
-│ 
-└────
+┃ 
+┗⊶───
 
 *${prefix}deletevote* - to delete votes
 
@@ -3498,11 +3546,11 @@ replygcalya(`Success deleting bad word ${q}`)
 }
 break
 case 'listbadword':{
-let teks = '┌──⭓「 *BadWord List* 」\n│\n'
+let teks = '┌──⭓「 *BadWord List* 」\n┃\n'
 for (let x of BadXeon) {
-teks += `│⭔ ${x}\n`
+teks += `┃⭔ ${x}\n`
 }
-teks += `│\n└────────────⭓\n\n*Totally there are : ${BadXeon.length}*`
+teks += `┃\n┗⊶───────────⭓\n\n*Totally there are : ${BadXeon.length}*`
 replygcalya(teks)
 }
 break
@@ -3530,11 +3578,11 @@ replygcalya(`Success deleting video ${q}`)
 }
 break
 case 'listvideo':{
-let teks = '┌──⭓「 *Video List* 」\n│\n'
+let teks = '┌──⭓「 *Video List* 」\n┃\n'
 for (let x of VideoXeon) {
-teks += `│⭔ ${x}\n`
+teks += `┃⭔ ${x}\n`
 }
-teks += `│\n└────────────⭓\n\n*Totally there are : ${VideoXeon.length}*`
+teks += `┃\n┗⊶───────────⭓\n\n*Totally there are : ${VideoXeon.length}*`
 replygcalya(teks)
 }
 break
@@ -3562,11 +3610,11 @@ replygcalya(`Success deleting image ${q}`)
 }
 break
 case 'listimage':{
-let teks = '┌──⭓「 *Image List* 」\n│\n'
+let teks = '┌──⭓「 *Image List* 」\n┃\n'
 for (let x of ImageXeon) {
-teks += `│⭔ ${x}\n`
+teks += `┃⭔ ${x}\n`
 }
-teks += `│\n└────────────⭓\n\n*Totally there are : ${ImageXeon.length}*`
+teks += `┃\n┗⊶───────────⭓\n\n*Totally there are : ${ImageXeon.length}*`
 replygcalya(teks)
 }
 break
@@ -3594,11 +3642,11 @@ replygcalya(`Success deleting sticker ${q}`)
 }
 break
 case 'liststicker':{
-let teks = '┌──⭓「 *Sticker List* 」\n│\n'
+let teks = '┌──⭓「 *Sticker List* 」\n┃\n'
 for (let x of StickerXeon) {
-teks += `│⭔ ${x}\n`
+teks += `┃⭔ ${x}\n`
 }
-teks += `│\n└────────────⭓\n\n*Totally there are : ${StickerXeon.length}*`
+teks += `┃\n┗⊶───────────⭓\n\n*Totally there are : ${StickerXeon.length}*`
 replygcalya(teks)
 }
 break
@@ -3626,11 +3674,11 @@ replygcalya(`Success deleting vn ${q}`)
 }
 break
 case 'listvn':{
-let teks = '┌──⭓「 *VN List* 」\n│\n'
+let teks = '┌──⭓「 *VN List* 」\n┃\n'
 for (let x of VoiceNoteXeon) {
-teks += `│⭔ ${x}\n`
+teks += `┃⭔ ${x}\n`
 }
-teks += `│\n└────────────⭓\n\n*Totally there are : ${VoiceNoteXeon.length}*`
+teks += `┃\n┗⊶───────────⭓\n\n*Totally there are : ${VoiceNoteXeon.length}*`
 replygcalya(teks)
 }
 break
@@ -6103,7 +6151,7 @@ isForwarded: true,
 "body": `${ownername}`,
 "previewType": "PHOTO",
 "thumbnailUrl": ``,
-"thumbnail": fs.readFileSync(`./AlyaMedia/theme/cheemspic.jpg`),
+"thumbnail": fs.readFileSync(`./AlyaMedia/theme/alya.jpg`),
 "sourceUrl": `${wagc}`}}},
 { quoted: m})        
             }
@@ -6127,7 +6175,7 @@ isForwarded: true,
 "body": `${ownername}`,
 "previewType": "PHOTO",
 "thumbnailUrl": ``,
-"thumbnail": fs.readFileSync(`./AlyaMedia/theme/cheemspic.jpg`),
+"thumbnail": fs.readFileSync(`./AlyaMedia/theme/alya.jpg`),
 "sourceUrl": `${wagc}`}}},
 { quoted: m})        
             }
@@ -6176,7 +6224,7 @@ mentionedJid:[xeonshimts],
 "containsAutoReply": true,
 "previewType": "PHOTO",
 "thumbnailUrl": ``,
-"thumbnail": fs.readFileSync(`./AlyaMedia/theme/cheemspic.jpg`),
+"thumbnail": fs.readFileSync(`./AlyaMedia/theme/alya.jpg`),
 "sourceUrl": `${wagc}`
 }
 }
@@ -6204,7 +6252,7 @@ const fg = require('api-dylux')
 ▢ *📌Bio:* ${res.description}
 ▢ *🏝️Posts:* ${res.postsH}
 ▢ *🔗 Link* : https://instagram.com/${res.username.replace(/^@/, '')}
-└────────────`
+┗⊶───────────`
      await AlyaBotInc.sendMessage(m.chat, {image: { url: res.profilePic }, caption: te }, {quoted: m})
       } catch {
         replygcalya(`Make sure the username comes from *Instagram*`)
