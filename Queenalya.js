@@ -1603,7 +1603,7 @@ case 'menu': case 'help': case 'alive': {
 			const xmenu_oh = `┌─❖
 │ Hi 👋 
 └┬❖  ${pushname} 
-┌┤✑  ${xeonytimewisher} 💓
+┌┤✑  ${alyatimewisher} 💓
 │└────────────┈ ⳹
 │
 └─ 𝘽𝙊𝙏 𝙄𝙉𝙁𝙊        
